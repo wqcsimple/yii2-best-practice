@@ -7,11 +7,11 @@ $base = [
 
     'redis-param' => [
         'scheme' => 'tcp',
-        'host'   => 'redis',
+        'host'   => 'redis.duapp.com',
         'port'   => 6379,
-        'password' => null,
+        'password' => '61438c2c4dfab85640fcc0b738f05c49Hide',
         'read_write_timeout' => 0,
-        'database' => 0,
+        'database' => 'hTxMSSKPqJTVYZoUJGLB',
     ],
 
     'redis-option' => [

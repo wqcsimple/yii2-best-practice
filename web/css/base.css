@@ -1,0 +1,102 @@
+.wrapper { width: 100%; position: relative; }
+.wrapper.grey { background: #f8f8f8; }
+.column { margin: 0 auto; width: 1200px; display: block; clear: both; }
+body { background: #fff; }
+* { -webkit-box-sizing: border-box; color: #111;
+-moz-box-sizing: border-box;
+box-sizing: border-box; z-index: 0; outline: none; padding: 0px; margin: 0px; font-size: 12px; font-family: 'Microsoft Yahei'; outline: none; }
+
+.conetent-box { -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; }
+
+tr th { background-color: #f5f5f5; }
+
+img { border: 0px; }
+li { list-style: none; }
+
+.icon-book { display: inline-block; width: 19px; height: 19px; background: url(/img/icon/book.png); }
+.icon-call { display: inline-block; width: 64px; height: 64px; background: url(/img/icon/call.png); }
+
+.section-title { height: 28px; padding-left: 14px; border-left: 6px solid #7eb702; font-size: 20px; font-weight: bold; line-height: 28px; float: left; }
+.split-big-deep-line { height: 5px; background: #777777; width: 100%; }
+.split-big-line { height: 5px; background: #d4d4d4; width: 100%; }
+.split-line { height: 1px; background: #d4d4d4; width: 100%; }
+.split-light-line { height: 1px; background: #e6eaed; width: 100%; }
+a { color: #7eb702; text-decoration: none; }
+
+a.btn-see-all { display: inline-block; width: 160px; height: 38px; background: url(/img/seeall.png) no-repeat; }
+a.btn-see-all:hover { background: url(/img/seeall-on.png) no-repeat; }
+
+.btn { border: 0px; text-align: center; text-decoration: none; float: left; min-width: 60px; cursor: pointer; height: 34px; line-height: 31px;  background: #7eb702; border-radius: 0px; padding: 0px; color: #fff; }
+
+input { background: #fff; display: inline-block; float: left; border: 1px solid #d9d9d9; width: 178px; height: 34px; padding: 5px 5px; outline: none; }
+
+.blue { color: #019df0; }
+.red { color: #f14f26; }
+
+.form-section { width: 100%; min-height: 50px; }
+.form-section .title { width: 100px; height: 34px; font-size: 14px; line-height: 34px; text-align: right; padding-right: 20px; float: left; }
+.form-section .content { float: left; }
+.form-section .offset { float: left; margin-left: 100px; }
+.form-section .error .help-block { color: #d84a38; line-height: 34px; height: 34px; float: left; margin-left: 15px; }
+
+
+
+#top { width: 100%; float: left; height: 108px; padding: 14px 0px; z-index: 10; position: relative;}
+#top .logo { float: left; }
+#top .right { float: right; height: 34px; margin: 23px 0px; margin-right: 18px; }
+#top .search { float: left; }
+#top .action { float: right; }
+#top input { background: #fff; display: inline-block; float: left; border: 1px solid #d9d9d9; width: 178px; height: 34px; padding: 5px 5px; outline: none; }
+#top .search .btn { text-align: center; text-decoration: none; float: left; width: 70px; height: 34px; line-height: 31px;  background: #7eb702; border-radius: 0px; padding: 0px; color: #fff; }
+#top .action .btn { text-align: center; text-decoration: none; background: #7eb702; display: inline-block; padding: 0px; width: 118px; height: 34px; border-bottom: 3px solid #578307; margin-left: 5px; float: left; border-radius: 0px; color: #fff; line-height: 31px; }
+
+#menu-holder { width: 100%; background: #7eb702; height: 40px; float: left; }
+#menu { position: relative; height: 40px; z-index: 0; }
+#menu .head { background: #ff8a00; width: 190px; position: relative; float: left; height: 40px; text-align: center; line-height: 40px; color: #fff; font-size: 18px; }
+#menu .head .icon-book { display: block; position: absolute; top: 11px; left: 20px; }
+#menu .items { float: left; margin-left: 13px; }
+#menu .items a span { color: #fff; }
+#menu .items .item { font-size: 18px; color: #fff; height: 40px; padding: 0px 11px; display: inline-block;  }
+#menu .items .item span { height: 30px; display: inline-block; margin: 5px 0px; line-height: 30px; font-size: 18px; }
+#menu .items .item span:hover { border-bottom: 1px solid #fff; }
+#menu .user { float: right; height: 40px; width: 124px; padding: 0px 15px; line-height: 40px; color: #fff; font-size: 15px; }
+#menu .user:hover { background: #95c430; }
+#menu .user.on { background: #95c430; }
+#menu .user .name { color: #fff; font-size: 15px; float: right; }
+#menu .user .arrow { color: #fff; font-size: 15px; float: right; margin-left: 10px; }
+
+#sub-menu-holder { position: absolute; top: 148px; left: 50%; z-index: 10000; width: 1200px; margin-left: -600px; }
+#sub-menu-2 { display: none; position: absolute; left: 332px; top: 0px; z-index: 10000; width: 240px; height: 88px; background-color: rgba(255,255,255,0.97); box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.20); padding: 10px 0; }
+#sub-menu-3 { display: none; position: absolute; left: 430px; top: 0px; z-index: 10000; width: 240px; height: 122px; background-color: rgba(255,255,255,0.97); box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.20); padding: 10px 0; }
+#sub-menu-holder .sub-menu a { width: 220px; height: 30px; line-height: 30px; display: block; padding: 0px 10px; margin: 0px 10px; font-size: 13px;  }
+#sub-menu-holder .sub-menu a:hover { background: #f7faf1; }
+
+#sub-menu-user { display: none; position: absolute; right: 0px; top: 0px; z-index: 10000; width: 124px; height: 189px; background-color: #d2d2d2; padding: 7px 0; }
+#sub-menu-user a { display: block; height: 35px; width: 100%; line-height: 35px; font-size: 16px; text-align: center; color: #555; }
+#sub-menu-user a:hover { background: #e1e1e1; }
+
+#sub-menu-user.student { height: 189px;  }
+#sub-menu-user.teacher { height: 119px;  }
+
+#bottom-content { background: #ebebeb; padding: 52px 0px; height: 236px; font-size: 13px; }
+#bottom-content .sec-1 { width: 200px; margin-right: 60px; float: left; height: 100%; }
+#bottom-content .sec-2 { width: 160px; margin-right: 10px; float: left; height: 100%; }
+#bottom-content .sec-2 a { color: #494949; font-size: 13px; }
+
+#bottom-content .sec-3 { width: 200px; margin-right: 60px; float: left; height: 100%; }
+
+#bottom-content .sec-4 { width: 350px; margin-top: 30px; margin-right: 60px; float: right; height: 100%; }
+#bottom-content .title { font-size: 18px; line-height: 40px; color: #494949; }
+#bottom-content .content { font-size: 13px; line-height: 22px; color: #494949; }
+#bottom-content .sec-4 .icon {  width: 64px; height: 64px; float: left; margin-top: 12px; }
+#bottom-content .sec-4 .content {  width: 270px; float: right; font-size: 35px; line-height: 35px; }
+
+#bottom { background: #373a41; height: 50px; line-height: 50px; color: #fff; font-size: 14px; }
+#bottom span { color: #fff; }
+
+
+
+
+
+
+

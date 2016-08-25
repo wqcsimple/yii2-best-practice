@@ -13,7 +13,7 @@ return [
         'port'   => 6379,
         'password' => '61438c2c4dfab85640fcc0b738f05c49Hide',
         'read_write_timeout' => 0,
-        'database' => 'hTxMSSKPqJTVYZoUJGLB',
+        'database' => 0,
     ],
 
 ];

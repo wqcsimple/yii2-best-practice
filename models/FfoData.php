@@ -3,30 +3,35 @@
 namespace app\models;
 
 use app\components\DXUtil;
-use app\modules\client\v100\services\ItemPriceService;
 use dix\base\component\ModelApiInterface;
 use Yii;
 
 /**
- * This is the model class for table "item".
+ * This is the model class for table "ffo_data".
  *
  * @property integer $id
+ * @property string $item_id
  * @property string $name
- * @property integer $min_price
- * @property integer $max_price
- * @property integer $ave_price
+ * @property integer $type
+ * @property string $avatar
+ * @property integer $price
+ * @property integer $level
+ * @property string $add_time
+ * @property string $images
+ * @property string $data
+ * @property string $comment
  * @property integer $weight
  * @property integer $create_time
  * @property integer $update_time
  */
-class Item extends \yii\db\ActiveRecord implements ModelApiInterface
+class FfoData extends \yii\db\ActiveRecord implements ModelApiInterface 
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'item';
+        return 'ffo_data';
     }
 
     /**
@@ -35,8 +40,10 @@ class Item extends \yii\db\ActiveRecord implements ModelApiInterface
     public function rules()
     {
         return [
-            [['min_price', 'max_price', 'ave_price', 'weight', 'create_time', 'update_time'], 'integer'],
-            [['name'], 'string', 'max' => 99],
+            [['price', 'type', 'level', 'weight', 'create_time', 'update_time'], 'integer'],
+            [['images', 'data', 'add_time'], 'string'],
+            [['item_id', 'name'], 'string', 'max' => 99],
+            [['avatar', 'comment'], 'string', 'max' => 999],
         ];
     }
 
@@ -47,10 +54,16 @@ class Item extends \yii\db\ActiveRecord implements ModelApiInterface
     {
         return [
             'id' => 'ID',
+            'item_id' => 'Item ID',
             'name' => 'Name',
-            'min_price' => 'Min Price',
-            'max_price' => 'Max Price',
-            'ave_price' => 'Ave Price',
+            'type' => 'Type',
+            'avatar' => 'Avatar',
+            'price' => 'Price',
+            'level' => 'Level',
+            'add_time' => 'Add Time',
+            'images' => 'Images',
+            'data' => 'Data',
+            'comment' => 'Comment',
             'weight' => 'Weight',
             'create_time' => 'Create Time',
             'update_time' => 'Update Time',
@@ -61,10 +74,16 @@ class Item extends \yii\db\ActiveRecord implements ModelApiInterface
     {
         return array_keys([
             'id' => 'ID',
+            'item_id' => 'Item ID',
             'name' => 'Name',
-            'min_price' => 'Min Price',
-            'max_price' => 'Max Price',
-            'ave_price' => 'Ave Price',
+            'type' => 'Type',
+            'avatar' => 'Avatar',
+            'price' => 'Price',
+            'level' => 'Level',
+            'add_time' => 'Add Time',
+            'images' => 'Images',
+            'data' => 'Data',
+            'comment' => 'Comment',
             'weight' => 'Weight',
             'create_time' => 'Create Time',
             'update_time' => 'Update Time',
@@ -75,10 +94,16 @@ class Item extends \yii\db\ActiveRecord implements ModelApiInterface
     {
         return array_keys([
             'id' => 'ID',
+            'item_id' => 'Item ID',
             'name' => 'Name',
-            'min_price' => 'Min Price',
-            'max_price' => 'Max Price',
-            'ave_price' => 'Ave Price',
+            'type' => 'Type',
+            'avatar' => 'Avatar',
+            'price' => 'Price',
+            'level' => 'Level',
+            'add_time' => 'Add Time',
+            'images' => 'Images',
+            'data' => 'Data',
+            'comment' => 'Comment',
             'weight' => 'Weight',
             'create_time' => 'Create Time',
             'update_time' => 'Update Time',
@@ -89,10 +114,16 @@ class Item extends \yii\db\ActiveRecord implements ModelApiInterface
     {
         return [
             'id' => 'i',
+            'item_id' => 's',
             'name' => 's',
-            'min_price' => 'i',
-            'max_price' => 'i',
-            'ave_price' => 'i',
+            'type' => 'i',
+            'avatar' => 's',
+            'price' => 'i',
+            'level' => 'i',
+            'add_time' => 's',
+            'images' => 's',
+            'data' => 's',
+            'comment' => 's',
             'weight' => 'i',
             'create_time' => 'i',
             'update_time' => 'i',
@@ -112,7 +143,7 @@ class Item extends \yii\db\ActiveRecord implements ModelApiInterface
             {
                 $this->create_time = $this->update_time;
             }
-            
+
             return true;
         }
         else
@@ -129,12 +160,12 @@ class Item extends \yii\db\ActiveRecord implements ModelApiInterface
 
         if ($model)
         {
-//            $model['price_list'] = ItemPriceService::getItemPriceListByItemId($model['id']);
+            $model['img_list'] = array_filter(explode(',', $model['images']));
         }
 
         return $model;
     }
-    
+
     public static function processRawDetail($model)
     {
         $model = self::processRaw($model, self::detailAttributes());
@@ -142,65 +173,17 @@ class Item extends \yii\db\ActiveRecord implements ModelApiInterface
         return $model;
     }
 
-    public static function processForAdmin($model, $keys = null)
-    {
-        $keys = $keys ?: self::basicAttributes();
-        $types = self::attributeTypes();
-        $model = DXUtil::processModel($model, $keys, $types);
-
-        if ($model)
-        {
-            $model['item_count'] = ItemPriceService::getItemPriceCount($model['id']);
-        }
-
-        return $model;
-    }
-
     /**
      * @param $id
-     * @return array|null|\yii\db\ActiveRecord | \app\models\Item
+     * @return array|null|\yii\db\ActiveRecord | \app\models\FfoData;
      */
-    public static function findById($id)
+    public static function findById($id) 
     {
         return self::find()->where(" weight >= 0 ")->andWhere(["id" => $id])->one();
     }
-
-    /**
-     * @param $id
-     * @return array|null
-     */
+    
     public static function getRawById($id)
     {
-        return self::processRaw(self::findById($id));
-    }
-    
-    public function updateMinPrice()
-    {
-        $min_price = ItemPrice::find()->where(" weight >= 0 ")->andWhere(['item_id' => $this->id])->min("price");
-        $min_price = $min_price ?: 0;
-        
-        $this->min_price = $min_price;
-        
-        $this->save();
-    }
-    
-    public function updateMaxPrice()
-    {
-        $max_price = ItemPrice::find()->where(" weight >= 0 ")->andWhere(['item_id' => $this->id])->max("price");
-        $max_price = $max_price ?: 0;
-        
-        $this->max_price = $max_price;
-        
-        $this->save();
-    }
-    
-    public function updateAvePrice()
-    {
-        $ave_price = ItemPrice::find()->where(" weight >= 0 ")->andWhere(['item_id' => $this->id])->average("price");
-        $ave_price = $ave_price ?: 0;
-        
-        $this->ave_price = intval($ave_price);
-        
-        $this->save();
+        return self::processRawDetail(self::findById($id));
     }
 }

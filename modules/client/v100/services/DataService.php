@@ -150,6 +150,5 @@ class DataService
         $item->updateMinPrice();
         $item->updateMaxPrice();
         $item->updateAvePrice();
-        
     }
 }

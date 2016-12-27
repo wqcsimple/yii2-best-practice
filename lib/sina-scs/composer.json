@@ -1,0 +1,22 @@
+{
+    "name": "cloudmario/scs",
+    "type": "library",
+    "description": "PHP SDK for 新浪云存储",
+    "keywords": ["scs","sina","sinastorage"],
+    "homepage": "https://github.com/CloudSide/SinaCloudStorage-SDK-PHP",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bruce Chen",
+            "email": "662005@qq.com",
+            "homepage": "http://weibo.com/smcz",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.2.0"
+    },
+    "autoload": {
+        "classmap": ["class/"]
+    }
+}

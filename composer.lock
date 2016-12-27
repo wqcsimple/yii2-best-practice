@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "003f408996080231cbed8786366d320d",
-    "content-hash": "f3b7ac43ab56a2765fe96eae25801c80",
+    "hash": "e8695a56fb686352e959110d02b41ea4",
+    "content-hash": "3b1799145f4e7fe3f8ed29a77b378b7c",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -138,7 +138,7 @@
             "version": "v1.3.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/bestiejs/punycode.js.git",
+                "url": "https://github.com/bower-asset/punycode.git",
                 "reference": "38c8d3131a82567bfef18da09f7f4db68c84f8a3"
             },
             "dist": {
@@ -304,11 +304,11 @@
         },
         {
             "name": "dix/yii2-base",
-            "version": "0.0.11",
+            "version": "0.0.19",
             "source": {
                 "type": "git",
                 "url": "git@github.com:sinfere/yii2-base.git",
-                "reference": "c4ef0ba40c2acf145d36c6189b73d4304183089f"
+                "reference": "ce907d0ab4dc03e2098afcbcf8b6206582341d12"
             },
             "require": {
                 "guzzlehttp/guzzle": "6.*",
@@ -334,7 +334,7 @@
                     "email": "dd@sinfere.com"
                 }
             ],
-            "time": "2016-06-22 05:55:20"
+            "time": "2016-12-23 04:08:08"
         },
         {
             "name": "endroid/qrcode",

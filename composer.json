@@ -34,7 +34,7 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "smartwork/yii2-user-api": "*",
-        "dix/yii2-base": "*",
+        "dix/yii2-base": "0.0.19",
         "predis/predis": "1.1.*@dev",
         "endroid/qrcode": "*",
         "phpoffice/phpexcel": "1.8.1",

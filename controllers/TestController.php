@@ -7,6 +7,7 @@ use app\modules\client\v101\services\TaskService;
 use app\services\WebSocketService;
 use Yii;
 use yii\base\UserException;
+use yii\helpers\Html;
 use yii\web\Controller;
 
 class TestController extends Controller
@@ -87,6 +88,18 @@ class TestController extends Controller
             'action_list' => $action_list,
             'type_list' => $type_list
         ]);
+    }
+    
+    public function actionTest()
+    {
+        set_time_limit(0);
+       $url = "http://qinggan.jiayuan.com/zhuanti/xingge/show.php?uname=%E5%92%A9%E5%92%A9";
+       
+       for ($a = 1; $a < 999; $a++)
+       {
+           sleep(3);
+           $response = curl("GET", $url);
+       }
     }
     
 }

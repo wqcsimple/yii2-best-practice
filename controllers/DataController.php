@@ -3,15 +3,9 @@
 namespace app\controllers;
 
 use app\components\DXKey;
-use app\models\Apv;
 use app\models\User;
-use app\modules\client\v100\services\ApvManageService;
-use app\modules\client\v100\services\NotificationService;
-use dix\base\component\PhoneVerificationCode;
+use app\modules\client\v100\services\ClientApiService;
 use dix\base\component\Redis;
-use smartwork\user\api\service\ApiService;
-use Yii;
-use yii\base\UserException;
 use yii\web\Controller;
 
 class DataController extends Controller
@@ -25,7 +19,7 @@ class DataController extends Controller
 
         echo '<div style=\'font-size: 14px; color: #555; font-family:"Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;margin:0;padding:0;z-index:auto;outline:none;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-webkit-appearance:none;-webkit-font-smoothing:antialiased;\'>';
 
-        $rank_list = ApiService::getUserStat($date);
+        $rank_list = ClientApiService::getUserStat($date);
         foreach ($rank_list as $user_id => $count)
         {
             $user = User::getUserRawById($user_id);

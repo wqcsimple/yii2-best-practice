@@ -56,4 +56,9 @@ class DXKey extends \dix\base\component\DXKey
         return "data.collection.api.stat.user-action-rank.$date";
     }
 
+    public static function getKeyOfPayCountOfToday()
+    {
+        $date = date('Ymd', time());
+        return "pay.count.today.$date";
+    }
 }

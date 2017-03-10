@@ -75,4 +75,12 @@ class ClientApiService
 
         $redis->zincrby($key, 1, strval($user_id));
     }
+
+    public static function getUserStat($date, $offset = 0, $limit = 100)
+    {
+        $key = DXKey::getKeyOfApiStatUserActionRank($date);
+        $redis = Redis::client();
+        $rank_list = $redis->zrevrangebyscore($key, '+inf', '-inf', ['WITHSCORES' => true, 'LIMIT' => ['OFFSET' => $offset, 'COUNT' => $limit]]);
+        return $rank_list;
+    }
 }

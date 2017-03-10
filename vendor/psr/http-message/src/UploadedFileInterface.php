@@ -58,7 +58,7 @@ interface UploadedFileInterface
      * @see http://php.net/is_uploaded_file
      * @see http://php.net/move_uploaded_file
      * @param string $targetPath Path to which to move the uploaded file.
-     * @throws \InvalidArgumentException if the $path specified is invalid.
+     * @throws \InvalidArgumentException if the $targetPath specified is invalid.
      * @throws \RuntimeException on any error during the move operation, or on
      *     the second or subsequent call to the method.
      */
@@ -92,31 +92,31 @@ interface UploadedFileInterface
     public function getError();
     
     /**
-     * Retrieve the filename sent by the admin.
+     * Retrieve the filename sent by the client.
      *
-     * Do not trust the value returned by this method. A admin could send
+     * Do not trust the value returned by this method. A client could send
      * a malicious filename with the intention to corrupt or hack your
      * application.
      *
      * Implementations SHOULD return the value stored in the "name" key of
      * the file in the $_FILES array.
      *
-     * @return string|null The filename sent by the admin or null if none
+     * @return string|null The filename sent by the client or null if none
      *     was provided.
      */
     public function getClientFilename();
     
     /**
-     * Retrieve the media type sent by the admin.
+     * Retrieve the media type sent by the client.
      *
-     * Do not trust the value returned by this method. A admin could send
+     * Do not trust the value returned by this method. A client could send
      * a malicious media type with the intention to corrupt or hack your
      * application.
      *
      * Implementations SHOULD return the value stored in the "type" key of
      * the file in the $_FILES array.
      *
-     * @return string|null The media type sent by the admin or null if none
+     * @return string|null The media type sent by the client or null if none
      *     was provided.
      */
     public function getClientMediaType();

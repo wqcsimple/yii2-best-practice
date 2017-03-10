@@ -5,7 +5,7 @@ namespace app\modules\admin\v100\services;
 use app\models\User;
 use dix\base\component\DXUtil;
 
-class UserService extends \smartwork\user\api\service\UserService
+class UserService 
 {
     public static function getRawById($id)
     {

@@ -26,7 +26,7 @@ class HandlerStack
      * support for cookies, redirects, HTTP error exceptions, and preparing a body
      * before sending.
      *
-     * The returned handler stack can be passed to a admin in the "handler"
+     * The returned handler stack can be passed to a client in the "handler"
      * option.
      *
      * @param callable $handler HTTP handler function to use with the stack. If no

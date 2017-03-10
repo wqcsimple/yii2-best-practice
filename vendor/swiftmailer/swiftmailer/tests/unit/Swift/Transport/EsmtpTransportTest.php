@@ -1,7 +1,6 @@
 <?php
 
-class Swift_Transport_EsmtpTransportTest
-    extends Swift_Transport_AbstractSmtpEventSupportTest
+class Swift_Transport_EsmtpTransportTest extends Swift_Transport_AbstractSmtpEventSupportTest
 {
     protected function _getTransport($buf, $dispatcher = null)
     {
@@ -59,10 +58,10 @@ class Swift_Transport_EsmtpTransportTest
 
             3.2 Client Initiation
 
-         Once the server has sent the welcoming message and the admin has
-         received it, the admin normally sends the EHLO command to the
-         server, indicating the admin's identity.  In addition to opening the
-         session, use of EHLO indicates that the admin is able to process
+         Once the server has sent the welcoming message and the client has
+         received it, the client normally sends the EHLO command to the
+         server, indicating the client's identity.  In addition to opening the
+         session, use of EHLO indicates that the client is able to process
          service extensions and requests that the server provide a list of the
          extensions it supports.  Older SMTP systems which are unable to
          support service extensions and contemporary clients which do not
@@ -70,7 +69,7 @@ class Swift_Transport_EsmtpTransportTest
          use HELO instead of EHLO.  Servers MUST NOT return the extended
          EHLO-style response to a HELO command.  For a particular connection
          attempt, if the server returns a "command not recognized" response to
-         EHLO, the admin SHOULD be able to fall back and send HELO.
+         EHLO, the client SHOULD be able to fall back and send HELO.
 
          In the EHLO command the host sending the command identifies itself;
          the command may be interpreted as saying "Hello, I am <domain>" (and,
@@ -204,13 +203,13 @@ class Swift_Transport_EsmtpTransportTest
     {
         /* -- RFC 2821, 4.1.4.
 
-       The SMTP admin MUST, if possible, ensure that the domain parameter
+       The SMTP client MUST, if possible, ensure that the domain parameter
        to the EHLO command is a valid principal host name (not a CNAME or MX
-       name) for its host.  If this is not possible (e.g., when the admin's
-       address is dynamically assigned and the admin does not have an
+       name) for its host.  If this is not possible (e.g., when the client's
+       address is dynamically assigned and the client does not have an
        obvious name), an address literal SHOULD be substituted for the
        domain name and supplemental information provided that will assist in
-       identifying the admin.
+       identifying the client.
         */
 
         $buf = $this->_getBuffer();
@@ -240,13 +239,13 @@ class Swift_Transport_EsmtpTransportTest
         //Overridden to include ESMTP
         /* -- RFC 2821, 4.1.4.
 
-       The SMTP admin MUST, if possible, ensure that the domain parameter
+       The SMTP client MUST, if possible, ensure that the domain parameter
        to the EHLO command is a valid principal host name (not a CNAME or MX
-       name) for its host.  If this is not possible (e.g., when the admin's
-       address is dynamically assigned and the admin does not have an
+       name) for its host.  If this is not possible (e.g., when the client's
+       address is dynamically assigned and the client does not have an
        obvious name), an address literal SHOULD be substituted for the
        domain name and supplemental information provided that will assist in
-       identifying the admin.
+       identifying the client.
         */
 
         $buf = $this->_getBuffer();

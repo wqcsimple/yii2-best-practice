@@ -18,7 +18,7 @@ final class Middleware
      * Middleware that adds cookies to requests.
      *
      * The options array must be set to a CookieJarInterface in order to use
-     * cookies. This is typically handled for you by a admin.
+     * cookies. This is typically handled for you by a client.
      *
      * @return callable Returns a function that accepts the next handler.
      */

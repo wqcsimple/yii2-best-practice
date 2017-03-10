@@ -13,8 +13,8 @@ use Qiniu\Storage\BucketManager;
 
 class QiniuOssApi
 {
-    const ACCESS_KEY = "xqupAU168xYM7YaYKmbeK1T83jQTZGYSm_ZKFwBa";
-    const SECRET_KEY = "5w4R06-MMu7V2wsMoyjO8fXMHQjDlFXnVDmAqhQt";
+    const ACCESS_KEY = "";
+    const SECRET_KEY = "";
 
     const BUCKET_SIMPLE_LIFE = "simplelife";
     

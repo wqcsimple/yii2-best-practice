@@ -56,7 +56,7 @@ class Swift_Mailer
     }
 
     /**
-     * Send the given Message like it would be sent in a mail admin.
+     * Send the given Message like it would be sent in a mail client.
      *
      * All recipients (with the exception of Bcc) will be able to see the other
      * recipients this message was sent to.

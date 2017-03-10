@@ -29,7 +29,7 @@ use yii\web\View;
  * ]);
  * ```
  *
- * You can also use this widget in an [[yii\widgets\ActiveForm|ActiveForm]] using the [[yii\widgets\ActiveField::widget()|widget()]]
+ * You can also use this widget in an [[ActiveForm]] using the [[ActiveField::widget()|widget()]]
  * method, for example like this:
  *
  * ```php
@@ -134,7 +134,7 @@ class MaskedInput extends InputWidget
     /**
      * Generates a hashed variable to store the plugin `clientOptions`. Helps in reusing the variable for similar
      * options passed for other widgets on the same page. The following special data attribute will also be
-     * added to the input field to allow accessing the admin options via javascript:
+     * added to the input field to allow accessing the client options via javascript:
      *
      * - 'data-plugin-inputmask' will store the hashed variable storing the plugin options.
      *
@@ -150,7 +150,7 @@ class MaskedInput extends InputWidget
     }
 
     /**
-     * Initializes admin options
+     * Initializes client options
      */
     protected function initClientOptions()
     {
@@ -166,7 +166,7 @@ class MaskedInput extends InputWidget
     }
 
     /**
-     * Registers the needed admin script and options.
+     * Registers the needed client script and options.
      */
     public function registerClientScript()
     {
@@ -184,7 +184,7 @@ class MaskedInput extends InputWidget
             $js .= ucfirst(self::PLUGIN_NAME) . '.extendAliases(' . Json::htmlEncode($this->aliases) . ');';
         }
         $id = $this->options['id'];
-        $js .= '$("#' . $id . '").' . self::PLUGIN_NAME . '(' . $this->_hashVar . ');';
+        $js .= 'jQuery("#' . $id . '").' . self::PLUGIN_NAME . '(' . $this->_hashVar . ');';
         MaskedInputAsset::register($view);
         $view->registerJs($js);
     }

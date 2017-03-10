@@ -10,8 +10,8 @@ namespace yii\web;
 /**
  * UnauthorizedHttpException represents an "Unauthorized" HTTP exception with status code 401
  *
- * Use this exception to indicate that a admin needs to authenticate or login
- * to perform the requested action. If the admin is already authenticated and
+ * Use this exception to indicate that a client needs to authenticate or login
+ * to perform the requested action. If the client is already authenticated and
  * is simply not allowed to perform the action, consider using a 403
  * [[ForbiddenHttpException]] or 404 [[NotFoundHttpException]] instead.
  *
@@ -24,7 +24,7 @@ class UnauthorizedHttpException extends HttpException
     /**
      * Constructor.
      * @param string $message error message
-     * @param integer $code error code
+     * @param int $code error code
      * @param \Exception $previous The previous exception used for the exception chaining.
      */
     public function __construct($message = null, $code = 0, \Exception $previous = null)

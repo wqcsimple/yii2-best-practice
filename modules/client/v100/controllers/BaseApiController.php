@@ -2,7 +2,9 @@
 
 namespace app\modules\client\v100\controllers;
 
+use app\components\Debug;
 use dix\base\component\DXUtil;
+use dix\base\component\Redis;
 use dix\base\exception\ServiceException;
 use app\modules\client\v100\services\ClientApiService;
 use Yii;
@@ -107,18 +109,12 @@ class BaseApiController extends Controller
 
     public function redis()
     {
-        return DXUtil::redisClient();
+        return Redis::client();
     }
 
-    public function log($title, $data, $key = 'smartwork-oa-log')
+    public function log($key, $data)
     {
-        $log = [
-            'time' => timeFormat(time()),
-            'title' => $title,
-            'data' => $data
-        ];
-        $redis = $this->redis();
-        $redis->lpush($key, json_encode($log));
+        Debug::log($key, $data);
     }
 
 }

@@ -43,14 +43,14 @@ final class RequestOptions
     const AUTH = 'auth';
 
     /**
-     * body: (string|null|callable|iterator|object) Body to send in the
-     * request.
+     * body: (resource|string|null|int|float|StreamInterface|callable|\Iterator)
+     * Body to send in the request.
      */
     const BODY = 'body';
 
     /**
      * cert: (string|array) Set to a string to specify the path to a file
-     * containing a PEM formatted SSL admin side certificate. If a password
+     * containing a PEM formatted SSL client side certificate. If a password
      * is required, then set cert to an array containing the path to the PEM
      * file in the first array element followed by the certificate password
      * in the second array element.
@@ -160,7 +160,7 @@ final class RequestOptions
     /**
      * on_stats: (callable) allows you to get access to transfer statistics of
      * a request and access the lower level transfer details of the handler
-     * associated with your admin. ``on_stats`` is a callable that is invoked
+     * associated with your client. ``on_stats`` is a callable that is invoked
      * when a handler has finished sending a request. The callback is invoked
      * with transfer statistics about the request, the response received, or
      * the error encountered. Included in the data is the total amount of time
@@ -203,7 +203,7 @@ final class RequestOptions
      * synchronous: (bool) Set to true to inform HTTP handlers that you intend
      * on waiting on the response. This can be useful for optimizations. Note
      * that a promise is still returned if you are using one of the async
-     * admin methods.
+     * client methods.
      */
     const SYNCHRONOUS = 'synchronous';
 

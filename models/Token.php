@@ -101,4 +101,19 @@ class Token extends \yii\db\ActiveRecord
             DXLog::debug('update_token_update_time_exception', $e->getTraceAsString());
         }
     }
+
+    /**
+     * @param $token
+     * @param $type
+     * @return array|null|\yii\db\ActiveRecord | \app\models\Token
+     */
+    public static function findValidTokenByToken($token, $type)
+    {
+        return self::find()->where(['token' => $token, 'type' => $type, 'status' => self::STATUS_VALID])->one();
+    }
+
+    public static function makeUserTokenInvalid($user_id, $type)
+    {
+        self::updateAll(['status' => self::STATUS_INVALID], ['user_id' => intval($user_id), 'type' => intval($type)]);
+    }
 }

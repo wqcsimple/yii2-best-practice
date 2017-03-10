@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\components\Debug;
 use app\modules\client\v101\data\Api;
 use app\modules\client\v101\services\TaskService;
 use app\services\WebSocketService;
@@ -88,6 +89,10 @@ class TestController extends Controller
             'action_list' => $action_list,
             'type_list' => $type_list
         ]);
+    }
+    
+    public function actionDebugList() {
+        Debug::getDebugList();
     }
     
     public function actionTest()

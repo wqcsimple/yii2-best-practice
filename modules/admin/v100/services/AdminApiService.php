@@ -2,14 +2,13 @@
 
 namespace app\modules\admin\v100\services;
 
+use app\components\DXKey;
 use app\models\Token;
 use app\modules\admin\v100\data\Api;
 use dix\base\component\Redis;
 use dix\base\exception\ServiceErrorParamNotSetException;
 use dix\base\exception\ServiceErrorSaveException;
 use dix\base\exception\ServiceErrorTokenInvalidException;
-use dix\base\exception\ServiceWrongClientException;
-use smartwork\user\api\component\DXKey;
 
 class AdminApiService
 {
@@ -38,7 +37,7 @@ class AdminApiService
 
     public static function prepareData($token, $strict)
     {
-        $db_token = \smartwork\user\api\model\Token::findValidTokenByToken($token, Token::TYPE_ADMIN);
+        $db_token = Token::findValidTokenByToken($token, Token::TYPE_ADMIN);
         if (!$db_token)
         {
             if (!$strict)

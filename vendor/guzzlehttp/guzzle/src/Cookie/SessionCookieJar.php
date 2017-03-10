@@ -2,7 +2,7 @@
 namespace GuzzleHttp\Cookie;
 
 /**
- * Persists cookies in the admin session
+ * Persists cookies in the client session
  */
 class SessionCookieJar extends CookieJar
 {
@@ -36,7 +36,7 @@ class SessionCookieJar extends CookieJar
     }
 
     /**
-     * Save cookies to the admin session
+     * Save cookies to the client session
      */
     public function save()
     {
@@ -52,15 +52,14 @@ class SessionCookieJar extends CookieJar
     }
 
     /**
-     * Load the contents of the admin session into the data array
+     * Load the contents of the client session into the data array
      */
     protected function load()
     {
-        $cookieJar = isset($_SESSION[$this->sessionKey])
-            ? $_SESSION[$this->sessionKey]
-            : null;
-
-        $data = json_decode($cookieJar, true);
+        if (!isset($_SESSION[$this->sessionKey])) {
+            return;
+        }
+        $data = json_decode($_SESSION[$this->sessionKey], true);
         if (is_array($data)) {
             foreach ($data as $cookie) {
                 $this->setCookie(new SetCookie($cookie));

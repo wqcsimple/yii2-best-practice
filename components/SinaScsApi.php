@@ -9,9 +9,9 @@ namespace app\components;
 
 class SinaScsApi 
 {
-    const SINA_SCS_ACCESS_KEY = "13zaipnogstTfXjr4Ez7";
-    const SINA_SCS_SECRET_KEY = "d8fa9ee6267ddd6f6ce2f5a29c7116b025d54875";
-    const SINA_SCS_USER_ID = "SINA00000000013ZAIPN";
+    const SINA_SCS_ACCESS_KEY = "";
+    const SINA_SCS_SECRET_KEY = "";
+    const SINA_SCS_USER_ID = "";
 
     const BUCKET_DISC_01 = 'disc01';
 

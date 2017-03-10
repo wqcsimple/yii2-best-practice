@@ -164,7 +164,7 @@ class UploadedFile implements UploadedFileInterface
     {
         if (false === $this->isStringOrNull($clientFilename)) {
             throw new InvalidArgumentException(
-                'Upload file admin filename must be a string or null'
+                'Upload file client filename must be a string or null'
             );
         }
 
@@ -179,7 +179,7 @@ class UploadedFile implements UploadedFileInterface
     {
         if (false === $this->isStringOrNull($clientMediaType)) {
             throw new InvalidArgumentException(
-                'Upload file admin media type must be a string or null'
+                'Upload file client media type must be a string or null'
             );
         }
 
@@ -298,7 +298,7 @@ class UploadedFile implements UploadedFileInterface
     /**
      * {@inheritdoc}
      *
-     * @return string|null The filename sent by the admin or null if none
+     * @return string|null The filename sent by the client or null if none
      *     was provided.
      */
     public function getClientFilename()

@@ -132,7 +132,7 @@ $handler = GuzzleHttp\HandlerStack::create();
 $handler->push(Middleware::mapRequest(function (RequestInterface $request) {
     // Notice that we have to return a request object
     return $request->withHeader('X-Foo', 'Bar');
-});
+}));
 // Inject the handler into the client
 $client = new GuzzleHttp\Client(['handler' => $handler]);
 ```
@@ -352,9 +352,9 @@ $response = $client->send($request);
   send multiple requests in parallel.
 - `setUserAgent()` has been removed. Use a default request option instead. You
   could, for example, do something like:
-  `$admin->setConfig('defaults/headers/User-Agent', 'Foo/Bar ' . $admin::getDefaultUserAgent())`.
+  `$client->setConfig('defaults/headers/User-Agent', 'Foo/Bar ' . $client::getDefaultUserAgent())`.
 - `setSslVerification()` has been removed. Use default request options instead,
-  like `$admin->setConfig('defaults/verify', true)`.
+  like `$client->setConfig('defaults/verify', true)`.
 
 `GuzzleHttp\Client` has changed.
 
@@ -365,7 +365,7 @@ $response = $client->send($request);
   `batch_adapter` to use a custom adapter for sending requests in parallel, or
   a `message_factory` to change the factory used to create HTTP requests and
   responses.
-- The client no longer emits a `admin.create_request` event.
+- The client no longer emits a `client.create_request` event.
 - Creating requests with a client no longer automatically utilize a URI
   template. You must pass an array into a creational method (e.g.,
   `createRequest`, `get`, `put`, etc.) in order to expand a URI template.
@@ -600,7 +600,7 @@ these if needed):
 The following plugins are not part of the core Guzzle package, but are provided
 in separate repositories:
 
-- `Guzzle\Http\Plugin\BackoffPlugin` has been rewritten to be muchs simpler
+- `Guzzle\Http\Plugin\BackoffPlugin` has been rewritten to be much simpler
   to build custom retry policies using simple functions rather than various
   chained classes. See: https://github.com/guzzle/retry-subscriber
 - `Guzzle\Http\Plugin\Cache\CachePlugin` has moved to
@@ -664,8 +664,8 @@ that contain additional metadata accessible via `getMetadata()`.
 
 The entire concept of the StreamRequestFactory has been removed. The way this
 was used in Guzzle 3 broke the actual interface of sending streaming requests
-(instead of getting back a Response, you got a StreamInterface). Streeaming
-PHP requests are now implemented throught the `GuzzleHttp\Adapter\StreamAdapter`.
+(instead of getting back a Response, you got a StreamInterface). Streaming
+PHP requests are now implemented through the `GuzzleHttp\Adapter\StreamAdapter`.
 
 3.6 to 3.7
 ----------
@@ -690,17 +690,17 @@ The following APIs and options have been marked as deprecated:
 - Marked `Guzzle\Parser\Url\UrlParser` as deprecated. Just use PHP's `parse_url()` and percent encode your UTF-8.
 - Marked `Guzzle\Common\Collection::inject()` as deprecated.
 - Marked `Guzzle\Plugin\CurlAuth\CurlAuthPlugin` as deprecated. Use
-  `$admin->getConfig()->setPath('request.options/auth', array('user', 'pass', 'Basic|Digest|NTLM|Any'));` or
-  `$admin->setDefaultOption('auth', array('user', 'pass', 'Basic|Digest|NTLM|Any'));`
+  `$client->getConfig()->setPath('request.options/auth', array('user', 'pass', 'Basic|Digest|NTLM|Any'));` or
+  `$client->setDefaultOption('auth', array('user', 'pass', 'Basic|Digest|NTLM|Any'));`
 
 3.7 introduces `request.options` as a parameter for a client configuration and as an optional argument to all creational
 request methods. When paired with a client's configuration settings, these options allow you to specify default settings
 for various aspects of a request. Because these options make other previous configuration options redundant, several
 configuration options and methods of a client and AbstractCommand have been deprecated.
 
-- Marked `Guzzle\Service\Client::getDefaultHeaders()` as deprecated. Use `$admin->getDefaultOption('headers')`.
-- Marked `Guzzle\Service\Client::setDefaultHeaders()` as deprecated. Use `$admin->setDefaultOption('headers/{header_name}', 'value')`.
-- Marked 'request.params' for `Guzzle\Http\Client` as deprecated. Use `$admin->setDefaultOption('params/{param_name}', 'value')`
+- Marked `Guzzle\Service\Client::getDefaultHeaders()` as deprecated. Use `$client->getDefaultOption('headers')`.
+- Marked `Guzzle\Service\Client::setDefaultHeaders()` as deprecated. Use `$client->setDefaultOption('headers/{header_name}', 'value')`.
+- Marked 'request.params' for `Guzzle\Http\Client` as deprecated. Use `$client->setDefaultOption('params/{param_name}', 'value')`
 - Marked 'command.headers', 'command.response_body' and 'command.on_complete' as deprecated for AbstractCommand. These will work through Guzzle 4.0
 
         $command = $client->getCommand('foo', array(

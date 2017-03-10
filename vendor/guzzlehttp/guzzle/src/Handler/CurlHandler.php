@@ -9,7 +9,7 @@ use Psr\Http\Message\RequestInterface;
  *
  * When using the CurlHandler, custom curl options can be specified as an
  * associative array of curl option constants mapping to values in the
- * **curl** key of the "admin" key of the request.
+ * **curl** key of the "client" key of the request.
  */
 class CurlHandler
 {

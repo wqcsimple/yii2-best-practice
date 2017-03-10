@@ -45,4 +45,15 @@ class DXKey extends \dix\base\component\DXKey
         return "org.$org_id.detail";
     }
 
+    public static function getKeyOfApiStatUserActionRank($date = null)
+    {
+        if ($date === null)
+        {
+            $time = defined('RUN_START_TIME_INT') ? RUN_START_TIME_INT : time();
+            $date = date('Y-m-d', $time);
+        }
+
+        return "data.collection.api.stat.user-action-rank.$date";
+    }
+
 }

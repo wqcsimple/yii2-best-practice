@@ -69,7 +69,7 @@ class QiniuController extends BaseController
 
         // 构建 UploadManager 对象
         $upload_manager = new UploadManager();
-     
+        
         list($result, $err) = $upload_manager->putFile($upload_token, $filename, $path);
         if ($err !== null) {
             dump($err);

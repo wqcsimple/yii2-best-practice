@@ -2,13 +2,13 @@
 
 namespace app\modules\client\v100\services;
 
+use app\components\DXKey;
 use app\models\Token;
 use app\modules\client\v100\data\Api;
 use dix\base\component\Redis;
 use dix\base\exception\ServiceErrorParamNotSetException;
 use dix\base\exception\ServiceErrorSaveException;
 use dix\base\exception\ServiceErrorTokenInvalidException;
-use smartwork\user\api\component\DXKey;
 
 class ClientApiService
 {
@@ -38,7 +38,7 @@ class ClientApiService
 
     public static function prepareData($token, $strict)
     {
-        $db_token = \smartwork\user\api\model\Token::findValidTokenByToken($token, Token::TYPE_USER);
+        $db_token = Token::findValidTokenByToken($token, Token::TYPE_USER);
         if (!$db_token)
         {
             if (!$strict)

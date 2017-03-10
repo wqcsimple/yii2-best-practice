@@ -11,6 +11,7 @@ class Api
 {
     const TYPE_DATA = 'Data';
     const TYPE_FFO = "FFO";
+    const TYPE_COMMON = "common";
 
     public static function PathGuestCanAccess()
     {
@@ -157,9 +158,22 @@ class Api
                 ]
             ],
         ];
+        
+        $common_actions = [
+              [
+                  'type' => self::TYPE_COMMON,
+                  'name' => 'common - send-phone',
+                  'action' => 'common/phone-verification-code-send',
+                  'token' => false,
+                  'params' => ['phone | s'],
+                  'response' => [
+                      "null" => '\app\modules\client\v100\services\CommonService::sendPhoneVCode($phone)',
+                  ]
+              ]
+        ];
 
 
-        return array_merge($contact_actions, $ffo_actions);
+        return array_merge($contact_actions, $ffo_actions, $common_actions);
     }
 
 

@@ -1,5 +1,26 @@
 # CHANGELOG
 
+## 6.2.3 - 2017-02-28
+
+* Fix deprecations with guzzle/psr7 version 1.4
+
+## 6.2.2 - 2016-10-08
+
+* Allow to pass nullable Response to delay callable
+* Only add scheme when host is present
+* Fix drain case where content-length is the literal string zero
+* Obfuscate in-URL credentials in exceptions
+
+## 6.2.1 - 2016-07-18
+
+* Address HTTP_PROXY security vulnerability, CVE-2016-5385:
+  https://httpoxy.org/
+* Fixing timeout bug with StreamHandler:
+  https://github.com/guzzle/guzzle/pull/1488
+* Only read up to `Content-Length` in PHP StreamHandler to avoid timeouts when
+  a server does not honor `Connection: close`.
+* Ignore URI fragment when sending requests.
+
 ## 6.2.0 - 2016-03-21
 
 * Feature: added `GuzzleHttp\json_encode` and `GuzzleHttp\json_decode`.
@@ -642,9 +663,9 @@ interfaces.
   default `array()`
 * Added `Guzzle\Stream\StreamInterface::isRepeatable`
 * Removed `Guzzle\Http\ClientInterface::setDefaultHeaders(). Use
-  $admin->getConfig()->setPath('request.options/headers/{header_name}', 'value')`. or
+  $client->getConfig()->setPath('request.options/headers/{header_name}', 'value')`. or
   $client->getConfig()->setPath('request.options/headers', array('header_name' => 'value'))`.
-* Removed `Guzzle\Http\ClientInterface::getDefaultHeaders(). Use $admin->getConfig()->getPath('request.options/headers')`.
+* Removed `Guzzle\Http\ClientInterface::getDefaultHeaders(). Use $client->getConfig()->getPath('request.options/headers')`.
 * Removed `Guzzle\Http\ClientInterface::expandTemplate()`
 * Removed `Guzzle\Http\ClientInterface::setRequestFactory()`
 * Removed `Guzzle\Http\ClientInterface::getCurlMulti()`
@@ -671,7 +692,7 @@ interfaces.
 * Marked `Guzzle\Service\Client::setDefaultHeaders()` as deprecated. Use $client->getConfig()->setPath('request.options/headers/{header_name}', 'value')`.
 * Marked `Guzzle\Parser\Url\UrlParser` as deprecated. Just use PHP's `parse_url()` and percent encode your UTF-8.
 * Marked `Guzzle\Common\Collection::inject()` as deprecated.
-* Marked `Guzzle\Plugin\CurlAuth\CurlAuthPlugin` as deprecated. Use `$admin->getConfig()->setPath('request.options/auth', array('user', 'pass', 'Basic|Digest');`
+* Marked `Guzzle\Plugin\CurlAuth\CurlAuthPlugin` as deprecated. Use `$client->getConfig()->setPath('request.options/auth', array('user', 'pass', 'Basic|Digest');`
 * CacheKeyProviderInterface and DefaultCacheKeyProvider are no longer used. All of this logic is handled in a
   CacheStorageInterface. These two objects and interface will be removed in a future version.
 * Always setting X-cache headers on cached responses
@@ -736,7 +757,7 @@ interfaces.
 * Deprecating Response::getRequest() and now using a shallow clone of a request object to remove a circular reference
   to help with refcount based garbage collection of resources created by sending a request
 * Deprecating ZF1 cache and log adapters. These will be removed in the next major version.
-* Deprecating `Response::getPreviousResponse()` (method signature still exists, but it'sdeprecated). Use the
+* Deprecating `Response::getPreviousResponse()` (method signature still exists, but it's deprecated). Use the
   HistoryPlugin for a history.
 * Added a `responseBody` alias for the `response_body` location
 * Refactored internals to no longer rely on Response::getRequest()

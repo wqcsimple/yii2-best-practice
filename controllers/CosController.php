@@ -52,7 +52,7 @@ class CosController extends BaseController
         TxCosApi::prepare();
 
    
-        $result = Cosapi::upload($bucket_name, $path, $path_prefix . $filename);
+        $result = Cosapi::upload($bucket_name, $path, $path_prefix . '/' . $filename);
         if (isset($result['code']) && $result['code'] != 0){
             if (isset($result['message'])) {
                 

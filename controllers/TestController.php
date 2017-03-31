@@ -3,9 +3,11 @@
 namespace app\controllers;
 
 use app\components\Debug;
+use app\models\User;
 use app\modules\client\v101\data\Api;
 use app\modules\client\v101\services\TaskService;
 use app\services\WebSocketService;
+use dix\base\component\Redis;
 use Yii;
 use yii\base\UserException;
 use yii\helpers\Html;
@@ -97,14 +99,8 @@ class TestController extends Controller
     
     public function actionTest()
     {
-        set_time_limit(0);
-       $url = "http://qinggan.jiayuan.com/zhuanti/xingge/show.php?uname=%E5%92%A9%E5%92%A9";
-       
-       for ($a = 1; $a < 999; $a++)
-       {
-           sleep(3);
-           $response = curl("GET", $url);
-       }
+        $user_list = User::find()->all();
+        dump($user_list);
     }
     
 }

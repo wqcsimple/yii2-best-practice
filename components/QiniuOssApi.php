@@ -21,7 +21,7 @@ class QiniuOssApi
     const APP_BUCKET_MAPPING = [
         'simplelife' => self::BUCKET_SIMPLE_LIFE
     ];
-
+    
     /**
      * @return Auth  Qiniu\Auth
      */
@@ -30,7 +30,7 @@ class QiniuOssApi
         $auth = new Auth(self::ACCESS_KEY, self::SECRET_KEY);
         return $auth;
     }
-
+    
     public static function getBucket($app)
     {
         $app_list = self::APP_BUCKET_MAPPING;

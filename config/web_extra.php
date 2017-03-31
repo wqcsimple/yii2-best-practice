@@ -14,8 +14,8 @@ return [
         'db' => [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=db;dbname=whis',
-            'username' => 'root',
-            'password' => 'root',
+            'username' => 'whis',
+            'password' => 'whis',
             'charset' => 'utf8mb4',
         ],
     ]

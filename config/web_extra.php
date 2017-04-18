@@ -1,6 +1,17 @@
 <?php
 
 return [
+    'components' => [
+        'db' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'mysql:host=db;dbname=data_collection',
+            'username' => 'root',
+            'password' => '7',
+            'charset' => 'utf8mb4',
+        ],
+    ],
+    
+    
     'params' => [
         'redis-param' => [
             'scheme' => 'tcp',
@@ -9,14 +20,6 @@ return [
             'password' => null,
             'read_write_timeout' => 0,
             'database' => 0,
-        ],
-
-        'db' => [
-            'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=db;dbname=whis',
-            'username' => 'whis',
-            'password' => 'whis',
-            'charset' => 'utf8mb4',
         ],
     ]
 

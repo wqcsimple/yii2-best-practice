@@ -5,7 +5,7 @@ return [
         'db' => [
             'class' => 'yii\db\Connection',
             
-            'dsn' => 'mysql:host=db;dbname=data_collection',
+            'dsn' => 'mysql:host=172.17.0.4;dbname=blog',
             
             'username' => 'root',
             'password' => 'root',
@@ -21,7 +21,7 @@ return [
             ],
 
             'slaves' => [
-                ['dsn' => 'mysql:host=db;dbname=yunto'],
+                ['dsn' => 'mysql:host=172.17.0.5;dbname=blog'],
             ],
         ],
         

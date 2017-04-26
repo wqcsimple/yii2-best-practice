@@ -94,8 +94,10 @@ class TestController extends Controller
 
     public function actionTest()
     {
-
-       
+        $a = User::findById(2);
+        dump($a);
+        
+        
     }
 
 }

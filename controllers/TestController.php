@@ -97,7 +97,10 @@ class TestController extends Controller
         $a = User::findById(2);
         dump($a);
         
-        
+        $b = Yii::$app->db->useMaster(function ($db) {
+            return User::findById(2);
+        });
+        dump($b);
     }
 
 }

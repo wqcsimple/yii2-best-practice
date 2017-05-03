@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\components\Debug;
+use app\components\DXLog;
 use app\components\DXUtil;
 use app\models\User;
 use app\modules\client\v101\data\Api;
@@ -94,12 +95,7 @@ class TestController extends Controller
 
     public function actionTest()
     {
-        $a = User::findById(2);
-        dump($a);
         
-        
-        $a->weight = 2;
-        $a->save();
     }
 
 }

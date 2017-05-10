@@ -55,9 +55,9 @@ $config = [
         ],
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=db;dbname=whis',
+            'dsn' => 'mysql:host=db;dbname=data_collection',
             'username' => 'root',
-            'password' => 'root',
+            'password' => '7',
             'charset' => 'utf8mb4',
         ],
     ],

@@ -141,7 +141,7 @@ class AdminService
             throw new ServiceErrorNotExistsException();
         }
         
-        $db_admin->password = PasswordHash::create_hash($password);
+        $db_admin->password = PasswordHash::createHash($password);
         if (!$db_admin->save())
         {
             throw new ServiceErrorSaveException('save error', ['errors' => $db_admin->errors]);

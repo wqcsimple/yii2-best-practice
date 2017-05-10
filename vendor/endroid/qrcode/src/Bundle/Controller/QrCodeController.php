@@ -21,26 +21,40 @@ use Symfony\Component\HttpFoundation\Request;
 class QrCodeController extends Controller
 {
     /**
-     * @Route("/{text}.{extension}", name="endroid_qrcode", requirements={"text"="[\w\W]+", "extension"="jpg|png|gif"})
+     * @Route("/{text}.{extension}", name="endroid_qrcode_generate", requirements={"text"="[\w\W]+"})
+     *
+     * @param Request $request
+     * @param string $text
+     * @param string $extension
+     * @return Response
      */
     public function generateAction(Request $request, $text, $extension)
     {
         $options = $request->query->all();
 
-        $qrCode = $this->getQrCodeFactory()->createQrCode($options);
-        $qrCode->setText($text);
+        $qrCode = $this->getQrCodeFactory()->create($text, $options);
+        $writer = $qrCode->getWriterByExtension($extension);
 
-        $mime_type = 'image/'.$extension;
-        if ($extension == 'jpg') {
-            $mime_type = 'image/jpeg';
-        }
-
-        return new Response($qrCode->get($extension), 200, ['Content-Type' => $mime_type]);
+        return new Response(
+            $writer->writeString(),
+            Response::HTTP_OK,
+            ['Content-Type' => $writer->getContentType()]
+        );
     }
 
     /**
-     * Returns the QR code factory.
+     * @Route("/twig", name="endroid_qrcode_twig_functions")
      *
+     * @return Response
+     */
+    public function twigFunctionsAction()
+    {
+        return $this->render('twig_functions.html.twig', [
+            'message' => 'QR Code'
+        ]);
+    }
+
+    /**
      * @return QrCodeFactory
      */
     protected function getQrCodeFactory()

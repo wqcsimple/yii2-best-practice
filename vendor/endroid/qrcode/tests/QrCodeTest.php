@@ -7,116 +7,101 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Endroid\Tests\QrCode;
+namespace Endroid\QrCode\Tests;
 
-use Endroid\QrCode\Exceptions\ImageFunctionFailedException;
-use Endroid\QrCode\Exceptions\ImageFunctionUnknownException;
 use Endroid\QrCode\QrCode;
-use PHPUnit_Framework_TestCase;
+use Endroid\QrCode\Writer\BinaryWriter;
+use Endroid\QrCode\Writer\EpsWriter;
+use Endroid\QrCode\Writer\PngDataUriWriter;
+use Endroid\QrCode\Writer\PngWriter;
+use Endroid\QrCode\Writer\SvgDataUriWriter;
+use Endroid\QrCode\Writer\SvgWriter;
+use PHPUnit\Framework\TestCase;
 
-class QrCodeTest extends PHPUnit_Framework_TestCase
+class QrCodeTest extends TestCase
 {
-    /**
-     * @var QrCode
-     */
-    protected $qrCode;
-
-    /**
-     * Tests if a valid data uri is returned.
-     */
-    public function testGetDataUri()
+    public function testReadable()
     {
-        $qrCode = $this->getQrCode();
-        $dataUri = $qrCode->getDataUri();
+        $messages = [
+            'Tiny',
+            'This one has spaces',
+            'http://this.is.an/url?with=query&string=attached',
+            '{"i":"serialized.data","v":1,"t":1,"d":"4AEPc9XuIQ0OjsZoSRWp9DRWlN6UyDvuMlyOYy8XjOw="}',
+            'Spëci&al ch@ract3rs',
+            '有限公司'
+        ];
 
-        $this->assertTrue(is_string($dataUri));
-    }
-
-    /**
-     * Tests if a valid image string is returned.
-     *
-     * @throws ImageFunctionFailedException
-     * @throws ImageFunctionUnknownException
-     */
-    public function testGetImageString()
-    {
-        $qrCode = $this->getQrCode();
-        $imageString = $qrCode->get('png');
-
-        $this->assertTrue(is_string($imageString));
-    }
-
-    /**
-     * Tests if a valid image string is returned.
-     *
-     * @throws ImageFunctionFailedException
-     * @throws ImageFunctionUnknownException
-     */
-    public function testGetQrCodeWithLogoString()
-    {
-        $qrCode = $this->createQrCodeWithLogo();
-        $imageString = $qrCode->get('png');
-
-        $this->assertTrue(is_string($imageString));
-    }
-
-    /**
-     * For https://github.com/endroid/QrCode/issues/49.
-     */
-    public function testRenderHttpAddress()
-    {
-        $qrCode = new QrCode();
-        $qrCode
-            ->setText('http://www.example.com/it/it/contact/qr/hit/id/1  ')
-            ->setExtension('png')
-            ->setSize(300)
-            ->setPadding(10)
-            ->setBackgroundColor(['r' => 255, 'g' => 255, 'b' => 255, 'a' => 0])
-            ->setForegroundColor(['r' => 0, 'g' => 0, 'b' => 0, 'a' => 0])
-            ->setErrorCorrection(QrCode::LEVEL_MEDIUM);
-
-        $qrCode->get('png');
-    }
-
-    /**
-     * Returns a QR code.
-     */
-    protected function getQrCode()
-    {
-        if (!$this->qrCode) {
-            $this->qrCode = $this->createQrCode();
+        foreach ($messages as $message) {
+            $qrCode = new QrCode($message);
+            $qrCode->setSize(300);
+            $qrCode->setValidateResult(true);
+            $pngData = $qrCode->writeString(PngWriter::class);
+            $this->assertTrue(is_string($pngData));
         }
-
-        return $this->qrCode;
     }
 
-    /**
-     * Creates a QR code.
-     *
-     * @return QrCode
-     */
-    protected function createQrCode()
+    public function testWriteQrCode()
     {
-        $qrCode = new QrCode();
-        $qrCode->setText('Life is too short to be generating QR codes');
-        $qrCode->setSize(300);
+        $qrCode = new QrCode('QrCode');
 
-        return $qrCode;
+        $binData = $qrCode->writeString(BinaryWriter::class);
+        $this->assertTrue(is_string($binData));
+
+        $epsData = $qrCode->writeString(EpsWriter::class);
+        $this->assertTrue(is_string($epsData));
+
+        $pngDataUriData = $qrCode->writeString(PngDataUriWriter::class);
+        $this->assertTrue(strpos($pngDataUriData, 'data:image/png;base64') === 0);
+
+        $pngData = $qrCode->writeString(PngWriter::class);
+        $this->assertTrue(is_string($pngData));
+
+        $svgDataUriData = $qrCode->writeString(SvgDataUriWriter::class);
+        $this->assertTrue(strpos($svgDataUriData, 'data:image/svg+xml;base64') === 0);
+
+        $svgData = $qrCode->writeString(SvgWriter::class);
+        $this->assertTrue(is_string($svgData));
     }
 
-    /**
-     * Creates a QR code with a logo.
-     *
-     * @return QrCode
-     */
-    protected function createQrCodeWithLogo()
+    public function testSetSize()
     {
-        $qrCode = new QrCode();
-        $qrCode->setText('Life is too short to be generating QR codes')
-        ->setSize(300)
-        ->setLogo(dirname(__DIR__).'/assets/image/logo.png')
-        ->setLogoSize(60);
+        $size = 400;
+        $margin = 10;
 
-        return $qrCode;
+        $qrCode = new QrCode('QrCode');
+        $qrCode->setSize($size);
+        $qrCode->setMargin($margin);
+
+        $pngData = $qrCode->writeString(PngWriter::class);
+        $image = imagecreatefromstring($pngData);
+
+        $this->assertTrue(imagesx($image) === $size + 2 * $margin);
+        $this->assertTrue(imagesy($image) === $size + 2 * $margin);
+    }
+
+    public function testSetLabel()
+    {
+        $qrCode = new QrCode('QrCode');
+        $qrCode
+            ->setSize(300)
+            ->setLabel('Scan the code', 15)
+        ;
+
+        $pngData = $qrCode->writeString(PngWriter::class);
+        $this->assertTrue(is_string($pngData));
+    }
+
+    public function testSetLogo()
+    {
+        $qrCode = new QrCode('QrCode');
+        $qrCode
+            ->setSize(400)
+            ->setLogoPath(__DIR__.'/../assets/symfony.png')
+            ->setLogoSize(150)
+            ->setValidateResult(true);
+        ;
+
+        $pngData = $qrCode->writeString(PngWriter::class);
+        $this->assertTrue(is_string($pngData));
     }
 }

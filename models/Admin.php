@@ -174,11 +174,11 @@ class Admin extends \yii\db\ActiveRecord implements ModelApiInterface
 
     public static function encodePassword($password)
     {
-        return PasswordHash::create_hash($password);
+        return PasswordHash::createHash($password);
     }
 
     public function validatePassword($password)
     {
-        return PasswordHash::validate_password($password, $this->password);
+        return PasswordHash::verifyPassword($password, $this->password);
     }
 }

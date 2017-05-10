@@ -5,10 +5,11 @@ return [
         'db' => [
             'class' => 'yii\db\Connection',
             
-            'dsn' => 'mysql:host=172.17.0.4;dbname=blog',
+//            'dsn' => 'mysql:host=172.17.0.4;dbname=blog',
+            'dsn' => 'mysql:host=db;dbname=data_collection',
             
             'username' => 'root',
-            'password' => 'root',
+            'password' => '7',
             'charset' => 'utf8mb4',
 
             'slaveConfig' => [

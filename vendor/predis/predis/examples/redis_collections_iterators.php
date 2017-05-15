@@ -29,7 +29,7 @@ use Predis\Collection\Iterator;
 // See http://redis.io/commands/scan for more details.
 //
 
-// Create a admin using `2.8` as a server profile (needs Redis 2.8!)
+// Create a client using `2.8` as a server profile (needs Redis 2.8!)
 $client = new Predis\Client($single_server, array('profile' => '2.8'));
 
 // Prepare some keys for our example

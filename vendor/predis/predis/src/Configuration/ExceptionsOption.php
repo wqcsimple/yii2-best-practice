@@ -12,7 +12,7 @@
 namespace Predis\Configuration;
 
 /**
- * Configures whether consumers (such as the admin) should throw exceptions on
+ * Configures whether consumers (such as the client) should throw exceptions on
  * Redis errors (-ERR responses) or just return instances of error responses.
  *
  * @author Daniele Alessandri <suppakilla@gmail.com>

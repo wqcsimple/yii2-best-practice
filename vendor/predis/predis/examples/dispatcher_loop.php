@@ -22,10 +22,10 @@ require __DIR__.'/shared.php';
 // PUBLISH events third
 // PUBLISH control terminate_dispatcher
 
-// Create a admin and disable r/w timeout on the socket
+// Create a client and disable r/w timeout on the socket
 $client = new Predis\Client($single_server + array('read_write_timeout' => 0));
 
-// Return an initialized PubSub consumer instance from the admin.
+// Return an initialized PubSub consumer instance from the client.
 $pubsub = $client->pubSubLoop();
 
 // Create a dispatcher loop instance and attach a bunch of callbacks.

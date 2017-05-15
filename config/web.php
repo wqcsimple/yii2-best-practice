@@ -108,7 +108,6 @@ $config['params'] = [
         'prefix' => 'yii2.best.api.',
     ],
 
-    'redis-key-prefix' => 'yii2.best.api.'
 ];
 
 if (YII_ENV_DEV)

@@ -23,7 +23,7 @@ class ClientExceptionTest extends PredisTestCase
      */
     public function testExceptionMessage()
     {
-        $message = 'This is a admin exception.';
+        $message = 'This is a client exception.';
 
         $this->setExpectedException('Predis\ClientException', $message);
 

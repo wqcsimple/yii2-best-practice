@@ -19,7 +19,7 @@ use Predis\NotSupportedException;
 
 /**
  * Abstraction for a cluster of aggregate connections to various Redis servers
- * implementing admin-side sharding based on pluggable distribution strategies.
+ * implementing client-side sharding based on pluggable distribution strategies.
  *
  * @author Daniele Alessandri <suppakilla@gmail.com>
  *

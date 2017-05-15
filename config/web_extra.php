@@ -39,6 +39,13 @@ return [
             'read_write_timeout' => 0,
             'database' => 0,
         ],
+        
+        'elasticsearch' => [
+            'hosts' => [
+                '106.14.135.129:9200'
+            ]
+        ],
     ]
+    
 
 ];

@@ -16,7 +16,7 @@ require __DIR__.'/shared.php';
 // Additionally to the EVAL command defined in the current development profile,
 // the Predis\Command\ScriptCommand class can be used to build an higher level
 // abstraction for "scriptable" commands so that they will appear just like any
-// other command on the admin-side. This is a quick example used to implement
+// other command on the client-side. This is a quick example used to implement
 // INCREX.
 
 use Predis\Command\ScriptCommand;

@@ -105,7 +105,7 @@ abstract class PredisTestCase extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Returns a named array with the default admin options and their values.
+     * Returns a named array with the default client options and their values.
      *
      * @return array Default connection parameters.
      */
@@ -171,11 +171,11 @@ abstract class PredisTestCase extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Returns a new admin instance.
+     * Returns a new client instance.
      *
      * @param array $parameters Additional connection parameters.
-     * @param array $options    Additional admin options.
-     * @param bool  $flushdb    Flush selected database before returning the admin.
+     * @param array $options    Additional client options.
+     * @param bool  $flushdb    Flush selected database before returning the client.
      *
      * @return Client
      */
@@ -204,9 +204,35 @@ abstract class PredisTestCase extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Returns a base mocked connection from Predis\Connection\NodeConnectionInterface.
+     *
+     * @param mixed $parameters Optional parameters.
+     *
+     * @return mixed
+     */
+    protected function getMockConnection($parameters = null)
+    {
+        $connection = $this->getMock('Predis\Connection\NodeConnectionInterface');
+
+        if ($parameters) {
+            $parameters = Connection\Parameters::create($parameters);
+            $hash = "{$parameters->host}:{$parameters->port}";
+
+            $connection->expects($this->any())
+                       ->method('getParameters')
+                       ->will($this->returnValue($parameters));
+            $connection->expects($this->any())
+                       ->method('__toString')
+                       ->will($this->returnValue($hash));
+        }
+
+        return $connection;
+    }
+
+    /**
      * Returns the server version of the Redis instance used by the test suite.
      *
-     * @throws RuntimeException When the admin cannot retrieve the current server version
+     * @throws RuntimeException When the client cannot retrieve the current server version
      *
      * @return string
      */

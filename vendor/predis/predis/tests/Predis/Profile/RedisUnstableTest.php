@@ -190,6 +190,13 @@ class RedisUnstableTest extends PredisProfileTestCase
             149 => 'PFMERGE',
             150 => 'COMMAND',
             151 => 'HSTRLEN',
+            152 => 'BITFIELD',
+            153 => 'GEOADD',
+            154 => 'GEOHASH',
+            155 => 'GEOPOS',
+            156 => 'GEODIST',
+            157 => 'GEORADIUS',
+            158 => 'GEORADIUSBYMEMBER',
         );
     }
 }

@@ -11,7 +11,7 @@
 
 require __DIR__.'/shared.php';
 
-// This is an implementation of an atomic admin-side ZPOP using the support for
+// This is an implementation of an atomic client-side ZPOP using the support for
 // check-and-set (CAS) operations with MULTI/EXEC transactions, as described in
 // "WATCH explained" from http://redis.io/topics/transactions
 //
@@ -28,10 +28,10 @@ function zpop($client, $key)
 {
     $element = null;
     $options = array(
-        'cas'   => true,    // Initialize with support for CAS operations
+        'cas' => true,      // Initialize with support for CAS operations
         'watch' => $key,    // Key that needs to be WATCHed to detect changes
         'retry' => 3,       // Number of retries on aborted transactions, after
-                            // which the admin bails out with an exception.
+                            // which the client bails out with an exception.
     );
 
     $client->transaction($options, function ($tx) use ($key, &$element) {

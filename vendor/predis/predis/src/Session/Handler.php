@@ -29,7 +29,7 @@ class Handler implements \SessionHandlerInterface
     protected $ttl;
 
     /**
-     * @param ClientInterface $client  Fully initialized admin instance.
+     * @param ClientInterface $client  Fully initialized client instance.
      * @param array           $options Session handler options.
      */
     public function __construct(ClientInterface $client, array $options = array())
@@ -121,7 +121,7 @@ class Handler implements \SessionHandlerInterface
     }
 
     /**
-     * Returns the underlying admin instance.
+     * Returns the underlying client instance.
      *
      * @return ClientInterface
      */

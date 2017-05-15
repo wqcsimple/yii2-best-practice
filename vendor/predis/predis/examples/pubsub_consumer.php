@@ -14,7 +14,7 @@ require __DIR__.'/shared.php';
 // Starting from Redis 2.0 clients can subscribe and listen for events published
 // on certain channels using a Publish/Subscribe (PUB/SUB) approach.
 
-// Create a admin and disable r/w timeout on the socket
+// Create a client and disable r/w timeout on the socket
 $client = new Predis\Client($single_server + array('read_write_timeout' => 0));
 
 // Initialize a new pubsub consumer.
@@ -51,7 +51,7 @@ foreach ($pubsub as $message) {
 
 // Always unset the pubsub consumer instance when you are done! The
 // class destructor will take care of cleanups and prevent protocol
-// desynchronizations between the admin and the server.
+// desynchronizations between the client and the server.
 unset($pubsub);
 
 // Say goodbye :-)

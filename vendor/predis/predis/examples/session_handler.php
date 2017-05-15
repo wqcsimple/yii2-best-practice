@@ -29,7 +29,7 @@ if (!interface_exists('SessionHandlerInterface')) {
         "or a polyfill for SessionHandlerInterface provided by an external package.\n");
 }
 
-// Instantiate a new admin just like you would normally do. Using a prefix for
+// Instantiate a new client just like you would normally do. Using a prefix for
 // keys will effectively prefix all session keys with the specified string.
 $client = new Predis\Client($single_server, array('prefix' => 'sessions:'));
 

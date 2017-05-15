@@ -15,7 +15,7 @@ use Predis\Connection\Factory;
 use Predis\Connection\FactoryInterface;
 
 /**
- * Configures a connection factory used by the admin to create new connection
+ * Configures a connection factory used by the client to create new connection
  * instances for single Redis nodes.
  *
  * @author Daniele Alessandri <suppakilla@gmail.com>
@@ -49,6 +49,12 @@ class ConnectionFactoryOption implements OptionInterface
      */
     public function getDefault(OptionsInterface $options)
     {
-        return new Factory();
+        $factory = new Factory();
+
+        if ($options->defined('parameters')) {
+            $factory->setDefaultParameters($options->parameters);
+        }
+
+        return $factory;
     }
 }

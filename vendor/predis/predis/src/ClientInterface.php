@@ -17,9 +17,9 @@ use Predis\Connection\ConnectionInterface;
 use Predis\Profile\ProfileInterface;
 
 /**
- * Interface defining a admin able to execute commands against Redis.
+ * Interface defining a client able to execute commands against Redis.
  *
- * All the commands exposed by the admin generally have the same signature as
+ * All the commands exposed by the client generally have the same signature as
  * described by the Redis documentation, but some of them offer an additional
  * and more friendly interface to ease programming which is described in the
  * following list of methods:
@@ -46,6 +46,7 @@ use Predis\Profile\ProfileInterface;
  * @method int    append($key, $value)
  * @method int    bitcount($key, $start = null, $end = null)
  * @method int    bitop($operation, $destkey, $key)
+ * @method array  bitfield($key, $subcommand, ...$subcommandArg)
  * @method int    decr($key)
  * @method int    decrby($key, $decrement)
  * @method string get($key)
@@ -79,6 +80,7 @@ use Predis\Profile\ProfileInterface;
  * @method int    hset($key, $field, $value)
  * @method int    hsetnx($key, $field, $value)
  * @method array  hvals($key)
+ * @method int    hstrlen($key, $field)
  * @method array  blpop(array $keys, $timeout)
  * @method array  brpop(array $keys, $timeout)
  * @method array  brpoplpush($source, $destination, $timeout)
@@ -105,7 +107,7 @@ use Predis\Profile\ProfileInterface;
  * @method int    sismember($key, $member)
  * @method array  smembers($key)
  * @method int    smove($source, $destination, $member)
- * @method string spop($key)
+ * @method string spop($key, $count = null)
  * @method string srandmember($key, $count = null)
  * @method int    srem($key, $member)
  * @method array  sscan($key, $cursor, array $options = null)
@@ -129,6 +131,7 @@ use Predis\Profile\ProfileInterface;
  * @method string zscore($key, $member)
  * @method array  zscan($key, $cursor, array $options = null)
  * @method array  zrangebylex($key, $start, $stop, array $options = null)
+ * @method array  zrevrangebylex($key, $start, $stop, array $options = null)
  * @method int    zremrangebylex($key, $min, $max)
  * @method int    zlexcount($key, $min, $max)
  * @method int    pfadd($key, array $elements)
@@ -150,7 +153,7 @@ use Predis\Profile\ProfileInterface;
  * @method mixed  select($database)
  * @method mixed  bgrewriteaof()
  * @method mixed  bgsave()
- * @method mixed  admin($subcommand, $argument = null)
+ * @method mixed  client($subcommand, $argument = null)
  * @method mixed  config($subcommand, $argument = null)
  * @method int    dbsize()
  * @method mixed  flushall()
@@ -162,20 +165,26 @@ use Predis\Profile\ProfileInterface;
  * @method mixed  slowlog($subcommand, $argument = null)
  * @method array  time()
  * @method array  command()
+ * @method int    geoadd($key, $longitude, $latitude, $member)
+ * @method array  geohash($key, array $members)
+ * @method array  geopos($key, array $members)
+ * @method string geodist($key, $member1, $member2, $unit = null)
+ * @method array  georadius($key, $longitude, $latitude, $radius, $unit, array $options = null)
+ * @method array  georadiusbymember($key, $member, $radius, $unit, array $options = null)
  *
  * @author Daniele Alessandri <suppakilla@gmail.com>
  */
 interface ClientInterface
 {
     /**
-     * Returns the server profile used by the admin.
+     * Returns the server profile used by the client.
      *
      * @return ProfileInterface
      */
     public function getProfile();
 
     /**
-     * Returns the admin options specified upon initialization.
+     * Returns the client options specified upon initialization.
      *
      * @return OptionsInterface
      */

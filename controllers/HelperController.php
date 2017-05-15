@@ -7,15 +7,50 @@
  */
 namespace app\controllers;
 
+use app\services\SearchService;
 use yii\web\Controller;
 
 class HelperController extends Controller
 {
     public function actionIndex()
     {
-//        $file_url = "http://static.yuntick.com/besst/file/43b48145f55e3095c0c73a5a00eba44e.xlsx";
-//
-//        $a = \PHPExcel_IOFactory::load($file_url);
-//        dump($a);
+        $client = SearchService::getClient();
+
+        $params = [
+            'index' => 'my_index',
+            'type' => 'my_type',
+            'id' => 'my_id',
+            'body' => ['testField' => 'abc']
+        ];
+
+        $response = $client->index($params);
+        
+        dump($response);
     }
+    
+    public function actionGet()
+    {
+        $client = SearchService::getClient();
+        
+        $key = 'b';
+        $params = [
+            'index' => 'my_index',
+            'type' => 'my_type',
+            'body' => [
+                'query' => [
+                    'bool' => [
+                        'should' => [
+                            ['match' => ['testField' => 'abc1']],   
+                            ['wildcard' => ['testField' => "*$key*"]],   
+                            ['match' => ['testField' => 'c']],  
+                        ]
+                    ] 
+                ]
+            ]
+        ];
+
+        $response = $client->search($params);
+        dump($response);
+    }
+    
 }

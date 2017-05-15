@@ -12,10 +12,10 @@
 require __DIR__.'/shared.php';
 
 // Predis allows to set Lua scripts as read-only operations for replication.
-// This works for both EVAL and EVALSHA and also for the admin-side abstraction
+// This works for both EVAL and EVALSHA and also for the client-side abstraction
 // built upon them (Predis\Command\ScriptCommand). This example shows a slightly
 // more complex configuration that injects a new script command in the server
-// profile used by the new admin instance and marks it marks it as a read-only
+// profile used by the new client instance and marks it marks it as a read-only
 // operation for replication so that it will be executed on slaves.
 
 use Predis\Command\ScriptCommand;

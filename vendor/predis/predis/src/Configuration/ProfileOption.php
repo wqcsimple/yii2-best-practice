@@ -16,7 +16,7 @@ use Predis\Profile\ProfileInterface;
 use Predis\Profile\RedisProfile;
 
 /**
- * Configures the server profile to be used by the admin to create command
+ * Configures the server profile to be used by the client to create command
  * instances depending on the specified version of the Redis server.
  *
  * @author Daniele Alessandri <suppakilla@gmail.com>

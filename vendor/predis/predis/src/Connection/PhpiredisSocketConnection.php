@@ -14,6 +14,7 @@ namespace Predis\Connection;
 use Predis\Command\CommandInterface;
 use Predis\NotSupportedException;
 use Predis\Response\Error as ErrorResponse;
+use Predis\Response\ErrorInterface as ErrorResponseInterface;
 use Predis\Response\Status as StatusResponse;
 
 /**
@@ -142,11 +143,17 @@ class PhpiredisSocketConnection extends AbstractConnection
      *
      * @return \Closure
      */
-    private function getStatusHandler()
+    protected function getStatusHandler()
     {
-        return function ($payload) {
-            return StatusResponse::get($payload);
-        };
+        static $statusHandler;
+
+        if (!$statusHandler) {
+            $statusHandler = function ($payload) {
+                return StatusResponse::get($payload);
+            };
+        }
+
+        return $statusHandler;
     }
 
     /**
@@ -156,9 +163,15 @@ class PhpiredisSocketConnection extends AbstractConnection
      */
     protected function getErrorHandler()
     {
-        return function ($payload) {
-            return new ErrorResponse($payload);
-        };
+        static $errorHandler;
+
+        if (!$errorHandler) {
+            $errorHandler = function ($errorMessage) {
+                return new ErrorResponse($errorMessage);
+            };
+        }
+
+        return $errorHandler;
     }
 
     /**
@@ -316,7 +329,11 @@ class PhpiredisSocketConnection extends AbstractConnection
     {
         if (parent::connect() && $this->initCommands) {
             foreach ($this->initCommands as $command) {
-                $this->executeCommand($command);
+                $response = $this->executeCommand($command);
+
+                if ($response instanceof ErrorResponseInterface) {
+                    $this->onConnectionError("`{$command->getId()}` failed: $response", 0);
+                }
             }
         }
     }

@@ -47,9 +47,9 @@ abstract class PredisCommandTestCase extends PredisTestCase
     }
 
     /**
-     * Returns a new admin instance.
+     * Returns a new client instance.
      *
-     * @param bool $flushdb Flush selected database before returning the admin.
+     * @param bool $flushdb Flush selected database before returning the client.
      *
      * @return Client
      */

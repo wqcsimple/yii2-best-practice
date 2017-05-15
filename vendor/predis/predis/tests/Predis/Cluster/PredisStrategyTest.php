@@ -110,6 +110,24 @@ class PredisStrategyTest extends PredisTestCase
     /**
      * @group disconnected
      */
+    public function testKeysForSortCommand()
+    {
+        $strategy = $this->getClusterStrategy();
+        $profile = Profile\Factory::getDevelopment();
+        $arguments = array('{key}:1', 'value1', '{key}:2', 'value2');
+
+        $commandID = 'SORT';
+
+        $command = $profile->createCommand($commandID, array('{key}:1'));
+        $this->assertNotNull($strategy->getSlot($command), $commandID);
+
+        $command = $profile->createCommand($commandID, array('{key}:1', array('STORE' => '{key}:2')));
+        $this->assertNotNull($strategy->getSlot($command), $commandID);
+    }
+
+    /**
+     * @group disconnected
+     */
     public function testKeysForBlockingListCommands()
     {
         $strategy = $this->getClusterStrategy();
@@ -150,6 +168,40 @@ class PredisStrategyTest extends PredisTestCase
             $command = $profile->createCommand($commandID, $arguments);
             $this->assertNotNull($strategy->getSlot($command), $commandID);
         }
+    }
+
+    /**
+     * @group disconnected
+     */
+    public function testKeysForGeoradiusCommand()
+    {
+        $strategy = $this->getClusterStrategy();
+        $profile = Profile\Factory::getDevelopment();
+
+        $commandID = 'GEORADIUS';
+
+        $command = $profile->createCommand($commandID, array('{key}:1', 10, 10, 1, 'km'));
+        $this->assertNotNull($strategy->getSlot($command), $commandID);
+
+        $command = $profile->createCommand($commandID, array('{key}:1', 10, 10, 1, 'km', 'store', '{key}:2', 'storedist', '{key}:3'));
+        $this->assertNotNull($strategy->getSlot($command), $commandID);
+    }
+
+    /**
+     * @group disconnected
+     */
+    public function testKeysForGeoradiusByMemberCommand()
+    {
+        $strategy = $this->getClusterStrategy();
+        $profile = Profile\Factory::getDevelopment();
+
+        $commandID = 'GEORADIUSBYMEMBER';
+
+        $command = $profile->createCommand($commandID, array('{key}:1', 'member', 1, 'km'));
+        $this->assertNotNull($strategy->getSlot($command), $commandID);
+
+        $command = $profile->createCommand($commandID, array('{key}:1', 'member', 1, 'km', 'store', '{key}:2', 'storedist', '{key}:3'));
+        $this->assertNotNull($strategy->getSlot($command), $commandID);
     }
 
     /**
@@ -265,7 +317,7 @@ class PredisStrategyTest extends PredisTestCase
             'PEXPIREAT' => 'keys-first',
             'TTL' => 'keys-first',
             'PTTL' => 'keys-first',
-            'SORT' => 'keys-first', // TODO
+            'SORT' => 'variable',
             'DUMP' => 'keys-first',
             'RESTORE' => 'keys-first',
 
@@ -292,6 +344,7 @@ class PredisStrategyTest extends PredisTestCase
             'SUBSTR' => 'keys-first',
             'BITOP' => 'keys-bitop',
             'BITCOUNT' => 'keys-first',
+            'BITFIELD' => 'keys-first',
 
             /* commands operating on lists */
             'LINSERT' => 'keys-first',
@@ -376,6 +429,14 @@ class PredisStrategyTest extends PredisTestCase
             /* scripting */
             'EVAL' => 'keys-script',
             'EVALSHA' => 'keys-script',
+
+            /* commands performing geospatial operations */
+            'GEOADD' => 'keys-first',
+            'GEOHASH' => 'keys-first',
+            'GEOPOS' => 'keys-first',
+            'GEODIST' => 'keys-first',
+            'GEORADIUS' => 'keys-georadius',
+            'GEORADIUSBYMEMBER' => 'keys-georadius',
         );
 
         if (isset($type)) {

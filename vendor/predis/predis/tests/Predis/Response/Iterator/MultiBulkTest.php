@@ -100,7 +100,7 @@ class MultiBulkTest extends PredisTestCase
     // ******************************************************************** //
 
     /**
-     * Returns a new admin instance.
+     * Returns a new client instance.
      *
      * @return Client
      */

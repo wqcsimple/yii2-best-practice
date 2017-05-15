@@ -55,7 +55,7 @@ abstract class CursorBasedIterator implements \Iterator
     }
 
     /**
-     * Ensures that the admin supports the specified Redis command required to
+     * Ensures that the client supports the specified Redis command required to
      * fetch elements from the server to perform the iteration.
      *
      * @param ClientInterface $client    Client connected to Redis.

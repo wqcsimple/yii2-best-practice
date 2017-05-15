@@ -2,12 +2,7 @@
 
 namespace app\controllers;
 
-use app\models\Project;
-use app\modules\client\v100\services\ProjectMemberService;
-use dix\base\component\BaseController;
-use Yii;
-use yii\web\NotFoundHttpException;
-
+use dix\base\controller\BaseController;
 
 class MigrateController extends BaseController
 {

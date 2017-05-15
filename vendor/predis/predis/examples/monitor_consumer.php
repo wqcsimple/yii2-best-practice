@@ -12,11 +12,11 @@
 require __DIR__.'/shared.php';
 
 // This is a basic example on how to use the Predis\Monitor\Consumer class. You
-// can use redis-cli to send commands to the same Redis instance your admin is
+// can use redis-cli to send commands to the same Redis instance your client is
 // connected to, and then type "ECHO QUIT_MONITOR" in redis-cli when you want to
 // exit the monitor loop and terminate this script in a graceful way.
 
-// Create a admin and disable r/w timeout on the socket.
+// Create a client and disable r/w timeout on the socket.
 $client = new Predis\Client($single_server + array('read_write_timeout' => 0));
 
 // Use only one instance of DateTime, we will update the timestamp later.

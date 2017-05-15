@@ -57,7 +57,7 @@ class MultiExec implements ClientContextInterface
     }
 
     /**
-     * Checks if the passed admin instance satisfies the required conditions
+     * Checks if the passed client instance satisfies the required conditions
      * needed to initialize the transaction object.
      *
      * @param ClientInterface $client Client instance used by the transaction object.
@@ -82,7 +82,7 @@ class MultiExec implements ClientContextInterface
     /**
      * Configures the transaction using the provided options.
      *
-     * @param ClientInterface $client  Underlying admin instance.
+     * @param ClientInterface $client  Underlying client instance.
      * @param array           $options Array of options for the transaction.
      **/
     protected function configure(ClientInterface $client, array $options)

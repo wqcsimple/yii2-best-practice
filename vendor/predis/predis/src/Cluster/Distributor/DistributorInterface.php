@@ -15,7 +15,7 @@ use Predis\Cluster\Hash\HashGeneratorInterface;
 
 /**
  * A distributor implements the logic to automatically distribute keys among
- * several nodes for admin-side sharding.
+ * several nodes for client-side sharding.
  *
  * @author Daniele Alessandri <suppakilla@gmail.com>
  */

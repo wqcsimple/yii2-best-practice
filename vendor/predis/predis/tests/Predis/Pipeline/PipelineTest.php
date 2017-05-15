@@ -482,11 +482,11 @@ class PipelineTest extends PredisTestCase
     // ******************************************************************** //
 
     /**
-     * Returns a admin instance connected to the specified Redis
+     * Returns a client instance connected to the specified Redis
      * server instance to perform integration tests.
      *
      * @param array $parameters Additional connection parameters.
-     * @param array $options    Additional admin options.
+     * @param array $options    Additional client options.
      *
      * @return Client
      */

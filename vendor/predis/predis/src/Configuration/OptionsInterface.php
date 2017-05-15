@@ -12,12 +12,12 @@
 namespace Predis\Configuration;
 
 /**
- * Interface defining a container for admin options.
+ * Interface defining a container for client options.
  *
  * @property-read mixed aggregate   Custom connection aggregator.
  * @property-read mixed cluster     Aggregate connection for clustering.
  * @property-read mixed connections Connection factory.
- * @property-read mixed exceptions  Toggles exceptions in admin for -ERR responses.
+ * @property-read mixed exceptions  Toggles exceptions in client for -ERR responses.
  * @property-read mixed prefix      Key prefixing strategy using the given prefix.
  * @property-read mixed profile     Server profile.
  * @property-read mixed replication Aggregate connection for replication.

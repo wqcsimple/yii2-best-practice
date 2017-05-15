@@ -11,6 +11,7 @@ use app\components\DXConst;
 use app\components\DXKey;
 use app\components\DXUtil;
 use app\components\PushMessage;
+use dix\base\component\Redis;
 use yii\console\Controller;
 
 /**
@@ -37,12 +38,11 @@ class RunController extends Controller
         /**
          * @var \Predis\Client $redis
          */
-
-        $redis = DXUtil::redisPubSubClient();
+        $redis = Redis::client();
 
         $user_func = function($pubsub, $message){
 
-            $redis = DXUtil::redisClient();
+            $redis = Redis::client();
 
             switch ($message->kind) {
                 case 'subscribe':

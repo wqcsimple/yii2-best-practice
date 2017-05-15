@@ -12,6 +12,7 @@ class ComposerStaticInita6efcab76222e76b02a4acfacc051f87
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
+        'ad155f8f1cf0d418fe49e248db8c661b' => __DIR__ . '/..' . '/react/promise/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '626dcc41390ebdaa619faa02d99943b0' => __DIR__ . '/..' . '/khanamiryan/qrcode-detector-decoder/lib/common/customFunctions.php',
@@ -45,12 +46,17 @@ class ComposerStaticInita6efcab76222e76b02a4acfacc051f87
             'Symfony\\Component\\OptionsResolver\\' => 34,
             'Symfony\\Component\\Inflector\\' => 28,
         ),
+        'R' => 
+        array (
+            'React\\Promise\\' => 14,
+        ),
         'Q' => 
         array (
             'Qiniu\\' => 6,
         ),
         'P' => 
         array (
+            'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Predis\\' => 7,
         ),
@@ -60,6 +66,8 @@ class ComposerStaticInita6efcab76222e76b02a4acfacc051f87
         ),
         'G' => 
         array (
+            'GuzzleHttp\\Stream\\' => 18,
+            'GuzzleHttp\\Ring\\' => 16,
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
@@ -71,6 +79,7 @@ class ComposerStaticInita6efcab76222e76b02a4acfacc051f87
         'E' => 
         array (
             'Endroid\\QrCode\\' => 15,
+            'Elasticsearch\\' => 14,
         ),
     );
 
@@ -131,9 +140,17 @@ class ComposerStaticInita6efcab76222e76b02a4acfacc051f87
         array (
             0 => __DIR__ . '/..' . '/symfony/inflector',
         ),
+        'React\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/react/promise/src',
+        ),
         'Qiniu\\' => 
         array (
             0 => __DIR__ . '/..' . '/qiniu/php-sdk/src/Qiniu',
+        ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
         'Psr\\Http\\Message\\' => 
         array (
@@ -146,6 +163,14 @@ class ComposerStaticInita6efcab76222e76b02a4acfacc051f87
         'MyCLabs\\Enum\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/php-enum/src',
+        ),
+        'GuzzleHttp\\Stream\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/streams/src',
+        ),
+        'GuzzleHttp\\Ring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/ringphp/src',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (
@@ -166,6 +191,10 @@ class ComposerStaticInita6efcab76222e76b02a4acfacc051f87
         'Endroid\\QrCode\\' => 
         array (
             0 => __DIR__ . '/..' . '/endroid/qrcode/src',
+        ),
+        'Elasticsearch\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/elasticsearch/elasticsearch/src/Elasticsearch',
         ),
     );
 

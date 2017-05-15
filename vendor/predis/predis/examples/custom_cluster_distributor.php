@@ -12,7 +12,7 @@
 require __DIR__.'/shared.php';
 
 // Developers can implement Predis\Distribution\DistributorInterface to create
-// their own distributors used by the admin to distribute keys among a cluster
+// their own distributors used by the client to distribute keys among a cluster
 // of servers.
 
 use Predis\Cluster\Distributor\DistributorInterface;

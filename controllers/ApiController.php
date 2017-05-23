@@ -8,13 +8,11 @@
 namespace app\controllers;
 
 use app\components\BaseApiController;
-use app\components\DXConst;
 use dix\base\exception\ServiceErrorNotExistsException;
 use Upload\File;
 use Upload\Storage\FileSystem;
 use Upload\Validation\Mimetype;
 use Upload\Validation\Size;
-use yii\caching\DummyCache;
 
 class ApiController extends BaseApiController
 {

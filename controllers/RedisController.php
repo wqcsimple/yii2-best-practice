@@ -10,6 +10,7 @@ namespace app\controllers;
 use dix\base\component\Redis;
 use dix\base\controller\BaseController;
 use Predis\PubSub\DispatcherLoop;
+use yii\helpers\Json;
 
 class RedisController extends BaseController
 {
@@ -45,6 +46,19 @@ class RedisController extends BaseController
         
         $version = redis_version($redis->info());
         echo "Goodbye from Redis $version!", PHP_EOL;
+        
+    }
+    
+    public function actionTest()
+    {
+        $redis = Redis::client();
+        
+        $data = [
+            'value' => '1',
+            'time' => "2017",
+            'date' => "0501"
+        ];
+        $redis->hset('website', 'whis', Json::encode($data));
         
     }
 }

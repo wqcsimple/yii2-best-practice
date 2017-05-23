@@ -61,7 +61,7 @@ $config['params'] = [
     ],
 
     'redis-option' => [
-        'prefix' => 'whis.base.api.',
+         'prefix' => 'whis.best.api.',
     ],
 ];
 

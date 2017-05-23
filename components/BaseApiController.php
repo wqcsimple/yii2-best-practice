@@ -2,7 +2,6 @@
 
 namespace app\components;
 
-use Yii;
 use yii\web\Controller;
 
 class BaseApiController extends Controller
@@ -17,7 +16,7 @@ class BaseApiController extends Controller
             if (!isset($this->params[$p]))
             {
                 $error = [];
-                $error['code'] = \app\components\DXConst::ERROR_PARAM_NOT_SET;
+                $error['code'] = DXConst::ERROR_PARAM_NOT_SET;
                 $error['message'] = 'param ' . $p . ' not set';
                 $this->finish($error);
             }

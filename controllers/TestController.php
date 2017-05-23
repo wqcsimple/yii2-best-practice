@@ -2,21 +2,12 @@
 
 namespace app\controllers;
 
+use app\components\BaseApiController;
 use app\components\Debug;
-use app\components\DXLog;
-use app\components\DXUtil;
-use app\models\User;
-use app\modules\client\v101\data\Api;
-use app\modules\client\v101\services\TaskService;
-use app\services\WebSocketService;
 use dix\base\component\Redis;
-use GuzzleHttp\Client;
-use Yii;
 use yii\base\UserException;
-use yii\helpers\Html;
-use yii\web\Controller;
 
-class TestController extends Controller
+class TestController extends BaseApiController
 {
     public function actionClient($v = 100)
     {
@@ -95,7 +86,11 @@ class TestController extends Controller
 
     public function actionTest()
     {
+        $arr = [
+            'repeat_week_days' => [1, 2, 3]
+        ];
         
+        $this->finish($arr);
     }
 
 }

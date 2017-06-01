@@ -25,8 +25,6 @@ return [
                 ['dsn' => 'mysql:host=172.17.0.5;dbname=blog'],
             ],
         ],
-        
-        
     ],
     
     
@@ -39,6 +37,7 @@ return [
             'read_write_timeout' => 0,
             'database' => 0,
         ],
+        
 //        'redis-param' => [
 //            'scheme' => 'tcp',
 //            'host'   => '10.27.103.127',

@@ -22,8 +22,6 @@ class Api
     public static function ActionList()
     {
         
-
-        
         $contact_actions = [
             [
                 'type' => self::TYPE_DATA,

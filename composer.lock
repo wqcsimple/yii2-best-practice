@@ -434,16 +434,16 @@
         },
         {
             "name": "endroid/qrcode",
-            "version": "2.1.4",
+            "version": "2.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/endroid/QrCode.git",
-                "reference": "57ff85573a7ad466e247ea9264bea07590842cd6"
+                "reference": "daa07e11249362e0fc0edf97f83719794d87726b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/endroid/QrCode/57ff85573a7ad466e247ea9264bea07590842cd6.zip",
-                "reference": "57ff85573a7ad466e247ea9264bea07590842cd6",
+                "url": "https://files.phpcomposer.com/files/endroid/QrCode/daa07e11249362e0fc0edf97f83719794d87726b.zip",
+                "reference": "daa07e11249362e0fc0edf97f83719794d87726b",
                 "shasum": ""
             },
             "require": {
@@ -499,7 +499,7 @@
                 "qrcode",
                 "symfony"
             ],
-            "time": "2017-04-29T20:57:19+00:00"
+            "time": "2017-05-30T13:53:47+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -1326,16 +1326,16 @@
         },
         {
             "name": "symfony/inflector",
-            "version": "v3.2.8",
+            "version": "v3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/inflector.git",
-                "reference": "93cdcef6a06d74379cc314d39bafeb55368e447c"
+                "reference": "aed5a0874a3bcfd8d0393a2d91b4cf828f29c7fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/inflector/93cdcef6a06d74379cc314d39bafeb55368e447c.zip",
-                "reference": "93cdcef6a06d74379cc314d39bafeb55368e447c",
+                "url": "https://files.phpcomposer.com/files/symfony/inflector/aed5a0874a3bcfd8d0393a2d91b4cf828f29c7fb.zip",
+                "reference": "aed5a0874a3bcfd8d0393a2d91b4cf828f29c7fb",
                 "shasum": ""
             },
             "require": {
@@ -1344,7 +1344,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.2-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -1379,20 +1379,20 @@
                 "symfony",
                 "words"
             ],
-            "time": "2017-04-12T14:13:17+00:00"
+            "time": "2017-04-12T14:14:56+00:00"
         },
         {
             "name": "symfony/options-resolver",
-            "version": "v3.2.8",
+            "version": "v3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/options-resolver.git",
-                "reference": "8cbb4f23414e2a5e92690cf67680a979a461113c"
+                "reference": "ff48982d295bcac1fd861f934f041ebc73ae40f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/options-resolver/8cbb4f23414e2a5e92690cf67680a979a461113c.zip",
-                "reference": "8cbb4f23414e2a5e92690cf67680a979a461113c",
+                "url": "https://files.phpcomposer.com/files/symfony/options-resolver/ff48982d295bcac1fd861f934f041ebc73ae40f0.zip",
+                "reference": "ff48982d295bcac1fd861f934f041ebc73ae40f0",
                 "shasum": ""
             },
             "require": {
@@ -1401,7 +1401,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.2-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -1433,7 +1433,7 @@
                 "configuration",
                 "options"
             ],
-            "time": "2017-04-12T14:13:17+00:00"
+            "time": "2017-04-12T14:14:56+00:00"
         },
         {
             "name": "symfony/polyfill-php70",
@@ -1496,16 +1496,16 @@
         },
         {
             "name": "symfony/property-access",
-            "version": "v3.2.8",
+            "version": "v3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/property-access.git",
-                "reference": "9faa1525b8509705eca72bb2c89965aaa65e089c"
+                "reference": "26d708b53e3b730231225226111e551c4b06b203"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/symfony/property-access/9faa1525b8509705eca72bb2c89965aaa65e089c.zip",
-                "reference": "9faa1525b8509705eca72bb2c89965aaa65e089c",
+                "url": "https://files.phpcomposer.com/files/symfony/property-access/26d708b53e3b730231225226111e551c4b06b203.zip",
+                "reference": "26d708b53e3b730231225226111e551c4b06b203",
                 "shasum": ""
             },
             "require": {
@@ -1522,7 +1522,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.2-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -1560,7 +1560,7 @@
                 "property path",
                 "reflection"
             ],
-            "time": "2017-04-12T14:13:17+00:00"
+            "time": "2017-05-21T13:55:13+00:00"
         },
         {
             "name": "yiisoft/yii2",
@@ -1929,16 +1929,16 @@
         },
         {
             "name": "yiisoft/yii2-codeception",
-            "version": "2.0.5",
+            "version": "2.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-codeception.git",
-                "reference": "c916a36d09fc128b05a374e7922bc56854334d56"
+                "reference": "086c8c2d28736e7a484a7a8611b5cc84024e9fb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-codeception/zipball/c916a36d09fc128b05a374e7922bc56854334d56",
-                "reference": "c916a36d09fc128b05a374e7922bc56854334d56",
+                "url": "https://files.phpcomposer.com/files/yiisoft/yii2-codeception/086c8c2d28736e7a484a7a8611b5cc84024e9fb3.zip",
+                "reference": "086c8c2d28736e7a484a7a8611b5cc84024e9fb3",
                 "shasum": ""
             },
             "require": {
@@ -1971,7 +1971,7 @@
                 "yii2"
             ],
             "abandoned": "codeception/codeception",
-            "time": "2016-03-17T03:41:26+00:00"
+            "time": "2017-05-22T12:08:21+00:00"
         },
         {
             "name": "yiisoft/yii2-debug",

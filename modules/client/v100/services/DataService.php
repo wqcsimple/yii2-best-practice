@@ -50,29 +50,27 @@ class DataService
     
     public static function dataList($page, $name, $min_price, $max_price)
     {
-        $page = intval($page);
-        $page = $page < 1 ? 1 : intval($page);
-        $size = 20;
-        $offset = ($page - 1) * $size;
+        list($offset, $limit) = DXUtil::processPage($page, 20);
         
-        $query = Item::find()->where(" weight >= 0 ");
+        $condition = ['and', ['>=', 'weight', 0]];
         
         if ($name)
         {
-            $query = $query->andWhere(['like', 'name', $name]);
+            $condition[] = ['like', 'name', $name];
         }
         if ($min_price)
         {
-            $query = $query->andWhere([">=", 'price', $min_price]);
+            $condition[] = [">=", 'price', $min_price];
         }
         if ($max_price)
         {
-            $query = $query->andWhere(["<=", "price", $max_price]);
+            $condition[] = ["<=", 'price', $min_price];
         }
         
+        $query = Item::find()->where($condition);
         $count = intval($query->count());
         
-        $result_list = $query->orderBy(['id' => SORT_DESC])->offset($offset)->limit($size)->all();
+        $result_list = $query->orderBy(['id' => SORT_DESC])->offset($offset)->limit($limit)->all();
         $data_list = DXUtil::formatModelList($result_list, Item::className(), 'processForAdmin');
         
         return [

@@ -273,54 +273,6 @@
         ]
     },
     {
-        "name": "yiisoft/yii2-codeception",
-        "version": "2.0.5",
-        "version_normalized": "2.0.5.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/yiisoft/yii2-codeception.git",
-            "reference": "c916a36d09fc128b05a374e7922bc56854334d56"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/yiisoft/yii2-codeception/zipball/c916a36d09fc128b05a374e7922bc56854334d56",
-            "reference": "c916a36d09fc128b05a374e7922bc56854334d56",
-            "shasum": ""
-        },
-        "require": {
-            "yiisoft/yii2": ">=2.0.4"
-        },
-        "time": "2016-03-17T03:41:26+00:00",
-        "type": "yii2-extension",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.0.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "yii\\codeception\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Mark Jebri",
-                "email": "mark.github@yandex.ru"
-            }
-        ],
-        "description": "The Codeception integration for the Yii framework",
-        "keywords": [
-            "codeception",
-            "yii2"
-        ],
-        "abandoned": "codeception/codeception"
-    },
-    {
         "name": "yiisoft/yii2-bootstrap",
         "version": "2.0.6",
         "version_normalized": "2.0.6.0",
@@ -1340,65 +1292,6 @@
         ]
     },
     {
-        "name": "symfony/inflector",
-        "version": "v3.2.8",
-        "version_normalized": "3.2.8.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/inflector.git",
-            "reference": "93cdcef6a06d74379cc314d39bafeb55368e447c"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/symfony/inflector/93cdcef6a06d74379cc314d39bafeb55368e447c.zip",
-            "reference": "93cdcef6a06d74379cc314d39bafeb55368e447c",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.5.9"
-        },
-        "time": "2017-04-12T14:13:17+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "3.2-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Component\\Inflector\\": ""
-            },
-            "exclude-from-classmap": [
-                "/Tests/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Bernhard Schussek",
-                "email": "bschussek@gmail.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony Inflector Component",
-        "homepage": "https://symfony.com",
-        "keywords": [
-            "inflection",
-            "pluralize",
-            "singularize",
-            "string",
-            "symfony",
-            "words"
-        ]
-    },
-    {
         "name": "paragonie/random_compat",
         "version": "v2.0.10",
         "version_normalized": "2.0.10.0",
@@ -1507,76 +1400,6 @@
             "polyfill",
             "portable",
             "shim"
-        ]
-    },
-    {
-        "name": "symfony/property-access",
-        "version": "v3.2.8",
-        "version_normalized": "3.2.8.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/property-access.git",
-            "reference": "9faa1525b8509705eca72bb2c89965aaa65e089c"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/symfony/property-access/9faa1525b8509705eca72bb2c89965aaa65e089c.zip",
-            "reference": "9faa1525b8509705eca72bb2c89965aaa65e089c",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.5.9",
-            "symfony/inflector": "~3.1",
-            "symfony/polyfill-php70": "~1.0"
-        },
-        "require-dev": {
-            "symfony/cache": "~3.1"
-        },
-        "suggest": {
-            "psr/cache-implementation": "To cache access methods."
-        },
-        "time": "2017-04-12T14:13:17+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "3.2-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Component\\PropertyAccess\\": ""
-            },
-            "exclude-from-classmap": [
-                "/Tests/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony PropertyAccess Component",
-        "homepage": "https://symfony.com",
-        "keywords": [
-            "access",
-            "array",
-            "extraction",
-            "index",
-            "injection",
-            "object",
-            "property",
-            "property path",
-            "reflection"
         ]
     },
     {
@@ -1720,133 +1543,6 @@
         ],
         "description": "BaconQrCode is a QR code generator for PHP.",
         "homepage": "https://github.com/Bacon/BaconQrCode"
-    },
-    {
-        "name": "symfony/options-resolver",
-        "version": "v3.2.8",
-        "version_normalized": "3.2.8.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/options-resolver.git",
-            "reference": "8cbb4f23414e2a5e92690cf67680a979a461113c"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/symfony/options-resolver/8cbb4f23414e2a5e92690cf67680a979a461113c.zip",
-            "reference": "8cbb4f23414e2a5e92690cf67680a979a461113c",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.5.9"
-        },
-        "time": "2017-04-12T14:13:17+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "3.2-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Component\\OptionsResolver\\": ""
-            },
-            "exclude-from-classmap": [
-                "/Tests/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony OptionsResolver Component",
-        "homepage": "https://symfony.com",
-        "keywords": [
-            "config",
-            "configuration",
-            "options"
-        ]
-    },
-    {
-        "name": "endroid/qrcode",
-        "version": "2.1.4",
-        "version_normalized": "2.1.4.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/endroid/QrCode.git",
-            "reference": "57ff85573a7ad466e247ea9264bea07590842cd6"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/endroid/QrCode/57ff85573a7ad466e247ea9264bea07590842cd6.zip",
-            "reference": "57ff85573a7ad466e247ea9264bea07590842cd6",
-            "shasum": ""
-        },
-        "require": {
-            "bacon/bacon-qr-code": "^1.0",
-            "ext-gd": "*",
-            "khanamiryan/qrcode-detector-decoder": "^0.0.1",
-            "myclabs/php-enum": "^1.5",
-            "php": ">=5.6",
-            "symfony/options-resolver": "^2.7|^3.0",
-            "symfony/property-access": "^2.7|^3.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "^5.7|^6.0",
-            "sensio/framework-extra-bundle": "^3.0",
-            "symfony/asset": "^2.7|^3.0",
-            "symfony/browser-kit": "^2.7|^3.0",
-            "symfony/finder": "^2.7|^3.0",
-            "symfony/framework-bundle": "^2.7|^3.0",
-            "symfony/http-kernel": "^2.7|^3.0",
-            "symfony/templating": "^2.7|^3.0",
-            "symfony/twig-bundle": "^2.7|^3.0",
-            "symfony/yaml": "^2.7|^3.0"
-        },
-        "time": "2017-04-29T20:57:19+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Endroid\\QrCode\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Jeroen van den Enden",
-                "email": "info@endroid.nl",
-                "homepage": "http://endroid.nl/"
-            }
-        ],
-        "description": "Endroid QR Code",
-        "homepage": "https://github.com/endroid/QrCode",
-        "keywords": [
-            "bundle",
-            "code",
-            "endroid",
-            "qr",
-            "qrcode",
-            "symfony"
-        ]
     },
     {
         "name": "dix/yii2-base",
@@ -2194,5 +1890,309 @@
             "elasticsearch",
             "search"
         ]
+    },
+    {
+        "name": "symfony/inflector",
+        "version": "v3.3.0",
+        "version_normalized": "3.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/inflector.git",
+            "reference": "aed5a0874a3bcfd8d0393a2d91b4cf828f29c7fb"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/symfony/inflector/aed5a0874a3bcfd8d0393a2d91b4cf828f29c7fb.zip",
+            "reference": "aed5a0874a3bcfd8d0393a2d91b4cf828f29c7fb",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.9"
+        },
+        "time": "2017-04-12T14:14:56+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Inflector\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Bernhard Schussek",
+                "email": "bschussek@gmail.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Inflector Component",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "inflection",
+            "pluralize",
+            "singularize",
+            "string",
+            "symfony",
+            "words"
+        ]
+    },
+    {
+        "name": "symfony/property-access",
+        "version": "v3.3.0",
+        "version_normalized": "3.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/property-access.git",
+            "reference": "26d708b53e3b730231225226111e551c4b06b203"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/symfony/property-access/26d708b53e3b730231225226111e551c4b06b203.zip",
+            "reference": "26d708b53e3b730231225226111e551c4b06b203",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.9",
+            "symfony/inflector": "~3.1",
+            "symfony/polyfill-php70": "~1.0"
+        },
+        "require-dev": {
+            "symfony/cache": "~3.1"
+        },
+        "suggest": {
+            "psr/cache-implementation": "To cache access methods."
+        },
+        "time": "2017-05-21T13:55:13+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\PropertyAccess\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony PropertyAccess Component",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "access",
+            "array",
+            "extraction",
+            "index",
+            "injection",
+            "object",
+            "property",
+            "property path",
+            "reflection"
+        ]
+    },
+    {
+        "name": "symfony/options-resolver",
+        "version": "v3.3.0",
+        "version_normalized": "3.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/options-resolver.git",
+            "reference": "ff48982d295bcac1fd861f934f041ebc73ae40f0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/symfony/options-resolver/ff48982d295bcac1fd861f934f041ebc73ae40f0.zip",
+            "reference": "ff48982d295bcac1fd861f934f041ebc73ae40f0",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.9"
+        },
+        "time": "2017-04-12T14:14:56+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\OptionsResolver\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony OptionsResolver Component",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "config",
+            "configuration",
+            "options"
+        ]
+    },
+    {
+        "name": "endroid/qrcode",
+        "version": "2.2.2",
+        "version_normalized": "2.2.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/endroid/QrCode.git",
+            "reference": "daa07e11249362e0fc0edf97f83719794d87726b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/endroid/QrCode/daa07e11249362e0fc0edf97f83719794d87726b.zip",
+            "reference": "daa07e11249362e0fc0edf97f83719794d87726b",
+            "shasum": ""
+        },
+        "require": {
+            "bacon/bacon-qr-code": "^1.0",
+            "ext-gd": "*",
+            "khanamiryan/qrcode-detector-decoder": "^0.0.1",
+            "myclabs/php-enum": "^1.5",
+            "php": ">=5.6",
+            "symfony/options-resolver": "^2.7|^3.0",
+            "symfony/property-access": "^2.7|^3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.7|^6.0",
+            "sensio/framework-extra-bundle": "^3.0",
+            "symfony/asset": "^2.7|^3.0",
+            "symfony/browser-kit": "^2.7|^3.0",
+            "symfony/finder": "^2.7|^3.0",
+            "symfony/framework-bundle": "^2.7|^3.0",
+            "symfony/http-kernel": "^2.7|^3.0",
+            "symfony/templating": "^2.7|^3.0",
+            "symfony/twig-bundle": "^2.7|^3.0",
+            "symfony/yaml": "^2.7|^3.0"
+        },
+        "time": "2017-05-30T13:53:47+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Endroid\\QrCode\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jeroen van den Enden",
+                "email": "info@endroid.nl",
+                "homepage": "http://endroid.nl/"
+            }
+        ],
+        "description": "Endroid QR Code",
+        "homepage": "https://github.com/endroid/QrCode",
+        "keywords": [
+            "bundle",
+            "code",
+            "endroid",
+            "qr",
+            "qrcode",
+            "symfony"
+        ]
+    },
+    {
+        "name": "yiisoft/yii2-codeception",
+        "version": "2.0.6",
+        "version_normalized": "2.0.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/yiisoft/yii2-codeception.git",
+            "reference": "086c8c2d28736e7a484a7a8611b5cc84024e9fb3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/yiisoft/yii2-codeception/086c8c2d28736e7a484a7a8611b5cc84024e9fb3.zip",
+            "reference": "086c8c2d28736e7a484a7a8611b5cc84024e9fb3",
+            "shasum": ""
+        },
+        "require": {
+            "yiisoft/yii2": ">=2.0.4"
+        },
+        "time": "2017-05-22T12:08:21+00:00",
+        "type": "yii2-extension",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "yii\\codeception\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Mark Jebri",
+                "email": "mark.github@yandex.ru"
+            }
+        ],
+        "description": "The Codeception integration for the Yii framework",
+        "keywords": [
+            "codeception",
+            "yii2"
+        ],
+        "abandoned": "codeception/codeception"
     }
 ]

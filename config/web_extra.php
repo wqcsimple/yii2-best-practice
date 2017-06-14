@@ -12,18 +12,18 @@ return [
             'password' => '7',
             'charset' => 'utf8mb4',
 
-            'slaveConfig' => [
-                'username' => 'root',
-                'password' => 'root',
-                'charset' => 'utf8mb4',
-                'attributes' => [
-                    PDO::ATTR_TIMEOUT => 10,
-                ],
-            ],
-
-            'slaves' => [
-                ['dsn' => 'mysql:host=172.17.0.5;dbname=blog'],
-            ],
+//            'slaveConfig' => [
+//                'username' => 'root',
+//                'password' => 'root',
+//                'charset' => 'utf8mb4',
+//                'attributes' => [
+//                    PDO::ATTR_TIMEOUT => 10,
+//                ],
+//            ],
+//
+//            'slaves' => [
+//                ['dsn' => 'mysql:host=172.17.0.5;dbname=blog'],
+//            ],
         ],
     ],
     

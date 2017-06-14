@@ -31,7 +31,7 @@ class DoController extends Controller
                 consoleLog($response['response']);
             }
             
-            sleep(1);
+            sleep(0.2);
         }
     }
 }

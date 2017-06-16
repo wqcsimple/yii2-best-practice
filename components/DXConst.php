@@ -15,6 +15,8 @@ class DXConst extends \dix\base\component\DXConst
     const NOTIFICATION_UNREAD = 0;
     const NOTIFICATION_READ = 1;
     
+    
+    const KEY_SEARCH_INDEX = 'dc';
 }
 
 

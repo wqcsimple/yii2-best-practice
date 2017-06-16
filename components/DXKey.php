@@ -61,4 +61,10 @@ class DXKey extends \dix\base\component\DXKey
         $date = date('Ymd', time());
         return "pay.count.today.$date";
     }
+
+    public static function getKeyOfRunnerTaskListPending()
+    {
+        return 'runner.task.list.pending';
+    }
+
 }

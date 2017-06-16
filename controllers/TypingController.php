@@ -24,10 +24,12 @@ class TypingController extends Controller
         $origin_content = app()->request->post('origin_content');
         $content = app()->request->post('content');
 
+        $time = intval(app()->request->post('time'));
+        
         $htmlDiff = new HtmlDiff($origin_content, $content);
         
         $content = $htmlDiff->build();
         
-        return $this->render('/typing/result', ['content' => $content]);
+        return $this->render('/typing/result', ['content' => $content, 'time' => $time]);
     }
 }

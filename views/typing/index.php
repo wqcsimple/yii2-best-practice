@@ -25,7 +25,8 @@ $this->title = "打字比赛";
                     <span class="help-block" id="origin-content-words"></span>
                 </div>
                 <div class="form-group">
-                    <label>Content</label>
+                    <label>Content</label> <button class="btn btn-primary btn-xs" id="begin">Begin</button> <span id="time"></span>
+                    <input type="hidden" name="time" id="time-value" value="">
                     <textarea name="content" onpaste="return false" oncontextmenu="return(false)" id="content" class="form-control" rows="10"></textarea>
                     <span class="help-block" id="content-words"></span>
                 </div>
@@ -53,5 +54,31 @@ $this->title = "打字比赛";
         setInterval(countWords1, 500);
         setInterval(countWords2, 500);
         
+        var intervalTimer;
+        $("#begin").on('click', function () {
+            
+            if ($("#content").val().length > 0)
+            {
+                alert("输入内容不为空，无法重置定时器");
+                return false;
+            }
+            var beginTime = time();
+            
+            if (intervalTimer) {
+                clearInterval(intervalTimer);
+            }
+            intervalTimer = setInterval(function () {
+                var value = time() - beginTime;
+                $("#time").text(value + "s");
+                $("#time-value").val(value);
+            }, 500);
+            
+            return false;
+        });
+
+
+        function time() {
+            return parseInt(new Date().getTime() / 1000, 10);
+        }
     })
 </script>

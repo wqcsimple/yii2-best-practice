@@ -6,7 +6,14 @@
  * Time: 4:03 PM
  */
 ?>
-
+<style>
+    del {
+        color: #df3434
+    }
+    ins {
+        color: #008200;
+    }
+</style>
 
 <div class="container">
     <div class="clear-10"></div>

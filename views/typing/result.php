@@ -8,10 +8,11 @@
 ?>
 <style>
     del {
-        color: #df3434
+        color: #008200;
     }
     ins {
-        color: #008200;
+        
+        color: #df3434
     }
 </style>
 

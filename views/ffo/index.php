@@ -5,6 +5,8 @@
  * Date: 6/12/17
  * Time: 7:02 PM
  */
+
+
 ?>
 
 <style>
@@ -52,12 +54,12 @@
                 </thead>
                 <tbody>
                 <?php
-                foreach ($ffo_buy_list as $key => $item)
+                foreach ($ffo_buy_list as $j => $i)
                 {
                     ?>
                     <tr>
-                        <td><?= $key + 1 ?></td>
-                        <td><a href="<?= $item['href'] ?>" target="_blank"><?= $item['title'] ?></a></td>
+                        <td><?= $j + 1 ?></td>
+                        <td><a href="<?= $i['href'] ?>" target="_blank"><?= $i['title'] ?></a></td>
                     </tr>
                     <?php
                 }

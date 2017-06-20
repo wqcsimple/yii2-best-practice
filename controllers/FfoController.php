@@ -37,7 +37,8 @@ class FfoController extends Controller
         {
             $url = $url . $i;
 
-            \phpQuery::newDocumentFile($url);
+            $response = curl('GET', $url);
+            \phpQuery::newDocumentHTML($response['response']);
 
             $title_list =  pq(".threadlist_title");
             foreach ($title_list as $title_item)

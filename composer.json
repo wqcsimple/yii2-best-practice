@@ -41,8 +41,7 @@
         "qiniu/php-sdk": "^7.1",
         "elasticsearch/elasticsearch": "~5.0",
         "electrolinux/phpquery": "^0.9.6",
-        "overtrue/pinyin": "~3.0",
-        "caxy/php-htmldiff": "^0.1.5"
+        "overtrue/pinyin": "~3.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

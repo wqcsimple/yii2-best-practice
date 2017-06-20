@@ -214,13 +214,6 @@ class ComposerStaticInita6efcab76222e76b02a4acfacc051f87
                 0 => __DIR__ . '/..' . '/codeguy/upload/src',
             ),
         ),
-        'S' => 
-        array (
-            'Sunra\\PhpSimple\\HtmlDomParser' => 
-            array (
-                0 => __DIR__ . '/..' . '/sunra/php-simple-html-dom-parser/Src',
-            ),
-        ),
         'P' => 
         array (
             'PHPExcel' => 
@@ -240,13 +233,6 @@ class ComposerStaticInita6efcab76222e76b02a4acfacc051f87
             'Diff' => 
             array (
                 0 => __DIR__ . '/..' . '/phpspec/php-diff/lib',
-            ),
-        ),
-        'C' => 
-        array (
-            'Caxy\\HtmlDiff' => 
-            array (
-                0 => __DIR__ . '/..' . '/caxy/php-htmldiff/lib',
             ),
         ),
         'B' => 

@@ -11,7 +11,6 @@ use app\models\UserAddress;
 use app\models\Waybill;
 use app\models\WaybillStatus;
 use Elasticsearch\ClientBuilder;
-use Overtrue\Pinyin\Pinyin;
 
 class SearchService
 {

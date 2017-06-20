@@ -40,7 +40,6 @@ class RedisExpireController extends Controller
             }
         };
         
-        
         $redis->pubSubLoop(['psubscribe' => '__key*__:*'], $user_func);
     }
 }

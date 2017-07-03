@@ -12,6 +12,7 @@ class Api
     const TYPE_DATA = 'Data';
     const TYPE_FFO = "FFO";
     const TYPE_COMMON = "common";
+    const TYPE_POST = "post";
 
     public static function PathGuestCanAccess()
     {
@@ -170,8 +171,42 @@ class Api
               ]
         ];
 
+        $post_actions = [
+            [
+                'type' => self::TYPE_POST,
+                'name' => 'post - save',
+                'action' => 'post/save',
+                'token' => false,
+                'params' => ['post_id | i, 0', 'title | s', 'content | s', "source | s"],
+                'response' => [
+                    "null" => '\app\modules\client\v100\services\PostService::savePost($post_id, $title, $content, $source)',
+                ]
+            ],
 
-        return array_merge($contact_actions, $ffo_actions, $common_actions);
+            [
+                'type' => self::TYPE_POST,
+                'name' => 'post - list',
+                'action' => 'post/list',
+                'token' => false,
+                'params' => ['title | s, '],
+                'response' => '\app\modules\client\v100\services\PostService::getPostList($title)',
+            ],
+
+            [
+                'type' => self::TYPE_POST,
+                'name' => 'post - delete',
+                'action' => 'post/delete',
+                'token' => false,
+                'params' => ['post_id | i'],
+                'response' => [
+                    'null' => '\app\modules\client\v100\services\PostService::deletePost($post_id)',
+                ]
+            ],
+        ];
+
+
+
+        return array_merge($contact_actions, $ffo_actions, $common_actions, $post_actions);
     }
 
 

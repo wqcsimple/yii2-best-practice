@@ -902,70 +902,6 @@
         ]
     },
     {
-        "name": "guzzlehttp/guzzle",
-        "version": "6.2.3",
-        "version_normalized": "6.2.3.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/guzzle/guzzle.git",
-            "reference": "8d6c6cc55186db87b7dc5009827429ba4e9dc006"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/guzzle/guzzle/8d6c6cc55186db87b7dc5009827429ba4e9dc006.zip",
-            "reference": "8d6c6cc55186db87b7dc5009827429ba4e9dc006",
-            "shasum": ""
-        },
-        "require": {
-            "guzzlehttp/promises": "^1.0",
-            "guzzlehttp/psr7": "^1.4",
-            "php": ">=5.5"
-        },
-        "require-dev": {
-            "ext-curl": "*",
-            "phpunit/phpunit": "^4.0",
-            "psr/log": "^1.0"
-        },
-        "time": "2017-02-28T22:50:30+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "6.2-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "src/functions_include.php"
-            ],
-            "psr-4": {
-                "GuzzleHttp\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Michael Dowling",
-                "email": "mtdowling@gmail.com",
-                "homepage": "https://github.com/mtdowling"
-            }
-        ],
-        "description": "Guzzle is a PHP HTTP client library",
-        "homepage": "http://guzzlephp.org/",
-        "keywords": [
-            "client",
-            "curl",
-            "framework",
-            "http",
-            "http client",
-            "rest",
-            "web service"
-        ]
-    },
-    {
         "name": "guzzlehttp/psr7",
         "version": "1.4.2",
         "version_normalized": "1.4.2.0",
@@ -1240,52 +1176,6 @@
             "barcode",
             "qr",
             "zxing"
-        ]
-    },
-    {
-        "name": "myclabs/php-enum",
-        "version": "1.5.1",
-        "version_normalized": "1.5.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/myclabs/php-enum.git",
-            "reference": "61f4a24da5be216301447f3278ea6562609d61f5"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/myclabs/php-enum/61f4a24da5be216301447f3278ea6562609d61f5.zip",
-            "reference": "61f4a24da5be216301447f3278ea6562609d61f5",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "4.*",
-            "squizlabs/php_codesniffer": "1.*"
-        },
-        "time": "2017-03-26T10:24:21+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "MyCLabs\\Enum\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "PHP Enum contributors",
-                "homepage": "https://github.com/myclabs/php-enum/graphs/contributors"
-            }
-        ],
-        "description": "PHP Enum implementation",
-        "homepage": "http://github.com/myclabs/php-enum",
-        "keywords": [
-            "enum"
         ]
     },
     {
@@ -2282,6 +2172,680 @@
             "qr",
             "qrcode",
             "symfony"
+        ]
+    },
+    {
+        "name": "guzzlehttp/guzzle",
+        "version": "6.3.0",
+        "version_normalized": "6.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/guzzle.git",
+            "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/guzzle/guzzle/f4db5a78a5ea468d4831de7f0bf9d9415e348699.zip",
+            "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/promises": "^1.0",
+            "guzzlehttp/psr7": "^1.4",
+            "php": ">=5.5"
+        },
+        "require-dev": {
+            "ext-curl": "*",
+            "phpunit/phpunit": "^4.0 || ^5.0",
+            "psr/log": "^1.0"
+        },
+        "suggest": {
+            "psr/log": "Required for using the Log middleware"
+        },
+        "time": "2017-06-22T18:50:49+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "6.2-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "src/functions_include.php"
+            ],
+            "psr-4": {
+                "GuzzleHttp\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            }
+        ],
+        "description": "Guzzle is a PHP HTTP client library",
+        "homepage": "http://guzzlephp.org/",
+        "keywords": [
+            "client",
+            "curl",
+            "framework",
+            "http",
+            "http client",
+            "rest",
+            "web service"
+        ]
+    },
+    {
+        "name": "myclabs/php-enum",
+        "version": "1.5.2",
+        "version_normalized": "1.5.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/myclabs/php-enum.git",
+            "reference": "3ed7088cfd0a0e06534b7f8b0eee82acea574fac"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/myclabs/php-enum/3ed7088cfd0a0e06534b7f8b0eee82acea574fac.zip",
+            "reference": "3ed7088cfd0a0e06534b7f8b0eee82acea574fac",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.8.35|^5.7|^6.0",
+            "squizlabs/php_codesniffer": "1.*"
+        },
+        "time": "2017-06-28T16:24:08+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "MyCLabs\\Enum\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP Enum contributors",
+                "homepage": "https://github.com/myclabs/php-enum/graphs/contributors"
+            }
+        ],
+        "description": "PHP Enum implementation",
+        "homepage": "http://github.com/myclabs/php-enum",
+        "keywords": [
+            "enum"
+        ]
+    },
+    {
+        "name": "pimple/pimple",
+        "version": "v3.0.2",
+        "version_normalized": "3.0.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/silexphp/Pimple.git",
+            "reference": "a30f7d6e57565a2e1a316e1baf2a483f788b258a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/silexphp/Pimple/a30f7d6e57565a2e1a316e1baf2a483f788b258a.zip",
+            "reference": "a30f7d6e57565a2e1a316e1baf2a483f788b258a",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2015-09-11T15:10:35+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Pimple": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            }
+        ],
+        "description": "Pimple, a simple Dependency Injection Container",
+        "homepage": "http://pimple.sensiolabs.org",
+        "keywords": [
+            "container",
+            "dependency injection"
+        ]
+    },
+    {
+        "name": "hoa/exception",
+        "version": "1.17.01.16",
+        "version_normalized": "1.17.01.16",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/hoaproject/Exception.git",
+            "reference": "091727d46420a3d7468ef0595651488bfc3a458f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/hoaproject/Exception/091727d46420a3d7468ef0595651488bfc3a458f.zip",
+            "reference": "091727d46420a3d7468ef0595651488bfc3a458f",
+            "shasum": ""
+        },
+        "require": {
+            "hoa/consistency": "~1.0",
+            "hoa/event": "~1.0"
+        },
+        "require-dev": {
+            "hoa/test": "~2.0"
+        },
+        "time": "2017-01-16T07:53:27+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Hoa\\Exception\\": "."
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Ivan Enderlin",
+                "email": "ivan.enderlin@hoa-project.net"
+            },
+            {
+                "name": "Hoa community",
+                "homepage": "https://hoa-project.net/"
+            }
+        ],
+        "description": "The Hoa\\Exception library.",
+        "homepage": "https://hoa-project.net/",
+        "keywords": [
+            "exception",
+            "library"
+        ]
+    },
+    {
+        "name": "hoa/event",
+        "version": "1.17.01.13",
+        "version_normalized": "1.17.01.13",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/hoaproject/Event.git",
+            "reference": "6c0060dced212ffa3af0e34bb46624f990b29c54"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/hoaproject/Event/6c0060dced212ffa3af0e34bb46624f990b29c54.zip",
+            "reference": "6c0060dced212ffa3af0e34bb46624f990b29c54",
+            "shasum": ""
+        },
+        "require": {
+            "hoa/consistency": "~1.0",
+            "hoa/exception": "~1.0"
+        },
+        "require-dev": {
+            "hoa/test": "~2.0"
+        },
+        "time": "2017-01-13T15:30:50+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Hoa\\Event\\": "."
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Ivan Enderlin",
+                "email": "ivan.enderlin@hoa-project.net"
+            },
+            {
+                "name": "Hoa community",
+                "homepage": "https://hoa-project.net/"
+            }
+        ],
+        "description": "The Hoa\\Event library.",
+        "homepage": "https://hoa-project.net/",
+        "keywords": [
+            "event",
+            "library",
+            "listener",
+            "observer"
+        ]
+    },
+    {
+        "name": "hoa/consistency",
+        "version": "1.17.05.02",
+        "version_normalized": "1.17.05.02",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/hoaproject/Consistency.git",
+            "reference": "fd7d0adc82410507f332516faf655b6ed22e4c2f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/hoaproject/Consistency/fd7d0adc82410507f332516faf655b6ed22e4c2f.zip",
+            "reference": "fd7d0adc82410507f332516faf655b6ed22e4c2f",
+            "shasum": ""
+        },
+        "require": {
+            "hoa/exception": "~1.0",
+            "php": ">=5.5.0"
+        },
+        "require-dev": {
+            "hoa/stream": "~1.0",
+            "hoa/test": "~2.0"
+        },
+        "time": "2017-05-02T12:18:12+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Hoa\\Consistency\\": "."
+            },
+            "files": [
+                "Prelude.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Ivan Enderlin",
+                "email": "ivan.enderlin@hoa-project.net"
+            },
+            {
+                "name": "Hoa community",
+                "homepage": "https://hoa-project.net/"
+            }
+        ],
+        "description": "The Hoa\\Consistency library.",
+        "homepage": "https://hoa-project.net/",
+        "keywords": [
+            "autoloader",
+            "callable",
+            "consistency",
+            "entity",
+            "flex",
+            "keyword",
+            "library"
+        ]
+    },
+    {
+        "name": "hoa/protocol",
+        "version": "1.17.01.14",
+        "version_normalized": "1.17.01.14",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/hoaproject/Protocol.git",
+            "reference": "5c2cf972151c45f373230da170ea015deecf19e2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/hoaproject/Protocol/5c2cf972151c45f373230da170ea015deecf19e2.zip",
+            "reference": "5c2cf972151c45f373230da170ea015deecf19e2",
+            "shasum": ""
+        },
+        "require": {
+            "hoa/consistency": "~1.0",
+            "hoa/exception": "~1.0"
+        },
+        "require-dev": {
+            "hoa/test": "~2.0"
+        },
+        "time": "2017-01-14T12:26:10+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Hoa\\Protocol\\": "."
+            },
+            "files": [
+                "Wrapper.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Ivan Enderlin",
+                "email": "ivan.enderlin@hoa-project.net"
+            },
+            {
+                "name": "Hoa community",
+                "homepage": "https://hoa-project.net/"
+            }
+        ],
+        "description": "The Hoa\\Protocol library.",
+        "homepage": "https://hoa-project.net/",
+        "keywords": [
+            "library",
+            "protocol",
+            "resource",
+            "stream",
+            "wrapper"
+        ]
+    },
+    {
+        "name": "hoa/stream",
+        "version": "1.17.02.21",
+        "version_normalized": "1.17.02.21",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/hoaproject/Stream.git",
+            "reference": "3293cfffca2de10525df51436adf88a559151d82"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/hoaproject/Stream/3293cfffca2de10525df51436adf88a559151d82.zip",
+            "reference": "3293cfffca2de10525df51436adf88a559151d82",
+            "shasum": ""
+        },
+        "require": {
+            "hoa/consistency": "~1.0",
+            "hoa/event": "~1.0",
+            "hoa/exception": "~1.0",
+            "hoa/protocol": "~1.0"
+        },
+        "require-dev": {
+            "hoa/test": "~2.0"
+        },
+        "time": "2017-02-21T16:01:06+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Hoa\\Stream\\": "."
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Ivan Enderlin",
+                "email": "ivan.enderlin@hoa-project.net"
+            },
+            {
+                "name": "Hoa community",
+                "homepage": "https://hoa-project.net/"
+            }
+        ],
+        "description": "The Hoa\\Stream library.",
+        "homepage": "https://hoa-project.net/",
+        "keywords": [
+            "Context",
+            "bucket",
+            "composite",
+            "filter",
+            "in",
+            "library",
+            "out",
+            "protocol",
+            "stream",
+            "wrapper"
+        ]
+    },
+    {
+        "name": "hoa/http",
+        "version": "1.17.01.13",
+        "version_normalized": "1.17.01.13",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/hoaproject/Http.git",
+            "reference": "6d3e114b48a63cf6b9532f9e9607cebade6314ef"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/hoaproject/Http/6d3e114b48a63cf6b9532f9e9607cebade6314ef.zip",
+            "reference": "6d3e114b48a63cf6b9532f9e9607cebade6314ef",
+            "shasum": ""
+        },
+        "require": {
+            "hoa/consistency": "~1.0",
+            "hoa/exception": "~1.0",
+            "hoa/stream": "~1.0"
+        },
+        "time": "2017-01-13T15:28:17+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Hoa\\Http\\": "."
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Ivan Enderlin",
+                "email": "ivan.enderlin@hoa-project.net"
+            },
+            {
+                "name": "Hoa community",
+                "homepage": "https://hoa-project.net/"
+            }
+        ],
+        "description": "The Hoa\\Http library.",
+        "homepage": "https://hoa-project.net/",
+        "keywords": [
+            "http",
+            "library",
+            "request",
+            "response",
+            "rfc2295",
+            "rfc2324",
+            "rfc2518",
+            "rfc2774",
+            "rfc3229",
+            "rfc4918",
+            "rfc5842",
+            "rfc6585",
+            "rfc7231",
+            "rfc7232",
+            "rfc7233",
+            "rfc7235",
+            "rfc7237",
+            "runtime"
+        ]
+    },
+    {
+        "name": "hoa/socket",
+        "version": "1.17.05.16",
+        "version_normalized": "1.17.05.16",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/hoaproject/Socket.git",
+            "reference": "1a43f073d910d0f803de8cc9256779db1027906d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/hoaproject/Socket/1a43f073d910d0f803de8cc9256779db1027906d.zip",
+            "reference": "1a43f073d910d0f803de8cc9256779db1027906d",
+            "shasum": ""
+        },
+        "require": {
+            "hoa/consistency": "~1.0",
+            "hoa/exception": "~1.0",
+            "hoa/stream": "~1.0"
+        },
+        "require-dev": {
+            "hoa/test": "~2.0"
+        },
+        "time": "2017-05-16T07:55:41+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Hoa\\Socket\\": "."
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Ivan Enderlin",
+                "email": "ivan.enderlin@hoa-project.net"
+            },
+            {
+                "name": "Hoa community",
+                "homepage": "https://hoa-project.net/"
+            }
+        ],
+        "description": "The Hoa\\Socket library.",
+        "homepage": "https://hoa-project.net/",
+        "keywords": [
+            "Socket",
+            "client",
+            "library",
+            "node",
+            "server",
+            "tcp",
+            "udp"
+        ]
+    },
+    {
+        "name": "hoa/websocket",
+        "version": "3.17.01.09",
+        "version_normalized": "3.17.01.09",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/hoaproject/Websocket.git",
+            "reference": "a1bd79cefb67278f71ac8a44873ad1416924e906"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/hoaproject/Websocket/a1bd79cefb67278f71ac8a44873ad1416924e906.zip",
+            "reference": "a1bd79cefb67278f71ac8a44873ad1416924e906",
+            "shasum": ""
+        },
+        "require": {
+            "hoa/consistency": "~1.0",
+            "hoa/event": "~1.0",
+            "hoa/exception": "~1.0",
+            "hoa/http": "~1.0",
+            "hoa/socket": "~1.0"
+        },
+        "require-dev": {
+            "ext-iconv": "*",
+            "hoa/test": "~2.0"
+        },
+        "suggest": {
+            "ext-openssl": "To get a better security when exchanging messages."
+        },
+        "time": "2017-01-09T13:53:08+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Hoa\\Websocket\\": "."
+            },
+            "files": [
+                "Socket.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Ivan Enderlin",
+                "email": "ivan.enderlin@hoa-project.net"
+            },
+            {
+                "name": "Hoa community",
+                "homepage": "https://hoa-project.net/"
+            }
+        ],
+        "description": "The Hoa\\Websocket library.",
+        "homepage": "https://hoa-project.net/",
+        "keywords": [
+            "Socket",
+            "client",
+            "hybi",
+            "library",
+            "realtime",
+            "rfc3629",
+            "rfc3986",
+            "rfc6455",
+            "server",
+            "websocket"
         ]
     }
 ]

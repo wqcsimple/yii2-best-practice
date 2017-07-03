@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Upload' => array($vendorDir . '/codeguy/upload/src'),
+    'Pimple' => array($vendorDir . '/pimple/pimple/src'),
     'PHPExcel' => array($vendorDir . '/phpoffice/phpexcel/Classes'),
     'HTMLPurifier' => array($vendorDir . '/ezyang/htmlpurifier/library'),
     'Diff' => array($vendorDir . '/phpspec/php-diff/lib'),

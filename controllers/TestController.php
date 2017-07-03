@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\components\BaseApiController;
 use app\components\Debug;
+use app\lib\wechat\Foundation\Application;
 use yii\base\UserException;
 
 class TestController extends BaseApiController
@@ -85,7 +86,7 @@ class TestController extends BaseApiController
 
     public function actionTest()
     {
-       
+     
     }
 
 }

@@ -9,6 +9,8 @@ namespace app\modules\client\v100\data;
 
 class Api
 {
+    const TYPE_USER = "user";
+    const TYPE_ADMIN = "admin";
     const TYPE_DATA = 'Data';
     const TYPE_FFO = "FFO";
     const TYPE_COMMON = "common";
@@ -17,11 +19,34 @@ class Api
     public static function PathGuestCanAccess()
     {
         return [
+            'admin/login'
         ];
     }
 
     public static function ActionList()
     {
+
+        $admin_actions = [
+            [
+                'type' => self::TYPE_ADMIN,
+                'name' => 'admin - login',
+                'action' => 'admin/login',
+                'token' => false,
+                'params' => ['username | s', 'password | s'],
+                'response' => '\app\modules\client\v100\services\AdminService::login($username, $password)',
+            ],
+        ];
+        
+        $user_actions = [
+            [
+                'type' => self::TYPE_USER,
+                'name' => 'user - login',
+                'action' => 'user/login',
+                'token' => false,
+                'params' => ['username | s', 'password | s'],
+                'response' => '\app\modules\client\v100\services\UserService::login($username, $password)',
+            ],
+        ];
         
         $contact_actions = [
             [
@@ -206,7 +231,7 @@ class Api
 
 
 
-        return array_merge($contact_actions, $ffo_actions, $common_actions, $post_actions);
+        return array_merge($admin_actions, $user_actions, $contact_actions, $ffo_actions, $common_actions, $post_actions);
     }
 
 

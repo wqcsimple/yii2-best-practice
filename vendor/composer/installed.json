@@ -449,56 +449,6 @@
         "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays)."
     },
     {
-        "name": "fzaninotto/faker",
-        "version": "v1.6.0",
-        "version_normalized": "1.6.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/fzaninotto/Faker.git",
-            "reference": "44f9a286a04b80c76a4e5fb7aad8bb539b920123"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/44f9a286a04b80c76a4e5fb7aad8bb539b920123",
-            "reference": "44f9a286a04b80c76a4e5fb7aad8bb539b920123",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^5.3.3|^7.0"
-        },
-        "require-dev": {
-            "ext-intl": "*",
-            "phpunit/phpunit": "~4.0",
-            "squizlabs/php_codesniffer": "~1.5"
-        },
-        "time": "2016-04-29T12:21:54+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": []
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Faker\\": "src/Faker/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "François Zaninotto"
-            }
-        ],
-        "description": "Faker is a PHP library that generates fake data for you.",
-        "keywords": [
-            "data",
-            "faker",
-            "fixtures"
-        ]
-    },
-    {
         "name": "bower-asset/jquery",
         "version": "2.2.4",
         "version_normalized": "2.2.4.0",
@@ -581,59 +531,6 @@
         ]
     },
     {
-        "name": "qiniu/php-sdk",
-        "version": "v7.1.3",
-        "version_normalized": "7.1.3.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/qiniu/php-sdk.git",
-            "reference": "b91653485e36b4797d7a302cc86c49695e47a642"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://packagist.phpcomposer.com/files/qiniu/php-sdk/b91653485e36b4797d7a302cc86c49695e47a642.zip",
-            "reference": "b91653485e36b4797d7a302cc86c49695e47a642",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~4.0",
-            "squizlabs/php_codesniffer": "~2.3"
-        },
-        "time": "2016-11-18T02:57:31+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Qiniu\\": "src/Qiniu"
-            },
-            "files": [
-                "src/Qiniu/functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Qiniu",
-                "email": "sdk@qiniu.com",
-                "homepage": "http://www.qiniu.com"
-            }
-        ],
-        "description": "Qiniu Resource (Cloud) Storage SDK for PHP",
-        "homepage": "http://developer.qiniu.com/",
-        "keywords": [
-            "cloud",
-            "qiniu",
-            "sdk",
-            "storage"
-        ]
-    },
-    {
         "name": "yiisoft/yii2-composer",
         "version": "2.0.5",
         "version_normalized": "2.0.5.0",
@@ -682,117 +579,6 @@
         "keywords": [
             "composer",
             "extension installer",
-            "yii2"
-        ]
-    },
-    {
-        "name": "cebe/markdown",
-        "version": "1.1.1",
-        "version_normalized": "1.1.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/cebe/markdown.git",
-            "reference": "c30eb5e01fe021cc5bba2f9ee0eeef96d4931166"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/cebe/markdown/c30eb5e01fe021cc5bba2f9ee0eeef96d4931166.zip",
-            "reference": "c30eb5e01fe021cc5bba2f9ee0eeef96d4931166",
-            "shasum": ""
-        },
-        "require": {
-            "lib-pcre": "*",
-            "php": ">=5.4.0"
-        },
-        "require-dev": {
-            "cebe/indent": "*",
-            "facebook/xhprof": "*@dev",
-            "phpunit/phpunit": "4.1.*"
-        },
-        "time": "2016-09-14T20:40:20+00:00",
-        "bin": [
-            "bin/markdown"
-        ],
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.1.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "cebe\\markdown\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Carsten Brandt",
-                "email": "mail@cebe.cc",
-                "homepage": "http://cebe.cc/",
-                "role": "Creator"
-            }
-        ],
-        "description": "A super fast, highly extensible markdown parser for PHP",
-        "homepage": "https://github.com/cebe/markdown#readme",
-        "keywords": [
-            "extensible",
-            "fast",
-            "gfm",
-            "markdown",
-            "markdown-extra"
-        ]
-    },
-    {
-        "name": "yiisoft/yii2-debug",
-        "version": "2.0.9",
-        "version_normalized": "2.0.9.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/yiisoft/yii2-debug.git",
-            "reference": "647be6c9d48dc2f3c2e2f33b9eba0a4ca78abde9"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/yiisoft/yii2-debug/647be6c9d48dc2f3c2e2f33b9eba0a4ca78abde9.zip",
-            "reference": "647be6c9d48dc2f3c2e2f33b9eba0a4ca78abde9",
-            "shasum": ""
-        },
-        "require": {
-            "yiisoft/yii2": "~2.0.11",
-            "yiisoft/yii2-bootstrap": "~2.0.0"
-        },
-        "time": "2017-02-21T10:30:50+00:00",
-        "type": "yii2-extension",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.0.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "yii\\debug\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Qiang Xue",
-                "email": "qiang.xue@gmail.com"
-            }
-        ],
-        "description": "The debugger extension for the Yii framework",
-        "keywords": [
-            "debug",
-            "debugger",
             "yii2"
         ]
     },
@@ -969,114 +755,6 @@
         ]
     },
     {
-        "name": "swiftmailer/swiftmailer",
-        "version": "v5.4.8",
-        "version_normalized": "5.4.8.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/swiftmailer/swiftmailer.git",
-            "reference": "9a06dc570a0367850280eefd3f1dc2da45aef517"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/swiftmailer/swiftmailer/9a06dc570a0367850280eefd3f1dc2da45aef517.zip",
-            "reference": "9a06dc570a0367850280eefd3f1dc2da45aef517",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.3"
-        },
-        "require-dev": {
-            "mockery/mockery": "~0.9.1",
-            "symfony/phpunit-bridge": "~3.2"
-        },
-        "time": "2017-05-01T15:54:03+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "5.4-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "files": [
-                "lib/swift_required.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Chris Corbyn"
-            },
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            }
-        ],
-        "description": "Swiftmailer, free feature-rich PHP mailer",
-        "homepage": "http://swiftmailer.org",
-        "keywords": [
-            "email",
-            "mail",
-            "mailer"
-        ]
-    },
-    {
-        "name": "yiisoft/yii2-swiftmailer",
-        "version": "2.0.7",
-        "version_normalized": "2.0.7.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/yiisoft/yii2-swiftmailer.git",
-            "reference": "8a03a62cbcb82e7697d3002eb43a8d2637f566ec"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/yiisoft/yii2-swiftmailer/8a03a62cbcb82e7697d3002eb43a8d2637f566ec.zip",
-            "reference": "8a03a62cbcb82e7697d3002eb43a8d2637f566ec",
-            "shasum": ""
-        },
-        "require": {
-            "swiftmailer/swiftmailer": "~5.0",
-            "yiisoft/yii2": "~2.0.4"
-        },
-        "time": "2017-05-01T08:29:00+00:00",
-        "type": "yii2-extension",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.0.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "yii\\swiftmailer\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
-        "authors": [
-            {
-                "name": "Paul Klimov",
-                "email": "klimov.paul@gmail.com"
-            }
-        ],
-        "description": "The SwiftMailer integration for the Yii framework",
-        "keywords": [
-            "email",
-            "mail",
-            "mailer",
-            "swift",
-            "swiftmailer",
-            "yii2"
-        ]
-    },
-    {
         "name": "paragonie/random_compat",
         "version": "v2.0.10",
         "version_normalized": "2.0.10.0",
@@ -1124,58 +802,6 @@
             "csprng",
             "pseudorandom",
             "random"
-        ]
-    },
-    {
-        "name": "khanamiryan/qrcode-detector-decoder",
-        "version": "0.0.1",
-        "version_normalized": "0.0.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/khanamiryan/php-qrcode-detector-decoder.git",
-            "reference": "96d5f80680b04803c4f1b69d6e01735e876b80c7"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/khanamiryan/php-qrcode-detector-decoder/96d5f80680b04803c4f1b69d6e01735e876b80c7.zip",
-            "reference": "96d5f80680b04803c4f1b69d6e01735e876b80c7",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^5.6|^7.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "^5.7"
-        },
-        "time": "2017-01-13T09:11:46+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "classmap": [
-                "lib/"
-            ],
-            "files": [
-                "lib/common/customFunctions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Ashot Khanamiryan",
-                "email": "a.khanamiryan@gmail.com",
-                "homepage": "https://github.com/khanamiryan",
-                "role": "Developer"
-            }
-        ],
-        "description": "QR code decoder / reader",
-        "homepage": "https://github.com/khanamiryan/php-qrcode-detector-decoder",
-        "keywords": [
-            "barcode",
-            "qr",
-            "zxing"
         ]
     },
     {
@@ -1513,63 +1139,6 @@
         ]
     },
     {
-        "name": "elasticsearch/elasticsearch",
-        "version": "v5.2.0",
-        "version_normalized": "5.2.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/elastic/elasticsearch-php.git",
-            "reference": "dc57bbcd4be2c9061ebe5be59058ea8bdebc904e"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/elastic/elasticsearch-php/dc57bbcd4be2c9061ebe5be59058ea8bdebc904e.zip",
-            "reference": "dc57bbcd4be2c9061ebe5be59058ea8bdebc904e",
-            "shasum": ""
-        },
-        "require": {
-            "guzzlehttp/ringphp": "~1.0",
-            "php": "^5.6|^7.0",
-            "psr/log": "~1.0"
-        },
-        "require-dev": {
-            "cpliakas/git-wrapper": "~1.0",
-            "doctrine/inflector": "^1.1",
-            "mockery/mockery": "0.9.4",
-            "phpunit/phpunit": "^4.7|^5.4",
-            "sami/sami": "~3.2",
-            "symfony/finder": "^2.8",
-            "symfony/yaml": "^2.8"
-        },
-        "suggest": {
-            "ext-curl": "*",
-            "monolog/monolog": "Allows for client-level logging and tracing"
-        },
-        "time": "2017-04-12T20:40:50+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Elasticsearch\\": "src/Elasticsearch/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "authors": [
-            {
-                "name": "Zachary Tong"
-            }
-        ],
-        "description": "PHP Client for Elasticsearch",
-        "keywords": [
-            "client",
-            "elasticsearch",
-            "search"
-        ]
-    },
-    {
         "name": "yiisoft/yii2-codeception",
         "version": "2.0.6",
         "version_normalized": "2.0.6.0",
@@ -1811,370 +1380,6 @@
         ]
     },
     {
-        "name": "symfony/options-resolver",
-        "version": "v3.3.2",
-        "version_normalized": "3.3.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/options-resolver.git",
-            "reference": "ff48982d295bcac1fd861f934f041ebc73ae40f0"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/symfony/options-resolver/ff48982d295bcac1fd861f934f041ebc73ae40f0.zip",
-            "reference": "ff48982d295bcac1fd861f934f041ebc73ae40f0",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.5.9"
-        },
-        "time": "2017-04-12T14:14:56+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "3.3-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Component\\OptionsResolver\\": ""
-            },
-            "exclude-from-classmap": [
-                "/Tests/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony OptionsResolver Component",
-        "homepage": "https://symfony.com",
-        "keywords": [
-            "config",
-            "configuration",
-            "options"
-        ]
-    },
-    {
-        "name": "symfony/inflector",
-        "version": "v3.3.2",
-        "version_normalized": "3.3.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/inflector.git",
-            "reference": "aed5a0874a3bcfd8d0393a2d91b4cf828f29c7fb"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/symfony/inflector/aed5a0874a3bcfd8d0393a2d91b4cf828f29c7fb.zip",
-            "reference": "aed5a0874a3bcfd8d0393a2d91b4cf828f29c7fb",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.5.9"
-        },
-        "time": "2017-04-12T14:14:56+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "3.3-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Component\\Inflector\\": ""
-            },
-            "exclude-from-classmap": [
-                "/Tests/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Bernhard Schussek",
-                "email": "bschussek@gmail.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony Inflector Component",
-        "homepage": "https://symfony.com",
-        "keywords": [
-            "inflection",
-            "pluralize",
-            "singularize",
-            "string",
-            "symfony",
-            "words"
-        ]
-    },
-    {
-        "name": "symfony/polyfill-php70",
-        "version": "v1.4.0",
-        "version_normalized": "1.4.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/polyfill-php70.git",
-            "reference": "032fd647d5c11a9ceab8ee8747e13b5448e93874"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/symfony/polyfill-php70/032fd647d5c11a9ceab8ee8747e13b5448e93874.zip",
-            "reference": "032fd647d5c11a9ceab8ee8747e13b5448e93874",
-            "shasum": ""
-        },
-        "require": {
-            "paragonie/random_compat": "~1.0|~2.0",
-            "php": ">=5.3.3"
-        },
-        "time": "2017-06-09T14:24:12+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.4-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Polyfill\\Php70\\": ""
-            },
-            "files": [
-                "bootstrap.php"
-            ],
-            "classmap": [
-                "Resources/stubs"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Nicolas Grekas",
-                "email": "p@tchwork.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony polyfill backporting some PHP 7.0+ features to lower PHP versions",
-        "homepage": "https://symfony.com",
-        "keywords": [
-            "compatibility",
-            "polyfill",
-            "portable",
-            "shim"
-        ]
-    },
-    {
-        "name": "symfony/property-access",
-        "version": "v3.3.2",
-        "version_normalized": "3.3.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/property-access.git",
-            "reference": "70bbfe28f77070d41957495bc6fed34f139fe6f7"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/symfony/property-access/70bbfe28f77070d41957495bc6fed34f139fe6f7.zip",
-            "reference": "70bbfe28f77070d41957495bc6fed34f139fe6f7",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.5.9",
-            "symfony/inflector": "~3.1",
-            "symfony/polyfill-php70": "~1.0"
-        },
-        "require-dev": {
-            "symfony/cache": "~3.1"
-        },
-        "suggest": {
-            "psr/cache-implementation": "To cache access methods."
-        },
-        "time": "2017-06-02T09:51:43+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "3.3-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Component\\PropertyAccess\\": ""
-            },
-            "exclude-from-classmap": [
-                "/Tests/"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "https://symfony.com/contributors"
-            }
-        ],
-        "description": "Symfony PropertyAccess Component",
-        "homepage": "https://symfony.com",
-        "keywords": [
-            "access",
-            "array",
-            "extraction",
-            "index",
-            "injection",
-            "object",
-            "property",
-            "property path",
-            "reflection"
-        ]
-    },
-    {
-        "name": "overtrue/pinyin",
-        "version": "3.0.5",
-        "version_normalized": "3.0.5.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/overtrue/pinyin.git",
-            "reference": "590fd5820d65c3967d33b4d0dc114b893d0a1168"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/overtrue/pinyin/590fd5820d65c3967d33b4d0dc114b893d0a1168.zip",
-            "reference": "590fd5820d65c3967d33b4d0dc114b893d0a1168",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "~4.8"
-        },
-        "time": "2017-02-27T02:31:58+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Overtrue\\Pinyin\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Carlos",
-                "homepage": "http://github.com/overtrue"
-            }
-        ],
-        "description": "Chinese to pinyin translator.",
-        "homepage": "https://github.com/overtrue/pinyin",
-        "keywords": [
-            "Chinese",
-            "Pinyin",
-            "cn2pinyin"
-        ]
-    },
-    {
-        "name": "endroid/qrcode",
-        "version": "2.2.3",
-        "version_normalized": "2.2.3.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/endroid/QrCode.git",
-            "reference": "6d3b55bf46e416bfd80efdbf7ca0e39c6f86a7c3"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/endroid/QrCode/6d3b55bf46e416bfd80efdbf7ca0e39c6f86a7c3.zip",
-            "reference": "6d3b55bf46e416bfd80efdbf7ca0e39c6f86a7c3",
-            "shasum": ""
-        },
-        "require": {
-            "bacon/bacon-qr-code": "^1.0",
-            "ext-gd": "*",
-            "khanamiryan/qrcode-detector-decoder": "^0.0.1",
-            "myclabs/php-enum": "^1.5",
-            "php": ">=5.6",
-            "symfony/options-resolver": "^2.7|^3.0",
-            "symfony/property-access": "^2.7|^3.0"
-        },
-        "require-dev": {
-            "phpunit/phpunit": "^5.7|^6.0",
-            "sensio/framework-extra-bundle": "^3.0",
-            "symfony/asset": "^2.7|^3.0",
-            "symfony/browser-kit": "^2.7|^3.0",
-            "symfony/finder": "^2.7|^3.0",
-            "symfony/framework-bundle": "^2.7|^3.0",
-            "symfony/http-kernel": "^2.7|^3.0",
-            "symfony/templating": "^2.7|^3.0",
-            "symfony/twig-bundle": "^2.7|^3.0",
-            "symfony/yaml": "^2.7|^3.0"
-        },
-        "time": "2017-06-18T21:47:09+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Endroid\\QrCode\\": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Jeroen van den Enden",
-                "email": "info@endroid.nl",
-                "homepage": "http://endroid.nl/"
-            }
-        ],
-        "description": "Endroid QR Code",
-        "homepage": "https://github.com/endroid/QrCode",
-        "keywords": [
-            "bundle",
-            "code",
-            "endroid",
-            "qr",
-            "qrcode",
-            "symfony"
-        ]
-    },
-    {
         "name": "guzzlehttp/guzzle",
         "version": "6.3.0",
         "version_normalized": "6.3.0.0",
@@ -2285,54 +1490,6 @@
         "homepage": "http://github.com/myclabs/php-enum",
         "keywords": [
             "enum"
-        ]
-    },
-    {
-        "name": "pimple/pimple",
-        "version": "v3.0.2",
-        "version_normalized": "3.0.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/silexphp/Pimple.git",
-            "reference": "a30f7d6e57565a2e1a316e1baf2a483f788b258a"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://files.phpcomposer.com/files/silexphp/Pimple/a30f7d6e57565a2e1a316e1baf2a483f788b258a.zip",
-            "reference": "a30f7d6e57565a2e1a316e1baf2a483f788b258a",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0"
-        },
-        "time": "2015-09-11T15:10:35+00:00",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "3.0.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Pimple": "src/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com"
-            }
-        ],
-        "description": "Pimple, a simple Dependency Injection Container",
-        "homepage": "http://pimple.sensiolabs.org",
-        "keywords": [
-            "container",
-            "dependency injection"
         ]
     },
     {
@@ -2846,6 +2003,1023 @@
             "rfc6455",
             "server",
             "websocket"
+        ]
+    },
+    {
+        "name": "doctrine/lexer",
+        "version": "v1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/doctrine/lexer.git",
+            "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/doctrine/lexer/83893c552fd2045dd78aef794c31e694c37c0b8c.zip",
+            "reference": "83893c552fd2045dd78aef794c31e694c37c0b8c",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2"
+        },
+        "time": "2014-09-09T13:34:57+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Doctrine\\Common\\Lexer\\": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Roman Borschel",
+                "email": "roman@code-factory.org"
+            },
+            {
+                "name": "Guilherme Blanco",
+                "email": "guilhermeblanco@gmail.com"
+            },
+            {
+                "name": "Johannes Schmitt",
+                "email": "schmittjoh@gmail.com"
+            }
+        ],
+        "description": "Base library for a lexer that can be used in Top-Down, Recursive Descent Parsers.",
+        "homepage": "http://www.doctrine-project.org",
+        "keywords": [
+            "lexer",
+            "parser"
+        ]
+    },
+    {
+        "name": "egulias/email-validator",
+        "version": "2.1.2",
+        "version_normalized": "2.1.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/egulias/EmailValidator.git",
+            "reference": "bc31baa11ea2883e017f0a10d9722ef9d50eac1c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/egulias/EmailValidator/bc31baa11ea2883e017f0a10d9722ef9d50eac1c.zip",
+            "reference": "bc31baa11ea2883e017f0a10d9722ef9d50eac1c",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/lexer": "^1.0.1",
+            "php": ">= 5.5"
+        },
+        "require-dev": {
+            "dominicsayers/isemail": "dev-master",
+            "phpunit/phpunit": "^4.8.0",
+            "satooshi/php-coveralls": "dev-master"
+        },
+        "suggest": {
+            "ext-intl": "PHP Internationalization Libraries are required to use the SpoofChecking validation"
+        },
+        "time": "2017-01-30T22:07:36+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Egulias\\EmailValidator\\": "EmailValidator"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Eduardo Gulias Davis"
+            }
+        ],
+        "description": "A library for validating emails against several RFCs",
+        "homepage": "https://github.com/egulias/EmailValidator",
+        "keywords": [
+            "email",
+            "emailvalidation",
+            "emailvalidator",
+            "validation",
+            "validator"
+        ]
+    },
+    {
+        "name": "swiftmailer/swiftmailer",
+        "version": "v6.0.1",
+        "version_normalized": "6.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swiftmailer/swiftmailer.git",
+            "reference": "008f088d535ed3333af5ad804dd4c0eaf97c2805"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/swiftmailer/swiftmailer/008f088d535ed3333af5ad804dd4c0eaf97c2805.zip",
+            "reference": "008f088d535ed3333af5ad804dd4c0eaf97c2805",
+            "shasum": ""
+        },
+        "require": {
+            "egulias/email-validator": "~2.0",
+            "php": ">=7.0.0"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.9.1",
+            "symfony/phpunit-bridge": "~3.3@dev"
+        },
+        "time": "2017-05-20T06:20:27+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "6.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "lib/swift_required.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Chris Corbyn"
+            },
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            }
+        ],
+        "description": "Swiftmailer, free feature-rich PHP mailer",
+        "homepage": "http://swiftmailer.org",
+        "keywords": [
+            "email",
+            "mail",
+            "mailer"
+        ]
+    },
+    {
+        "name": "cebe/markdown",
+        "version": "1.1.2",
+        "version_normalized": "1.1.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/cebe/markdown.git",
+            "reference": "25b28bae8a6f185b5030673af77b32e1163d5c6e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/cebe/markdown/25b28bae8a6f185b5030673af77b32e1163d5c6e.zip",
+            "reference": "25b28bae8a6f185b5030673af77b32e1163d5c6e",
+            "shasum": ""
+        },
+        "require": {
+            "lib-pcre": "*",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "cebe/indent": "*",
+            "facebook/xhprof": "*@dev",
+            "phpunit/phpunit": "4.1.*"
+        },
+        "time": "2017-07-16T21:13:23+00:00",
+        "bin": [
+            "bin/markdown"
+        ],
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "cebe\\markdown\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Carsten Brandt",
+                "email": "mail@cebe.cc",
+                "homepage": "http://cebe.cc/",
+                "role": "Creator"
+            }
+        ],
+        "description": "A super fast, highly extensible markdown parser for PHP",
+        "homepage": "https://github.com/cebe/markdown#readme",
+        "keywords": [
+            "extensible",
+            "fast",
+            "gfm",
+            "markdown",
+            "markdown-extra"
+        ]
+    },
+    {
+        "name": "yiisoft/yii2-swiftmailer",
+        "version": "2.1.0",
+        "version_normalized": "2.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/yiisoft/yii2-swiftmailer.git",
+            "reference": "563570c9aa19ca47c1b22e3032983229378e9274"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/yiisoft/yii2-swiftmailer/563570c9aa19ca47c1b22e3032983229378e9274.zip",
+            "reference": "563570c9aa19ca47c1b22e3032983229378e9274",
+            "shasum": ""
+        },
+        "require": {
+            "swiftmailer/swiftmailer": "~6.0",
+            "yiisoft/yii2": "~2.0.4"
+        },
+        "time": "2017-08-04T10:48:17+00:00",
+        "type": "yii2-extension",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "yii\\swiftmailer\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Paul Klimov",
+                "email": "klimov.paul@gmail.com"
+            }
+        ],
+        "description": "The SwiftMailer integration for the Yii framework",
+        "keywords": [
+            "email",
+            "mail",
+            "mailer",
+            "swift",
+            "swiftmailer",
+            "yii2"
+        ]
+    },
+    {
+        "name": "symfony/polyfill-php70",
+        "version": "v1.5.0",
+        "version_normalized": "1.5.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/polyfill-php70.git",
+            "reference": "b6482e68974486984f59449ecea1fbbb22ff840f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/symfony/polyfill-php70/b6482e68974486984f59449ecea1fbbb22ff840f.zip",
+            "reference": "b6482e68974486984f59449ecea1fbbb22ff840f",
+            "shasum": ""
+        },
+        "require": {
+            "paragonie/random_compat": "~1.0|~2.0",
+            "php": ">=5.3.3"
+        },
+        "time": "2017-06-14T15:44:48+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.5-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Polyfill\\Php70\\": ""
+            },
+            "files": [
+                "bootstrap.php"
+            ],
+            "classmap": [
+                "Resources/stubs"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony polyfill backporting some PHP 7.0+ features to lower PHP versions",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "compatibility",
+            "polyfill",
+            "portable",
+            "shim"
+        ]
+    },
+    {
+        "name": "symfony/inflector",
+        "version": "v3.3.9",
+        "version_normalized": "3.3.9.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/inflector.git",
+            "reference": "0474dc4d867c7efefd44017f7903465a7f368b6b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/symfony/inflector/0474dc4d867c7efefd44017f7903465a7f368b6b.zip",
+            "reference": "0474dc4d867c7efefd44017f7903465a7f368b6b",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.5.9|>=7.0.8"
+        },
+        "time": "2017-07-29T21:54:42+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\Inflector\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Bernhard Schussek",
+                "email": "bschussek@gmail.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Inflector Component",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "inflection",
+            "pluralize",
+            "singularize",
+            "string",
+            "symfony",
+            "words"
+        ]
+    },
+    {
+        "name": "symfony/property-access",
+        "version": "v3.3.9",
+        "version_normalized": "3.3.9.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/property-access.git",
+            "reference": "0f25f903442b33c4939fb1d36d7b0a187aa89d82"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/symfony/property-access/0f25f903442b33c4939fb1d36d7b0a187aa89d82.zip",
+            "reference": "0f25f903442b33c4939fb1d36d7b0a187aa89d82",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.5.9|>=7.0.8",
+            "symfony/inflector": "~3.1",
+            "symfony/polyfill-php70": "~1.0"
+        },
+        "require-dev": {
+            "symfony/cache": "~3.1"
+        },
+        "suggest": {
+            "psr/cache-implementation": "To cache access methods."
+        },
+        "time": "2017-08-30T14:49:16+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\PropertyAccess\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony PropertyAccess Component",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "access",
+            "array",
+            "extraction",
+            "index",
+            "injection",
+            "object",
+            "property",
+            "property path",
+            "reflection"
+        ]
+    },
+    {
+        "name": "khanamiryan/qrcode-detector-decoder",
+        "version": "1",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/khanamiryan/php-qrcode-detector-decoder.git",
+            "reference": "96d5f80680b04803c4f1b69d6e01735e876b80c7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/khanamiryan/php-qrcode-detector-decoder/96d5f80680b04803c4f1b69d6e01735e876b80c7.zip",
+            "reference": "96d5f80680b04803c4f1b69d6e01735e876b80c7",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.6|^7.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.7"
+        },
+        "time": "2017-01-13T09:11:46+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "lib/"
+            ],
+            "files": [
+                "lib/common/customFunctions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Ashot Khanamiryan",
+                "email": "a.khanamiryan@gmail.com",
+                "homepage": "https://github.com/khanamiryan",
+                "role": "Developer"
+            }
+        ],
+        "description": "QR code decoder / reader",
+        "homepage": "https://github.com/khanamiryan/php-qrcode-detector-decoder",
+        "keywords": [
+            "barcode",
+            "qr",
+            "zxing"
+        ]
+    },
+    {
+        "name": "symfony/options-resolver",
+        "version": "v3.3.9",
+        "version_normalized": "3.3.9.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/options-resolver.git",
+            "reference": "ee4e22978fe885b54ee5da8c7964f0a5301abfb6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/symfony/options-resolver/ee4e22978fe885b54ee5da8c7964f0a5301abfb6.zip",
+            "reference": "ee4e22978fe885b54ee5da8c7964f0a5301abfb6",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.5.9|>=7.0.8"
+        },
+        "time": "2017-07-29T21:54:42+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Symfony\\Component\\OptionsResolver\\": ""
+            },
+            "exclude-from-classmap": [
+                "/Tests/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony OptionsResolver Component",
+        "homepage": "https://symfony.com",
+        "keywords": [
+            "config",
+            "configuration",
+            "options"
+        ]
+    },
+    {
+        "name": "endroid/qrcode",
+        "version": "2.3.3",
+        "version_normalized": "2.3.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/endroid/QrCode.git",
+            "reference": "5f7bdac4aa1e0cd7296c325ffa499de9b960cc42"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/endroid/QrCode/5f7bdac4aa1e0cd7296c325ffa499de9b960cc42.zip",
+            "reference": "5f7bdac4aa1e0cd7296c325ffa499de9b960cc42",
+            "shasum": ""
+        },
+        "require": {
+            "bacon/bacon-qr-code": "^1.0",
+            "ext-gd": "*",
+            "khanamiryan/qrcode-detector-decoder": "^1.0",
+            "myclabs/php-enum": "^1.5",
+            "php": ">=5.6",
+            "symfony/options-resolver": "^2.7|^3.0",
+            "symfony/property-access": "^2.7|^3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^5.7|^6.0",
+            "sensio/framework-extra-bundle": "^3.0",
+            "symfony/asset": "^2.7|^3.0",
+            "symfony/browser-kit": "^2.7|^3.0",
+            "symfony/finder": "^2.7|^3.0",
+            "symfony/framework-bundle": "^2.7|^3.0",
+            "symfony/http-kernel": "^2.7|^3.0",
+            "symfony/templating": "^2.7|^3.0",
+            "symfony/twig-bundle": "^2.7|^3.0",
+            "symfony/yaml": "^2.7|^3.0"
+        },
+        "time": "2017-09-12T14:37:06+00:00",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Endroid\\QrCode\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jeroen van den Enden",
+                "email": "info@endroid.nl",
+                "homepage": "http://endroid.nl/"
+            }
+        ],
+        "description": "Endroid QR Code",
+        "homepage": "https://github.com/endroid/QrCode",
+        "keywords": [
+            "bundle",
+            "code",
+            "endroid",
+            "flex",
+            "qr",
+            "qrcode",
+            "symfony"
+        ]
+    },
+    {
+        "name": "qiniu/php-sdk",
+        "version": "v7.2.1",
+        "version_normalized": "7.2.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/qiniu/php-sdk.git",
+            "reference": "8c7ba738bd4443ee3569a07441913b07c4b2c4a2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/qiniu/php-sdk/8c7ba738bd4443ee3569a07441913b07c4b2c4a2.zip",
+            "reference": "8c7ba738bd4443ee3569a07441913b07c4b2c4a2",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.0",
+            "squizlabs/php_codesniffer": "~2.3"
+        },
+        "time": "2017-08-26T00:46:11+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Qiniu\\": "src/Qiniu"
+            },
+            "files": [
+                "src/Qiniu/functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Qiniu",
+                "email": "sdk@qiniu.com",
+                "homepage": "http://www.qiniu.com"
+            }
+        ],
+        "description": "Qiniu Resource (Cloud) Storage SDK for PHP",
+        "homepage": "http://developer.qiniu.com/",
+        "keywords": [
+            "cloud",
+            "qiniu",
+            "sdk",
+            "storage"
+        ]
+    },
+    {
+        "name": "elasticsearch/elasticsearch",
+        "version": "v5.3.0",
+        "version_normalized": "5.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/elastic/elasticsearch-php.git",
+            "reference": "50e5b1c63db68839b8acc1f4766769570a27a448"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/elastic/elasticsearch-php/50e5b1c63db68839b8acc1f4766769570a27a448.zip",
+            "reference": "50e5b1c63db68839b8acc1f4766769570a27a448",
+            "shasum": ""
+        },
+        "require": {
+            "guzzlehttp/ringphp": "~1.0",
+            "php": "^5.6|^7.0",
+            "psr/log": "~1.0"
+        },
+        "require-dev": {
+            "cpliakas/git-wrapper": "~1.0",
+            "doctrine/inflector": "^1.1",
+            "mockery/mockery": "0.9.4",
+            "phpunit/phpunit": "^4.7|^5.4",
+            "sami/sami": "~3.2",
+            "symfony/finder": "^2.8",
+            "symfony/yaml": "^2.8"
+        },
+        "suggest": {
+            "ext-curl": "*",
+            "monolog/monolog": "Allows for client-level logging and tracing"
+        },
+        "time": "2017-07-19T18:44:30+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Elasticsearch\\": "src/Elasticsearch/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache-2.0"
+        ],
+        "authors": [
+            {
+                "name": "Zachary Tong"
+            }
+        ],
+        "description": "PHP Client for Elasticsearch",
+        "keywords": [
+            "client",
+            "elasticsearch",
+            "search"
+        ]
+    },
+    {
+        "name": "overtrue/pinyin",
+        "version": "3.0.6",
+        "version_normalized": "3.0.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/overtrue/pinyin.git",
+            "reference": "3b781d267197b74752daa32814d3a2cf5d140779"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/overtrue/pinyin/3b781d267197b74752daa32814d3a2cf5d140779.zip",
+            "reference": "3b781d267197b74752daa32814d3a2cf5d140779",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.8"
+        },
+        "time": "2017-07-10T07:20:01+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Overtrue\\Pinyin\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Carlos",
+                "homepage": "http://github.com/overtrue"
+            }
+        ],
+        "description": "Chinese to pinyin translator.",
+        "homepage": "https://github.com/overtrue/pinyin",
+        "keywords": [
+            "Chinese",
+            "Pinyin",
+            "cn2pinyin"
+        ]
+    },
+    {
+        "name": "psr/container",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/container.git",
+            "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/php-fig/container/b7ce3b176482dbbc1245ebf52b181af44c2cf55f.zip",
+            "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2017-02-14T16:28:37+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Container\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common Container Interface (PHP FIG PSR-11)",
+        "homepage": "https://github.com/php-fig/container",
+        "keywords": [
+            "PSR-11",
+            "container",
+            "container-interface",
+            "container-interop",
+            "psr"
+        ]
+    },
+    {
+        "name": "pimple/pimple",
+        "version": "v3.2.2",
+        "version_normalized": "3.2.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/silexphp/Pimple.git",
+            "reference": "4d45fb62d96418396ec58ba76e6f065bca16e10a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/silexphp/Pimple/4d45fb62d96418396ec58ba76e6f065bca16e10a.zip",
+            "reference": "4d45fb62d96418396ec58ba76e6f065bca16e10a",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0",
+            "psr/container": "^1.0"
+        },
+        "require-dev": {
+            "symfony/phpunit-bridge": "^3.2"
+        },
+        "time": "2017-07-23T07:32:15+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.2.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Pimple": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            }
+        ],
+        "description": "Pimple, a simple Dependency Injection Container",
+        "homepage": "http://pimple.sensiolabs.org",
+        "keywords": [
+            "container",
+            "dependency injection"
+        ]
+    },
+    {
+        "name": "yiisoft/yii2-debug",
+        "version": "2.0.11",
+        "version_normalized": "2.0.11.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/yiisoft/yii2-debug.git",
+            "reference": "372fbf0d47303b7d68275d6720935e5116915418"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/yiisoft/yii2-debug/372fbf0d47303b7d68275d6720935e5116915418.zip",
+            "reference": "372fbf0d47303b7d68275d6720935e5116915418",
+            "shasum": ""
+        },
+        "require": {
+            "yiisoft/yii2": "~2.0.11",
+            "yiisoft/yii2-bootstrap": "~2.0.0"
+        },
+        "time": "2017-09-05T23:21:05+00:00",
+        "type": "yii2-extension",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "yii\\debug\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Qiang Xue",
+                "email": "qiang.xue@gmail.com"
+            }
+        ],
+        "description": "The debugger extension for the Yii framework",
+        "keywords": [
+            "debug",
+            "debugger",
+            "yii2"
+        ]
+    },
+    {
+        "name": "fzaninotto/faker",
+        "version": "v1.7.1",
+        "version_normalized": "1.7.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/fzaninotto/Faker.git",
+            "reference": "d3ed4cc37051c1ca52d22d76b437d14809fc7e0d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://files.phpcomposer.com/files/fzaninotto/Faker/d3ed4cc37051c1ca52d22d76b437d14809fc7e0d.zip",
+            "reference": "d3ed4cc37051c1ca52d22d76b437d14809fc7e0d",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^5.3.3 || ^7.0"
+        },
+        "require-dev": {
+            "ext-intl": "*",
+            "phpunit/phpunit": "^4.0 || ^5.0",
+            "squizlabs/php_codesniffer": "^1.5"
+        },
+        "time": "2017-08-15T16:48:10+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.8-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Faker\\": "src/Faker/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "François Zaninotto"
+            }
+        ],
+        "description": "Faker is a PHP library that generates fake data for you.",
+        "keywords": [
+            "data",
+            "faker",
+            "fixtures"
         ]
     }
 ]

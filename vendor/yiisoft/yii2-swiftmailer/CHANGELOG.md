@@ -1,6 +1,12 @@
 Yii Framework 2 swiftmailer extension Change Log
 ================================================
 
+2.1.0 August 04, 2017
+---------------------
+
+- Enh #31: Added support for SwiftMailer 6.0.x (klimov-paul)
+
+
 2.0.7 May 01, 2017
 ------------------
 

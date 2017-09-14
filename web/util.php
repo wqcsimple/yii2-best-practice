@@ -10,6 +10,12 @@ function app()
 	return \Yii::$app;
 }
 
+function dd($target)
+{
+    dump($target);
+    die;
+}
+
 function dump($target) 
 {
     \yii\helpers\VarDumper::dump($target, 10, true);

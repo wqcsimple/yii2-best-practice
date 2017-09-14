@@ -3,14 +3,17 @@
 /*
  * This file is part of the overtrue/pinyin.
  *
- * (c) 2016 overtrue <i@overtrue.me>
+ * (c) overtrue <i@overtrue.me>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
  */
 
 namespace Overtrue\Pinyin;
 
 use InvalidArgumentException;
 
-/**
+/*
  * Chinese to pinyin translator.
  *
  * @author    overtrue <i@overtrue.me>
@@ -144,7 +147,7 @@ class Pinyin
      * Chinese to pinyin sentense.
      *
      * @param string $sentence
-     * @param bool $withTone
+     * @param bool   $withTone
      *
      * @return string
      */
@@ -295,9 +298,9 @@ class Pinyin
             'à' => array('a', 4), 'è' => array('e', 4), 'ì' => array('i', 4), 'ò' => array('o', 4), 'ù' => array('u', 4), 'ǜ' => array('v', 4),
         );
 
-        foreach ($replacements as $unicde => $replacements) {
+        foreach ($replacements as $unicde => $replacement) {
             if (false !== strpos($pinyin, $unicde)) {
-                $pinyin = str_replace($unicde, $replacements[0], $pinyin).($tone ? $replacements[1] : '');
+                $pinyin = str_replace($unicde, $replacement[0], $pinyin).($tone ? $replacement[1] : '');
             }
         }
 

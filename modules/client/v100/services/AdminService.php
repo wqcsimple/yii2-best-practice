@@ -11,6 +11,7 @@ namespace app\modules\client\v100\services;
 use app\models\Admin;
 use app\models\Token;
 use app\services\TokenService;
+use dix\base\component\PasswordHash;
 use dix\base\exception\ServiceErrorLoginFailException;
 use dix\base\exception\ServiceErrorNotExistsException;
 

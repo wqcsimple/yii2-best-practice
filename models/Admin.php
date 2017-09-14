@@ -80,7 +80,6 @@ class Admin extends \yii\db\ActiveRecord implements ModelApiInterface
         return array_keys([
             'id' => 'ID',
             'username' => 'Username',
-            'password' => 'Password',
             'name' => 'Name',
             'gender' => 'Gender',
             'email' => 'Email',

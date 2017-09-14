@@ -119,7 +119,7 @@ class PasswordHash
             $is_old_hash = true;
             \array_splice($params, 2, 0, [self::ourStrlen(\base64_decode($params[3]))]);
         }
-
+        
         if (\count($params) !== self::HASH_SECTIONS) {
             throw new InvalidHashException(
                 "Fields are missing from the password hash."

@@ -29,9 +29,9 @@ class Api
                 'name' => 'data - save',
                 'action' => 'data/save',
                 'token' => false,
-                'params' => ['data_id | i, 0', 'name | s', 'price | i', 'rmb | i, 0', 'img | s, null', 'desc | s, null'],
+                'params' => ['data_id | i, 0', 'name | s', 'price | i', 'rmb | i, 0', 'gold_value | i, 0', 'img | s, null', 'desc | s, null'],
                 'response' => [
-                    'data_id' => '\app\modules\client\v100\services\DataService::saveData($data_id, $name, $price, $rmb, $img, $desc)',
+                    'data_id' => '\app\modules\client\v100\services\DataService::saveData($data_id, $name, $price, $rmb, $gold_value, $img, $desc)',
                 ]
             ],
 
@@ -87,8 +87,8 @@ class Api
                 'name' => 'data - item price save',
                 'action' => 'data/save-item-price',
                 'token' => false,
-                'params' => ['item_id | i', 'price | i, null', 'rmb | i, null', 'img | s, null', 'desc | s, null'],
-                'response' => '\app\modules\client\v100\services\DataService::saveItemPrice($item_id, $price, $rmb, $img, $desc)',
+                'params' => ['item_id | i', 'price | i, null', 'rmb | i, null', 'gold_value | i, 0', 'img | s, null', 'desc | s, null'],
+                'response' => '\app\modules\client\v100\services\DataService::saveItemPrice($item_id, $price, $rmb, $gold_value, $img, $desc)',
             ],
         ];
         

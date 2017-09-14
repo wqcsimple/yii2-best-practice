@@ -16,11 +16,12 @@ class DataController extends BaseApiController
 
         $data_id = isset($this->params['data_id']) ? intval($this->params['data_id']) : 0 ;
         $rmb = isset($this->params['rmb']) ? intval($this->params['rmb']) : 0 ;
+        $gold_value = isset($this->params['gold_value']) ? intval($this->params['gold_value']) : 0 ;
         $img = isset($this->params['img']) ? strval($this->params['img']) : null ;
         $desc = isset($this->params['desc']) ? strval($this->params['desc']) : null ;
 
         $_data = null;
-        $_data['data_id'] = DataService::saveData($data_id, $name, $price, $rmb, $img, $desc);
+        $_data['data_id'] = DataService::saveData($data_id, $name, $price, $rmb, $gold_value, $img, $desc);
 
         $this->finishSuccess($_data);
     }
@@ -94,11 +95,12 @@ class DataController extends BaseApiController
 
         $price = isset($this->params['price']) ? intval($this->params['price']) : null ;
         $rmb = isset($this->params['rmb']) ? intval($this->params['rmb']) : null ;
+        $gold_value = isset($this->params['gold_value']) ? intval($this->params['gold_value']) : 0 ;
         $img = isset($this->params['img']) ? strval($this->params['img']) : null ;
         $desc = isset($this->params['desc']) ? strval($this->params['desc']) : null ;
 
         $_data = null;
-        $_data = DataService::saveItemPrice($item_id, $price, $rmb, $img, $desc);
+        $_data = DataService::saveItemPrice($item_id, $price, $rmb, $gold_value, $img, $desc);
 
         $this->finishSuccess($_data);
     }

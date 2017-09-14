@@ -16,7 +16,7 @@ use dix\base\exception\ServiceErrorSaveException;
 
 class DataService
 {
-    public static function saveData($data_id, $name, $price, $rmb, $img, $desc)
+    public static function saveData($data_id, $name, $price, $rmb, $gold_value, $img, $desc)
     {
         $item = Item::findById($data_id);
         if (!$item)
@@ -26,13 +26,13 @@ class DataService
         }
         
         $item->name = $name;
-        $item = DXUtil::doTransaction(function () use($item, $price, $rmb, $img, $desc) {
+        $item = DXUtil::doTransaction(function () use($item, $price, $rmb, $gold_value, $img, $desc) {
             if (!$item->save())
             {
                 throw new ServiceErrorSaveException('save error', ['errors' => $item->errors]);
             }
             
-            list($save_ok, $item_price) = ItemPrice::saveItemPrice($item->id, $price, $rmb, $img, $desc);
+            list($save_ok, $item_price) = ItemPrice::saveItemPrice($item->id, $price, $rmb, $gold_value, $img, $desc);
             if (!$save_ok)
             {
                 throw new ServiceErrorSaveException('save error', ['errors' => $item_price->errors]);
@@ -132,7 +132,7 @@ class DataService
         ];
     }
     
-    public static function saveItemPrice($item_id, $price, $rmb, $img, $desc)
+    public static function saveItemPrice($item_id, $price, $rmb, $gold_value, $img, $desc)
     {
         $item = Item::findById($item_id);
         if (!$item)
@@ -140,7 +140,7 @@ class DataService
             throw new ServiceErrorNotExistsException();
         }
         
-        list($save_ok, $item_price) = ItemPrice::saveItemPrice($item_id, $price, $rmb, $img, $desc);
+        list($save_ok, $item_price) = ItemPrice::saveItemPrice($item_id, $price, $rmb, $gold_value, $img, $desc);
         if (!$save_ok)
         {
             throw new ServiceErrorSaveException('save error', ['errors' => $item_price->errors]);

@@ -13,6 +13,7 @@ use Yii;
  * @property integer $item_id
  * @property integer $price
  * @property integer $rmb
+ * @property integer $gold_value
  * @property string $img
  * @property string $desc
  * @property integer $weight
@@ -35,7 +36,7 @@ class ItemPrice extends \yii\db\ActiveRecord implements ModelApiInterface
     public function rules()
     {
         return [
-            [['item_id', 'price', 'rmb', 'weight', 'create_time', 'update_time'], 'integer'],
+            [['item_id', 'price', 'rmb', 'gold_value', 'weight', 'create_time', 'update_time'], 'integer'],
             [['img', 'desc'], 'string'],
         ];
     }
@@ -50,6 +51,7 @@ class ItemPrice extends \yii\db\ActiveRecord implements ModelApiInterface
             'item_id' => 'Item ID',
             'price' => 'Price',
             'rmb' => 'rmb',
+            'gold_value' => 'gold_value',
             'img' => 'Img',
             'desc' => "Desc",
             'weight' => 'Weight',
@@ -65,6 +67,7 @@ class ItemPrice extends \yii\db\ActiveRecord implements ModelApiInterface
             'item_id' => 'Item ID',
             'price' => 'Price',
             'rmb' => 'rmb',
+            'gold_value' => 'gold_value',
             'img' => 'Img',
             'desc' => "Desc",
             'weight' => 'Weight',
@@ -80,6 +83,7 @@ class ItemPrice extends \yii\db\ActiveRecord implements ModelApiInterface
             'item_id' => 'Item ID',
             'price' => 'Price',
             'rmb' => 'rmb',
+            'gold_value' => 'gold_value',
             'img' => 'Img',
             'desc' => "Desc",
             'weight' => 'Weight',
@@ -95,6 +99,7 @@ class ItemPrice extends \yii\db\ActiveRecord implements ModelApiInterface
             'item_id' => 'i',
             'price' => 'i',
             'rmb' => 'i',
+            'gold_value' => 'i',
             'img' => 's',
             'desc' => "s",
             'weight' => 'i',
@@ -158,16 +163,18 @@ class ItemPrice extends \yii\db\ActiveRecord implements ModelApiInterface
      * @param $item_id
      * @param int $price
      * @param int $rmb
+     * @param int $gold_value
      * @param $img
      * @param $desc
      * @return array | \app\models\ItemPrice
      */
-    public static function saveItemPrice($item_id, $price = 0, $rmb = 0, $img, $desc)
+    public static function saveItemPrice($item_id, $price = 0, $rmb = 0, $gold_value = 0, $img, $desc)
     {
         $item_price = new ItemPrice();
         $item_price->item_id = $item_id;
         $item_price->price = $price * 100;
         $item_price->rmb = $rmb * 100;
+        $item_price->gold_value = $gold_value * 100;
         $item_price->img = $img;
         $item_price->desc = $desc;
         

@@ -231,6 +231,16 @@ class Api
         ];
 
         $role_actions = [
+
+            [
+                'type' => self::TYPE_ROLE,
+                'name' => 'role - info',
+                'action' => 'role/info',
+                'token' => false,
+                'params' => ['role_id | i'],
+                'response' => '\app\modules\client\v100\services\RoleService::getRoleInfo($role_id)',
+            ],
+            
             [
                 'type' => self::TYPE_ROLE,
                 'name' => 'role - list',

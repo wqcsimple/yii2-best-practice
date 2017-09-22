@@ -233,6 +233,17 @@ class Api
         $role_actions = [
             [
                 'type' => self::TYPE_ROLE,
+                'name' => 'role - list',
+                'action' => 'role/list',
+                'token' => false,
+                'params' => [],
+                'response' => [
+                    'null' => '\app\modules\client\v100\services\RoleService::getRoleList()',
+                ]
+            ],
+            
+            [
+                'type' => self::TYPE_ROLE,
                 'name' => 'role - save',
                 'action' => 'role/save',
                 'token' => false,

@@ -164,7 +164,7 @@ class ItemPrice extends \yii\db\ActiveRecord implements ModelApiInterface
 
     /**
      * @param $id
-     * @return ItemPrice|array|null|\yii\db\ActiveRecord | \app\models\ItemPrice
+     * @return ItemPrice|array|null|\yii\db\ActiveRecord | \app\models\RolePrice
      * @throws ServiceErrorNotExistsException
      */
     public static function findOrFail($id)

@@ -93,6 +93,8 @@ class RoleService {
         $item_price = ItemPrice::findOrFail($role_price_id);
         $item_price->weight = DXConst::WEIGHT_DELETED;
         $item_price->save();
+        
+        self::updateRoleMoney($item_price->role_id);
     }
 
     public static function getRolePriceList($role_id)

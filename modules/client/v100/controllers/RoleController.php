@@ -90,4 +90,18 @@ class RoleController extends BaseApiController
         $this->finishSuccess($_data);
     }
 
+    public function actionRolePriceCommentSave()
+    {
+        $this->checkParams(['role_price_id']);
+
+        $role_price_id = intval($this->params['role_price_id']);
+
+        $comment = isset($this->params['comment']) ? strval($this->params['comment']) : '' ;
+
+        $_data = null;
+        RoleService::saveRolePriceComment($role_price_id, $comment);
+
+        $this->finishSuccess($_data);
+    }
+
 }

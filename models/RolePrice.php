@@ -4,6 +4,7 @@ namespace app\models;
 
 use app\components\DXUtil;
 use dix\base\component\ModelApiInterface;
+use dix\base\exception\ServiceErrorNotExistsException;
 use Yii;
 
 /**
@@ -134,5 +135,30 @@ class RolePrice extends \yii\db\ActiveRecord implements ModelApiInterface
         $model = self::processRaw($model, self::detailAttributes());
 
         return $model;
+    }
+
+    /**
+     * @param $id
+     * @return array|null|\yii\db\ActiveRecord | \app\models\RolePrice
+     */
+    public static function findById($id)
+    {
+        return self::find()->where(" weight >= 0 ")->andWhere(['id' => $id])->one();
+    }
+
+    /**
+     * @param $id
+     * @return RolePrice|array|null|\yii\db\ActiveRecord | \app\models\RolePrice
+     * @throws ServiceErrorNotExistsException
+     */
+    public static function findOrFail($id)
+    {
+        $role_price = RolePrice::findById($id);
+        if (!$role_price)
+        {
+            throw new ServiceErrorNotExistsException();
+        }
+        
+        return $role_price;
     }
 }

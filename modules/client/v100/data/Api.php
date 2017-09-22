@@ -302,6 +302,17 @@ class Api
                     'null' => '\app\modules\client\v100\services\RoleService::deleteRolePrice($role_price_id)',
                 ]
             ],
+
+            [
+                'type' => self::TYPE_ROLE,
+                'name' => 'role - item price comment save',
+                'action' => 'role/role-price-comment-save',
+                'token' => false,
+                'params' => ['role_price_id | i', 'comment | s,'],
+                'response' => [
+                    'null' => '\app\modules\client\v100\services\RoleService::saveRolePriceComment($role_price_id, $comment)',
+                ]
+            ],
         ];
 
         return array_merge($admin_actions, $user_actions, $contact_actions, $ffo_actions, $common_actions, $post_actions,

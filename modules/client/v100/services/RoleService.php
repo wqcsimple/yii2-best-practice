@@ -117,5 +117,15 @@ class RoleService {
         ];
     }
 
+    public static function saveRolePriceComment($role_price_id, $comment)
+    {
+        $role_price = RolePrice::findOrFail($role_price_id);
+        $role_price->comment = $comment;
+        if (!$role_price->save())
+        {
+            throw new ServiceErrorSaveException('save error', ['errors' => $role_price->errors]);
+        }
+    }
+
 
 }

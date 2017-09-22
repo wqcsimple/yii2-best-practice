@@ -95,5 +95,17 @@ class RoleService {
         $item_price->save();
     }
 
+    public static function getRolePriceList($role_id)
+    {
+        $role = Role::findOrFail($role_id);
+        
+        $db_role_price_list = RolePrice::find()->where(" weight >= 0 ")->andWhere(['role_id' => $role_id])->asArray()->all();
+        $role_price_list = DXUtil::formatModelList($db_role_price_list, RolePrice::className());
+        
+        return [
+            'list' => $role_price_list
+        ];
+    }
+
 
 }

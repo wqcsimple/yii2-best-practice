@@ -41,6 +41,18 @@ class RoleController extends BaseApiController
         $this->finishSuccess($_data);
     }
 
+    public function actionRolePriceList()
+    {
+        $this->checkParams(['role_id']);
+
+        $role_id = intval($this->params['role_id']);
+
+        $_data = null;
+        $_data = RoleService::getRolePriceList($role_id);
+
+        $this->finishSuccess($_data);
+    }
+
     public function actionRolePriceAdd()
     {
         $this->checkParams(['role_id', 'item_price_id']);

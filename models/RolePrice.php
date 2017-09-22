@@ -123,6 +123,7 @@ class RolePrice extends \yii\db\ActiveRecord implements ModelApiInterface
 
         if ($model)
         {
+            $model['item_price'] = ItemPrice::getRawById($model['item_price_id']);
         }
 
         return $model;

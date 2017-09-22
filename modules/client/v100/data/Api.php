@@ -261,6 +261,15 @@ class Api
                     'null' => '\app\modules\client\v100\services\RoleService::deleteRole($role_id)',
                 ]
             ],
+            
+            [
+                'type' => self::TYPE_ROLE,
+                'name' => 'role - item price list',
+                'action' => 'role/role-price-list',
+                'token' => false,
+                'params' => ['role_id | i'],
+                'response' =>  '\app\modules\client\v100\services\RoleService::getRolePriceList($role_id)',
+            ],
 
             [
                 'type' => self::TYPE_ROLE,

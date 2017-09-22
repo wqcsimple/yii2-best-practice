@@ -31,6 +31,8 @@ class ItemPrice extends \yii\db\ActiveRecord implements ModelApiInterface
         return 'item_price';
     }
 
+   
+
     /**
      * @inheritdoc
      */
@@ -174,6 +176,17 @@ class ItemPrice extends \yii\db\ActiveRecord implements ModelApiInterface
         }
         
         return $item_price;
+    }
+
+    public static function getRawById($item_price_id)
+    {
+        $item_price = self::findById($item_price_id);
+        if (!$item_price) 
+        {
+            return null;
+        }
+        
+        return self::processRaw($item_price);
     }
 
     /**

@@ -107,5 +107,11 @@ class RoleService {
         ];
     }
 
+    public static function getRoleInfo($role_id)
+    {
+        $role = Role::findOrFail($role_id);
+        return Role::processRaw($role);
+    }
+
 
 }

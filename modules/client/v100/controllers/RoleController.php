@@ -7,6 +7,18 @@ use app\modules\client\v100\services\RoleService;
 class RoleController extends BaseApiController
 {
 
+    public function actionInfo()
+    {
+        $this->checkParams(['role_id']);
+
+        $role_id = intval($this->params['role_id']);
+
+        $_data = null;
+        $_data = RoleService::getRoleInfo($role_id);
+
+        $this->finishSuccess($_data);
+    }
+
     public function actionList()
     {
         $_data = null;

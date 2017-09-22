@@ -15,6 +15,7 @@ class Api
     const TYPE_FFO = "FFO";
     const TYPE_COMMON = "common";
     const TYPE_POST = "post";
+    const TYPE_ROLE = "role";
 
     public static function PathGuestCanAccess()
     {
@@ -229,9 +230,54 @@ class Api
             ],
         ];
 
+        $role_actions = [
+            [
+                'type' => self::TYPE_ROLE,
+                'name' => 'role - save',
+                'action' => 'role/save',
+                'token' => false,
+                'params' => ['role_id | i, 0', 'name | s'],
+                'response' => [
+                    'null' => '\app\modules\client\v100\services\RoleService::saveRole($role_id, $name)',
+                ]
+            ],
 
+            [
+                'type' => self::TYPE_ROLE,
+                'name' => 'role - delete',
+                'action' => 'role/delete',
+                'token' => false,
+                'params' => ['role_id | i'],
+                'response' => [
+                    'null' => '\app\modules\client\v100\services\RoleService::deleteRole($role_id)',
+                ]
+            ],
 
-        return array_merge($admin_actions, $user_actions, $contact_actions, $ffo_actions, $common_actions, $post_actions);
+            [
+                'type' => self::TYPE_ROLE,
+                'name' => 'role - item price add',
+                'action' => 'role/role-price-add',
+                'token' => false,
+                'params' => ['role_id | i', 'item_price_id | i'],
+                'response' => [
+                    'null' => '\app\modules\client\v100\services\RoleService::addRolePrice($role_id, $item_price_id)',
+                ]
+            ],
+
+            [
+                'type' => self::TYPE_ROLE,
+                'name' => 'role - item price delete',
+                'action' => 'role/role-price-delete',
+                'token' => false,
+                'params' => ['role_price_id | i'],
+                'response' => [
+                    'null' => '\app\modules\client\v100\services\RoleService::deleteRolePrice($role_price_id)',
+                ]
+            ],
+        ];
+
+        return array_merge($admin_actions, $user_actions, $contact_actions, $ffo_actions, $common_actions, $post_actions,
+            $role_actions);
     }
 
 

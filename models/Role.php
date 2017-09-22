@@ -8,28 +8,26 @@ use dix\base\exception\ServiceErrorNotExistsException;
 use Yii;
 
 /**
- * This is the model class for table "item_price".
+ * This is the model class for table "role".
  *
  * @property integer $id
- * @property integer $item_id
- * @property integer $price
- * @property integer $rmb
- * @property integer $gold_value
- * @property string $img
- * @property string $desc
+ * @property string $name
+ * @property integer $money
  * @property integer $weight
  * @property integer $create_time
  * @property integer $update_time
  */
-class ItemPrice extends \yii\db\ActiveRecord implements ModelApiInterface
+class Role extends \yii\db\ActiveRecord implements ModelApiInterface
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'item_price';
+        return 'role';
     }
+
+    
 
     /**
      * @inheritdoc
@@ -37,8 +35,8 @@ class ItemPrice extends \yii\db\ActiveRecord implements ModelApiInterface
     public function rules()
     {
         return [
-            [['item_id', 'price', 'rmb', 'gold_value', 'weight', 'create_time', 'update_time'], 'integer'],
-            [['img', 'desc'], 'string'],
+            [['money', 'weight', 'create_time', 'update_time'], 'integer'],
+            [['name'], 'string', 'max' => 99],
         ];
     }
 
@@ -49,28 +47,21 @@ class ItemPrice extends \yii\db\ActiveRecord implements ModelApiInterface
     {
         return [
             'id' => 'ID',
-            'item_id' => 'Item ID',
-            'price' => 'Price',
-            'rmb' => 'rmb',
-            'gold_value' => 'gold_value',
-            'img' => 'Img',
-            'desc' => "Desc",
+            'name' => 'Name',
+            'money' => 'Money',
             'weight' => 'Weight',
             'create_time' => 'Create Time',
             'update_time' => 'Update Time',
         ];
     }
 
+
     public static function basicAttributes()
     {
         return array_keys([
             'id' => 'ID',
-            'item_id' => 'Item ID',
-            'price' => 'Price',
-            'rmb' => 'rmb',
-            'gold_value' => 'gold_value',
-            'img' => 'Img',
-            'desc' => "Desc",
+            'name' => 'Name',
+            'money' => 'Money',
             'weight' => 'Weight',
             'create_time' => 'Create Time',
             'update_time' => 'Update Time',
@@ -81,12 +72,8 @@ class ItemPrice extends \yii\db\ActiveRecord implements ModelApiInterface
     {
         return array_keys([
             'id' => 'ID',
-            'item_id' => 'Item ID',
-            'price' => 'Price',
-            'rmb' => 'rmb',
-            'gold_value' => 'gold_value',
-            'img' => 'Img',
-            'desc' => "Desc",
+            'name' => 'Name',
+            'money' => 'Money',
             'weight' => 'Weight',
             'create_time' => 'Create Time',
             'update_time' => 'Update Time',
@@ -97,12 +84,8 @@ class ItemPrice extends \yii\db\ActiveRecord implements ModelApiInterface
     {
         return [
             'id' => 'i',
-            'item_id' => 'i',
-            'price' => 'i',
-            'rmb' => 'i',
-            'gold_value' => 'i',
-            'img' => 's',
-            'desc' => "s",
+            'name' => 's',
+            'money' => 'i',
             'weight' => 'i',
             'create_time' => 'i',
             'update_time' => 'i',
@@ -152,49 +135,28 @@ class ItemPrice extends \yii\db\ActiveRecord implements ModelApiInterface
     }
 
     /**
-     * @param $id
-     * @return array|null|\yii\db\ActiveRecord | \app\models\ItemPrice
+     * @param $role_id
+     * @return array|null|\yii\db\ActiveRecord | \app\models\Role
      */
-    public static function findById($id)
+    public static function findById($role_id)
     {
-        return self::find()->where(" weight >= 0 ")->andWhere(['id' => $id])->one();
+        return self::find()->where(" weight >= 0 ")->andWhere(['id' => $role_id])->one();
     }
 
     /**
-     * @param $id
-     * @return ItemPrice|array|null|\yii\db\ActiveRecord | \app\models\ItemPrice
+     * @param $role_id
+     * @return Role|array|null|\yii\db\ActiveRecord | \app\models\Role
      * @throws ServiceErrorNotExistsException
      */
-    public static function findOrFail($id)
+    public static function findOrFail($role_id)
     {
-        $item_price = self::findById($id);
-        if (!$item_price) 
+        $role = self::findById($role_id);
+        if (!$role) 
         {
             throw new ServiceErrorNotExistsException();
         }
         
-        return $item_price;
+        return $role;
     }
-
-    /**
-     * @param $item_id
-     * @param int $price
-     * @param int $rmb
-     * @param int $gold_value
-     * @param $img
-     * @param $desc
-     * @return array | \app\models\ItemPrice
-     */
-    public static function saveItemPrice($item_id, $price = 0, $rmb = 0, $gold_value = 0, $img, $desc)
-    {
-        $item_price = new ItemPrice();
-        $item_price->item_id = $item_id;
-        $item_price->price = $price * 100;
-        $item_price->rmb = $rmb * 100;
-        $item_price->gold_value = $gold_value * 100;
-        $item_price->img = $img;
-        $item_price->desc = $desc;
-        
-        return [$item_price->save(), $item_price];
-    }
+    
 }

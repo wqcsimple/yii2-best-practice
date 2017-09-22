@@ -40,9 +40,9 @@ return [
         
 //        'redis-param' => [
 //            'scheme' => 'tcp',
-//            'host'   => '10.27.103.127',
+//            'host'   => 'imagic-redis.mx6acu.ng.0001.cac1.cache.amazonaws.com',
 //            'port'   => 6379,
-//            'password' => 'xhOvJHMMvaCORETRZeHEySWdcO9wBYE',
+//            'password' => null,
 //            'read_write_timeout' => 0,
 //            'database' => 0,
 //        ],

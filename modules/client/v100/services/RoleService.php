@@ -9,6 +9,7 @@ namespace app\modules\client\v100\services;
 
 
 use app\components\DXConst;
+use app\components\DXUtil;
 use app\exceptions\ServiceSaveFailException;
 use app\models\ItemPrice;
 use app\models\Role;
@@ -17,6 +18,15 @@ use dix\base\exception\ServiceErrorSaveException;
 
 class RoleService {
 
+    public static function getRoleList()
+    {
+        $db_role_list = Role::find()->where(" weight >= 0 ")->orderBy(['id' => SORT_DESC])->asArray()->all();
+     
+        return [
+            'list' => DXUtil::formatModelList($db_role_list, Role::className())  
+        ];
+    }
+    
     public static function saveRole($role_id, $name)
     {
         $role = Role::findById($role_id);
@@ -84,4 +94,6 @@ class RoleService {
         $item_price->weight = DXConst::WEIGHT_DELETED;
         $item_price->save();
     }
+
+
 }

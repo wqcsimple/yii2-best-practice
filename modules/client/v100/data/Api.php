@@ -237,9 +237,7 @@ class Api
                 'action' => 'role/list',
                 'token' => false,
                 'params' => [],
-                'response' => [
-                    'null' => '\app\modules\client\v100\services\RoleService::getRoleList()',
-                ]
+                'response' => '\app\modules\client\v100\services\RoleService::getRoleList()',
             ],
             
             [

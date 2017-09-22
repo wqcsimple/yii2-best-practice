@@ -7,6 +7,14 @@ use app\modules\client\v100\services\RoleService;
 class RoleController extends BaseApiController
 {
 
+    public function actionList()
+    {
+        $_data = null;
+        $_data = RoleService::getRoleList();
+
+        $this->finishSuccess($_data);
+    }
+
     public function actionSave()
     {
         $this->checkParams(['name']);

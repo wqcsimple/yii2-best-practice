@@ -90,11 +90,11 @@ class RoleService {
 
     public static function deleteRolePrice($role_price_id)
     {
-        $item_price = ItemPrice::findOrFail($role_price_id);
-        $item_price->weight = DXConst::WEIGHT_DELETED;
-        $item_price->save();
+        $role_price = RolePrice::findOrFail($role_price_id);
+        $role_price->weight = DXConst::WEIGHT_DELETED;
+        $role_price->save();
         
-        self::updateRoleMoney($item_price->role_id);
+        self::updateRoleMoney($role_price->role_id);
     }
 
     public static function getRolePriceList($role_id)

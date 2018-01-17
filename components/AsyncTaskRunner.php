@@ -88,7 +88,7 @@ class AsyncTaskRunner extends \yii\base\Object
                 catch (\Exception $e)
                 {
                     DXUtil::consoleLog($e->getMessage() . "\n" . $e->getTraceAsString());
-                    $redis->lpush(DXKey::getKeyOfRunnerTaskListFail(), json_encode($task));
+                    $redis->lpush(DXKey::getKeyOfRunnerTaskListFail(), [json_encode($task)]);
                 }
             }
             else

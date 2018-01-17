@@ -67,4 +67,9 @@ class DXKey extends \dix\base\component\DXKey
         return 'runner.task.list.pending';
     }
 
+    public static function getKeyOfRunnerTaskListFail()
+    {
+        return 'runner.task.list.fail';
+    }
+
 }

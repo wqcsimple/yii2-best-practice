@@ -9,35 +9,32 @@
 
 namespace Endroid\QrCode\Writer;
 
-use BaconQrCode\Renderer\Image\Png;
-use BaconQrCode\Writer;
-use Endroid\QrCode\ColorableQrCodeInterface;
 use Endroid\QrCode\Exception\MissingFunctionException;
 use Endroid\QrCode\Exception\ValidationException;
 use Endroid\QrCode\LabelAlignment;
 use Endroid\QrCode\QrCodeInterface;
-use Endroid\QrCode\ValidateableQrCodeInterface;
 use QrReader;
 
-class PngWriter extends AbstractBaconWriter
+class PngWriter extends AbstractWriter
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function writeString(QrCodeInterface $qrCode)
+    public function writeString(QrCodeInterface $qrCode): string
     {
-        $renderer = new Png();
-        $renderer->setWidth($qrCode->getSize());
-        $renderer->setHeight($qrCode->getSize());
-        $renderer->setMargin(0);
-        $renderer->setForegroundColor($this->convertColor($qrCode->getForegroundColor()));
-        $renderer->setBackgroundColor($this->convertColor($qrCode->getBackgroundColor()));
+        $data = $this->getData($qrCode);
 
-        $writer = new Writer($renderer);
-        $string = $writer->writeString($qrCode->getText(), $qrCode->getEncoding(), $this->convertErrorCorrectionLevel($qrCode->getErrorCorrectionLevel()));
+        $image = imagecreatetruecolor($data['outer_width'], $data['outer_height']);
+        $foregroundColor = imagecolorallocatealpha($image, $qrCode->getForegroundColor()['r'], $qrCode->getForegroundColor()['g'], $qrCode->getForegroundColor()['b'], $qrCode->getForegroundColor()['a']);
+        $backgroundColor = imagecolorallocatealpha($image, $qrCode->getBackgroundColor()['r'], $qrCode->getBackgroundColor()['g'], $qrCode->getBackgroundColor()['b'], $qrCode->getBackgroundColor()['a']);
+        imagefill($image, 0, 0, $backgroundColor);
 
-        $image = imagecreatefromstring($string);
-        $image = $this->addMargin($image, $qrCode->getMargin(), $qrCode->getSize(), $qrCode->getForegroundColor(), $qrCode->getBackgroundColor());
+        foreach ($data['matrix'] as $row => $values) {
+            foreach ($values as $column => $value) {
+                if (1 === $value) {
+                    $x = $data['margin_left'] + $data['block_size'] * $column;
+                    $y = $data['margin_left'] + $data['block_size'] * $row;
+                    imagefilledrectangle($image, $x, $y, $x + $data['block_size'], $y + $data['block_size'], $foregroundColor);
+                }
+            }
+        }
 
         if ($qrCode->getLogoPath()) {
             $image = $this->addLogo($image, $qrCode->getLogoPath(), $qrCode->getLogoWidth());
@@ -54,77 +51,22 @@ class PngWriter extends AbstractBaconWriter
             if ($reader->text() !== $qrCode->getText()) {
                 throw new ValidationException(
                     'Built-in validation reader read "'.$reader->text().'" instead of "'.$qrCode->getText().'".
-                     Adjust your parameters to increase readability or disable built-in validation.');
+                     Adjust your parameters to increase readability or disable built-in validation.'
+                );
             }
         }
 
         return $string;
     }
 
-    /**
-     * @param resource $sourceImage
-     * @param int $margin
-     * @param int $size
-     * @param int[] $foregroundColor
-     * @param int[] $backgroundColor
-     * @return resource
-     */
-    protected function addMargin($sourceImage, $margin, $size, array $foregroundColor, array $backgroundColor)
-    {
-        $additionalWhitespace = $this->calculateAdditionalWhiteSpace($sourceImage, $foregroundColor);
-
-        if ($additionalWhitespace == 0 && $margin == 0) {
-            return $sourceImage;
-        }
-
-        $targetImage = imagecreatetruecolor($size + $margin * 2, $size + $margin * 2);
-        $backgroundColor = imagecolorallocate($targetImage, $backgroundColor['r'], $backgroundColor['g'], $backgroundColor['b']);
-        imagefill($targetImage, 0, 0, $backgroundColor);
-        imagecopyresampled($targetImage, $sourceImage, $margin, $margin, $additionalWhitespace, $additionalWhitespace, $size, $size, $size - 2 * $additionalWhitespace, $size - 2 * $additionalWhitespace);
-
-        return $targetImage;
-    }
-
-    /**
-     * @param resource $image
-     * @param int[] $foregroundColor
-     * @return int
-     */
-    protected function calculateAdditionalWhiteSpace($image, array $foregroundColor)
-    {
-        $width = imagesx($image);
-        $height = imagesy($image);
-
-        $foregroundColor = imagecolorallocate($image, $foregroundColor['r'], $foregroundColor['g'], $foregroundColor['b']);
-
-        $whitespace = $width;
-        for ($y = 0; $y < $height; $y++) {
-            for ($x = 0; $x < $width; $x++) {
-                $color = imagecolorat($image, $x, $y);
-                if ($color == $foregroundColor || $x == $whitespace) {
-                    $whitespace = min($whitespace, $x);
-                    break;
-                }
-            }
-        }
-
-        return $whitespace;
-    }
-
-    /**
-     * @param resource $sourceImage
-     * @param string $logoPath
-     * @param int $logoWidth
-     * @return resource
-     */
-    protected function addLogo($sourceImage, $logoPath, $logoWidth = null)
+    private function addLogo($sourceImage, string $logoPath, int $logoWidth = null)
     {
         $logoImage = imagecreatefromstring(file_get_contents($logoPath));
         $logoSourceWidth = imagesx($logoImage);
         $logoSourceHeight = imagesy($logoImage);
         $logoTargetWidth = $logoWidth;
 
-        if ($logoTargetWidth === null) {
+        if (null === $logoTargetWidth) {
             $logoTargetWidth = $logoSourceWidth;
             $logoTargetHeight = $logoSourceHeight;
         } else {
@@ -139,22 +81,10 @@ class PngWriter extends AbstractBaconWriter
         return $sourceImage;
     }
 
-    /**
-     * @param resource $sourceImage
-     * @param string $label
-     * @param string $labelFontPath
-     * @param int $labelFontSize
-     * @param string $labelAlignment
-     * @param int[] $labelMargin
-     * @param int[] $foregroundColor
-     * @param int[] $backgroundColor
-     * @return resource
-     * @throws MissingFunctionException
-     */
-    protected function addLabel($sourceImage, $label, $labelFontPath, $labelFontSize, $labelAlignment, $labelMargin, array $foregroundColor, array $backgroundColor)
+    private function addLabel($sourceImage, string $label, string $labelFontPath, int $labelFontSize, string $labelAlignment, array $labelMargin, array $foregroundColor, array $backgroundColor)
     {
         if (!function_exists('imagettfbbox')) {
-            throw new MissingFunctionException('Missing function "imagettfbbox". Did you install the FreeType library?');
+            throw new MissingFunctionException('Missing function "imagettfbbox", please make sure you installed the FreeType library');
         }
 
         $labelBox = imagettfbbox($labelFontSize, 0, $labelFontPath, $label);
@@ -193,11 +123,7 @@ class PngWriter extends AbstractBaconWriter
         return $targetImage;
     }
 
-    /**
-     * @param resource $image
-     * @return string
-     */
-    protected function imageToString($image)
+    private function imageToString($image): string
     {
         ob_start();
         imagepng($image);
@@ -206,19 +132,18 @@ class PngWriter extends AbstractBaconWriter
         return $string;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public static function getContentType()
+    public static function getContentType(): string
     {
         return 'image/png';
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public static function getSupportedExtensions()
+    public static function getSupportedExtensions(): array
     {
         return ['png'];
+    }
+
+    public function getName(): string
+    {
+        return 'png';
     }
 }

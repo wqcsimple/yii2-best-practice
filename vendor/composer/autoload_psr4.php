@@ -16,7 +16,6 @@ return array(
     'yii\\' => array($vendorDir . '/yiisoft/yii2'),
     'dix\\base\\' => array($vendorDir . '/dix/yii2-base'),
     'cebe\\markdown\\' => array($vendorDir . '/cebe/markdown'),
-    'Symfony\\Polyfill\\Php70\\' => array($vendorDir . '/symfony/polyfill-php70'),
     'Symfony\\Component\\PropertyAccess\\' => array($vendorDir . '/symfony/property-access'),
     'Symfony\\Component\\OptionsResolver\\' => array($vendorDir . '/symfony/options-resolver'),
     'Symfony\\Component\\Inflector\\' => array($vendorDir . '/symfony/inflector'),

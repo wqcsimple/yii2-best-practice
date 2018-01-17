@@ -11,84 +11,45 @@ namespace Endroid\QrCode;
 
 interface QrCodeInterface
 {
-    /**
-     * @return string
-     */
-    public function getText();
+    public function getText(): string;
 
-    /**
-     * @return int
-     */
-    public function getSize();
+    public function getSize(): int;
 
-    /**
-     * @return int
-     */
-    public function getMargin();
+    public function getMargin(): int;
 
-    /**
-     * @return int[]
-     */
-    public function getForegroundColor();
+    public function getForegroundColor(): array;
 
-    /**
-     * @return int[]
-     */
-    public function getBackgroundColor();
+    public function getBackgroundColor(): array;
 
-    /**
-     * @return string
-     */
-    public function getEncoding();
+    public function getEncoding(): string;
 
-    /**
-     * @return string
-     */
-    public function getErrorCorrectionLevel();
+    public function getRoundBlockSize(): bool;
 
-    /**
-     * @return string
-     */
-    public function getLogoPath();
+    public function getErrorCorrectionLevel(): string;
 
-    /**
-     * @return int
-     */
-    public function getLogoWidth();
+    public function getLogoPath(): ?string;
 
-    /**
-     * @return string
-     */
-    public function getLabel();
+    public function getLogoWidth(): ?int;
 
-    /**
-     * @return string
-     */
-    public function getLabelFontPath();
+    public function getLabel(): ?string;
 
-    /**
-     * @return int
-     */
-    public function getLabelFontSize();
+    public function getLabelFontPath(): ?string;
 
-    /**
-     * @return string
-     */
-    public function getLabelAlignment();
+    public function getLabelFontSize(): ?int;
 
-    /**
-     * @return int[]
-     */
-    public function getLabelMargin();
+    public function getLabelAlignment(): ?string;
 
-    /**
-     * @return bool
-     */
-    public function getValidateResult();
+    public function getLabelMargin(): ?array;
 
-    /**
-     * @param WriterRegistryInterface $writerRegistry
-     * @return mixed
-     */
-    public function setWriterRegistry(WriterRegistryInterface $writerRegistry);
+    public function getValidateResult(): bool;
+
+    public function getContentType(): string;
+
+    public function setWriterRegistry(WriterRegistryInterface $writerRegistry): void;
+
+    public function writeString(): string;
+
+    public function writeDataUri(): string;
+
+    public function writeFile(string $path): void;
 }

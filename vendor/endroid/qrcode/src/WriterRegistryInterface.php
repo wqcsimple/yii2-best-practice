@@ -13,20 +13,9 @@ use Endroid\QrCode\Writer\WriterInterface;
 
 interface WriterRegistryInterface
 {
-    /**
-     * @param WriterInterface $writer
-     * @return $this
-     */
-    public function addWriter(WriterInterface $writer);
+    public function addWriter(WriterInterface $writer): void;
 
-    /**
-     * @param $name
-     * @return WriterInterface
-     */
-    public function getWriter($name);
+    public function getWriter(string $name): WriterInterface;
 
-    /**
-     * @return WriterInterface[]
-     */
-    public function getWriters();
+    public function getWriters(): array;
 }

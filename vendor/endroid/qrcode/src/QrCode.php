@@ -33,7 +33,7 @@ class QrCode implements QrCodeInterface
         'r' => 255,
         'g' => 255,
         'b' => 255,
-        'a' => 127,
+        'a' => 0,
     ];
 
     private $encoding = 'UTF-8';
@@ -98,6 +98,10 @@ class QrCode implements QrCodeInterface
 
     public function setForegroundColor(array $foregroundColor): void
     {
+        if (!isset($foregroundColor['a'])) {
+            $foregroundColor['a'] = 0;
+        }
+
         $this->foregroundColor = $foregroundColor;
     }
 
@@ -108,6 +112,10 @@ class QrCode implements QrCodeInterface
 
     public function setBackgroundColor(array $backgroundColor): void
     {
+        if (!isset($backgroundColor['a'])) {
+            $backgroundColor['a'] = 0;
+        }
+
         $this->backgroundColor = $backgroundColor;
     }
 

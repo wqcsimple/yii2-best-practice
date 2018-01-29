@@ -589,16 +589,16 @@
         },
         {
             "name": "endroid/qrcode",
-            "version": "3.2.1",
+            "version": "3.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/endroid/qr-code.git",
-                "reference": "e7aaa885a6ea348ec64b27f5ebcccc1c836645ee"
+                "reference": "155585335748809d38888d6ccff0da3619e2a041"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/endroid/qr-code/e7aaa885a6ea348ec64b27f5ebcccc1c836645ee.zip",
-                "reference": "e7aaa885a6ea348ec64b27f5ebcccc1c836645ee",
+                "url": "https://files.phpcomposer.com/files/endroid/qr-code/155585335748809d38888d6ccff0da3619e2a041.zip",
+                "reference": "155585335748809d38888d6ccff0da3619e2a041",
                 "shasum": ""
             },
             "require": {
@@ -655,7 +655,7 @@
                 "qrcode"
             ],
             "abandoned": "endroid/qr-code",
-            "time": "2018-01-13T15:04:12+00:00"
+            "time": "2018-01-21T09:20:34+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -1681,16 +1681,16 @@
         },
         {
             "name": "pimple/pimple",
-            "version": "v3.2.2",
+            "version": "v3.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Pimple.git",
-                "reference": "4d45fb62d96418396ec58ba76e6f065bca16e10a"
+                "reference": "9e403941ef9d65d20cba7d54e29fe906db42cf32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/silexphp/Pimple/4d45fb62d96418396ec58ba76e6f065bca16e10a.zip",
-                "reference": "4d45fb62d96418396ec58ba76e6f065bca16e10a",
+                "url": "https://files.phpcomposer.com/files/silexphp/Pimple/9e403941ef9d65d20cba7d54e29fe906db42cf32.zip",
+                "reference": "9e403941ef9d65d20cba7d54e29fe906db42cf32",
                 "shasum": ""
             },
             "require": {
@@ -1727,7 +1727,7 @@
                 "container",
                 "dependency injection"
             ],
-            "time": "2017-07-23T07:32:15+00:00"
+            "time": "2018-01-21T07:42:36+00:00"
         },
         {
             "name": "predis/predis",

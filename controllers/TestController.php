@@ -86,8 +86,6 @@ class TestController extends BaseApiController
 
     public function actionTest()
     {
-        $redis = Redis::client();
-        $redis->flushall();
     }
 
 }

@@ -105,7 +105,7 @@ $config['params'] = [
     ],
 
     'redis-option' => [
-        'prefix' => 'yii2.best.api.',
+        'prefix' => 'yii2.dc.api.',
     ],
 
 ];

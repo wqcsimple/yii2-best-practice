@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\components\BaseApiController;
 use app\components\Debug;
+use dix\base\component\Redis;
 use yii\base\UserException;
 
 class TestController extends BaseApiController
@@ -85,7 +86,8 @@ class TestController extends BaseApiController
 
     public function actionTest()
     {
-        
+        $redis = Redis::client();
+        $redis->flushall();
     }
 
 }

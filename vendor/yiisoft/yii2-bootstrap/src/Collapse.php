@@ -58,7 +58,7 @@ class Collapse extends Widget
      * group with the following structure:
      *
      * - label: string, required, the group header label.
-     * - encode: boolean, optional, whether this label should be HTML-encoded. This param will override
+     * - encode: bool, optional, whether this label should be HTML-encoded. This param will override
      *   global `$this->encodeLabels` param.
      * - content: array|string|object, required, the content (HTML) of the group
      * - options: array, optional, the HTML attributes of the group
@@ -87,15 +87,29 @@ class Collapse extends Widget
      */
     public $items = [];
     /**
-     * @var boolean whether the labels for header items should be HTML-encoded.
+     * @var bool whether the labels for header items should be HTML-encoded.
      */
     public $encodeLabels = true;
     /**
-     * @var boolean whether to close other items if an item is opened. Defaults to `true` which causes an
+     * @var bool whether to close other items if an item is opened. Defaults to `true` which causes an
      * accordion effect. Set this to `false` to allow keeping multiple items open at once.
      * @since 2.0.7
      */
     public $autoCloseItems = true;
+    /**
+     * @var string the HTML options for the item toggle tag. Key 'tag' might be used here for the tag name specification.
+     * For example:
+     *
+     * ```php
+     * [
+     *     'tag' => 'div',
+     *     'class' => 'custom-toggle',
+     * ]
+     * ```
+     *
+     * @since 2.0.8
+     */
+    public $itemToggleOptions = [];
 
 
     /**
@@ -170,14 +184,23 @@ class Collapse extends Widget
                 $header = Html::encode($header);
             }
 
-            $headerOptions = [
-                'class' => 'collapse-toggle',
+            $itemToggleOptions = array_merge([
+                'tag' => 'a',
                 'data-toggle' => 'collapse',
-            ];
+            ], $this->itemToggleOptions);
+            Html::addCssClass($itemToggleOptions, ['widget' => 'collapse-toggle']);
+
             if ($this->autoCloseItems) {
-                $headerOptions['data-parent'] = '#' . $this->options['id'];
+                $itemToggleOptions['data-parent'] = '#' . $this->options['id'];
             }
-            $headerToggle = Html::a($header, '#' . $id, $headerOptions) . "\n";
+
+            $itemToggleTag = ArrayHelper::remove($itemToggleOptions, 'tag', 'a');
+            if ($itemToggleTag === 'a') {
+                $headerToggle = Html::a($header, '#' . $id, $itemToggleOptions) . "\n";
+            } else {
+                $itemToggleOptions['data-target'] = '#' . $id;
+                $headerToggle = Html::tag($itemToggleTag, $header, $itemToggleOptions) . "\n";
+            }
 
             $header = Html::tag('h4', $headerToggle, ['class' => 'panel-title']);
 

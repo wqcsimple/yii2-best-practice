@@ -77,8 +77,11 @@ of quality.
  
 The readability of a QR code is primarily determined by the size, the input
 length, the error correction level and any possible logo over the image so you
-can tweak these parameters if you are looking for optimal results. Take note
-that the validator can consume quite amount of additional resources.
+can tweak these parameters if you are looking for optimal results. You can also
+check $qrCode->getRoundBlockSize() value to see if block dimensions are rounded
+so that the image is more sharp and readable.
+
+Take note that the validator can consume quite amount of additional resources.
 
 ## Symfony integration
 
@@ -106,6 +109,6 @@ information please view the LICENSE file that was distributed with this source c
 
 ## Donation
 
-If this project help you reduce time to develop, you can give me a cup of coffee :)
+If this project help you reduce time to develop, you can buy me a Tesla :)
 
 [![paypal](https://www.paypalobjects.com/webstatic/en_US/i/btn/png/btn_donate_92x26.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RGH86QN825TWN)

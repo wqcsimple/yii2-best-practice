@@ -637,17 +637,17 @@
     },
     {
         "name": "endroid/qrcode",
-        "version": "3.2.3",
-        "version_normalized": "3.2.3.0",
+        "version": "3.2.8",
+        "version_normalized": "3.2.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/endroid/qr-code.git",
-            "reference": "155585335748809d38888d6ccff0da3619e2a041"
+            "reference": "844f9ea95bd6b012097890c6106c909cd802add2"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/endroid/qr-code/155585335748809d38888d6ccff0da3619e2a041.zip",
-            "reference": "155585335748809d38888d6ccff0da3619e2a041",
+            "url": "https://files.phpcomposer.com/files/endroid/qr-code/844f9ea95bd6b012097890c6106c909cd802add2.zip",
+            "reference": "844f9ea95bd6b012097890c6106c909cd802add2",
             "shasum": ""
         },
         "require": {
@@ -659,19 +659,10 @@
             "symfony/options-resolver": "^2.7|^3.0|^4.0",
             "symfony/property-access": "^2.7|^3.0|^4.0"
         },
-        "conflict": {
-            "twig/twig": "<1.34.2||>=2.0.0,<2.4.4"
-        },
         "require-dev": {
-            "phpunit/phpunit": "^5.7|^6.0",
-            "symfony/phpunit-bridge": "^3.0|^4.0",
-            "symfony/routing": "^3.0|^4.0",
-            "twig/twig": "^1.34.2|^2.4.4"
+            "phpunit/phpunit": "^5.7|^6.0"
         },
-        "suggest": {
-            "twig/twig": "To enable the twig extension"
-        },
-        "time": "2018-01-21T09:20:34+00:00",
+        "time": "2018-02-27T21:35:30+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -709,17 +700,17 @@
     },
     {
         "name": "ezyang/htmlpurifier",
-        "version": "v4.9.3",
-        "version_normalized": "4.9.3.0",
+        "version": "v4.10.0",
+        "version_normalized": "4.10.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/ezyang/htmlpurifier.git",
-            "reference": "95e1bae3182efc0f3422896a3236e991049dac69"
+            "reference": "d85d39da4576a6934b72480be6978fb10c860021"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/ezyang/htmlpurifier/95e1bae3182efc0f3422896a3236e991049dac69.zip",
-            "reference": "95e1bae3182efc0f3422896a3236e991049dac69",
+            "url": "https://files.phpcomposer.com/files/ezyang/htmlpurifier/d85d39da4576a6934b72480be6978fb10c860021.zip",
+            "reference": "d85d39da4576a6934b72480be6978fb10c860021",
             "shasum": ""
         },
         "require": {
@@ -728,7 +719,7 @@
         "require-dev": {
             "simpletest/simpletest": "^1.1"
         },
-        "time": "2017-06-03T02:28:16+00:00",
+        "time": "2018-02-23T01:58:20+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -1815,7 +1806,8 @@
             "spreadsheet",
             "xls",
             "xlsx"
-        ]
+        ],
+        "abandoned": "phpoffice/phpspreadsheet"
     },
     {
         "name": "phpspec/php-diff",
@@ -2115,17 +2107,17 @@
     },
     {
         "name": "qiniu/php-sdk",
-        "version": "v7.2.2",
-        "version_normalized": "7.2.2.0",
+        "version": "v7.2.3",
+        "version_normalized": "7.2.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/qiniu/php-sdk.git",
-            "reference": "79290fd9cb5d72cc2feef779008b3aaeeac49eb9"
+            "reference": "67852ba9cdd7f48e0e080961abebafee134fb329"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/qiniu/php-sdk/79290fd9cb5d72cc2feef779008b3aaeeac49eb9.zip",
-            "reference": "79290fd9cb5d72cc2feef779008b3aaeeac49eb9",
+            "url": "https://files.phpcomposer.com/files/qiniu/php-sdk/67852ba9cdd7f48e0e080961abebafee134fb329.zip",
+            "reference": "67852ba9cdd7f48e0e080961abebafee134fb329",
             "shasum": ""
         },
         "require": {
@@ -2135,7 +2127,7 @@
             "phpunit/phpunit": "~4.0",
             "squizlabs/php_codesniffer": "~2.3"
         },
-        "time": "2017-11-07T06:12:11+00:00",
+        "time": "2018-02-20T13:59:54+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -2273,8 +2265,8 @@
     },
     {
         "name": "symfony/inflector",
-        "version": "v4.0.3",
-        "version_normalized": "4.0.3.0",
+        "version": "v4.0.6",
+        "version_normalized": "4.0.6.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/inflector.git",
@@ -2332,23 +2324,23 @@
     },
     {
         "name": "symfony/options-resolver",
-        "version": "v4.0.3",
-        "version_normalized": "4.0.3.0",
+        "version": "v4.0.6",
+        "version_normalized": "4.0.6.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/options-resolver.git",
-            "reference": "30d9240b30696a69e893534c9fc4a5c72ab6689b"
+            "reference": "371532a2cfe932f7a3766dd4c45364566def1dd0"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/symfony/options-resolver/30d9240b30696a69e893534c9fc4a5c72ab6689b.zip",
-            "reference": "30d9240b30696a69e893534c9fc4a5c72ab6689b",
+            "url": "https://files.phpcomposer.com/files/symfony/options-resolver/371532a2cfe932f7a3766dd4c45364566def1dd0.zip",
+            "reference": "371532a2cfe932f7a3766dd4c45364566def1dd0",
             "shasum": ""
         },
         "require": {
             "php": "^7.1.3"
         },
-        "time": "2018-01-03T07:38:00+00:00",
+        "time": "2018-01-18T22:19:33+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2388,8 +2380,8 @@
     },
     {
         "name": "symfony/property-access",
-        "version": "v4.0.3",
-        "version_normalized": "4.0.3.0",
+        "version": "v4.0.6",
+        "version_normalized": "4.0.6.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/property-access.git",
@@ -2559,24 +2551,24 @@
     },
     {
         "name": "yiisoft/yii2-bootstrap",
-        "version": "2.0.7",
-        "version_normalized": "2.0.7.0",
+        "version": "2.0.8",
+        "version_normalized": "2.0.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/yiisoft/yii2-bootstrap.git",
-            "reference": "02a54d868343ed11d02f0f0f8cbbecb590e0cb3f"
+            "reference": "3f49c47924bb9fa5363c3fc7b073d954168cf438"
         },
         "dist": {
             "type": "zip",
-            "url": "https://files.phpcomposer.com/files/yiisoft/yii2-bootstrap/02a54d868343ed11d02f0f0f8cbbecb590e0cb3f.zip",
-            "reference": "02a54d868343ed11d02f0f0f8cbbecb590e0cb3f",
+            "url": "https://files.phpcomposer.com/files/yiisoft/yii2-bootstrap/3f49c47924bb9fa5363c3fc7b073d954168cf438.zip",
+            "reference": "3f49c47924bb9fa5363c3fc7b073d954168cf438",
             "shasum": ""
         },
         "require": {
             "bower-asset/bootstrap": "3.3.* | 3.2.* | 3.1.*",
             "yiisoft/yii2": "~2.0.6"
         },
-        "time": "2017-10-09T19:48:22+00:00",
+        "time": "2018-02-16T10:41:52+00:00",
         "type": "yii2-extension",
         "extra": {
             "branch-alias": {
@@ -2586,7 +2578,7 @@
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "yii\\bootstrap\\": ""
+                "yii\\bootstrap\\": "src"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -2595,8 +2587,22 @@
         ],
         "authors": [
             {
+                "name": "Paul Klimov",
+                "email": "klimov.paul@gmail.com"
+            },
+            {
+                "name": "Alexander Makarov",
+                "email": "sam@rmcreative.ru",
+                "homepage": "http://rmcreative.ru/"
+            },
+            {
+                "name": "Antonio Ramirez",
+                "email": "amigo.cobos@gmail.com"
+            },
+            {
                 "name": "Qiang Xue",
-                "email": "qiang.xue@gmail.com"
+                "email": "qiang.xue@gmail.com",
+                "homepage": "http://www.yiiframework.com/"
             }
         ],
         "description": "The Twitter Bootstrap extension for the Yii framework",
@@ -2756,24 +2762,24 @@
     },
     {
         "name": "yiisoft/yii2-faker",
-        "version": "2.0.3",
-        "version_normalized": "2.0.3.0",
+        "version": "2.0.4",
+        "version_normalized": "2.0.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/yiisoft/yii2-faker.git",
-            "reference": "b88ca69ee226a3610b2c26c026c3203d7ac50f6c"
+            "reference": "3df62b1dcb272a8413f9c6e532c9d73f325ccde1"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/yiisoft/yii2-faker/zipball/b88ca69ee226a3610b2c26c026c3203d7ac50f6c",
-            "reference": "b88ca69ee226a3610b2c26c026c3203d7ac50f6c",
+            "url": "https://files.phpcomposer.com/files/yiisoft/yii2-faker/3df62b1dcb272a8413f9c6e532c9d73f325ccde1.zip",
+            "reference": "3df62b1dcb272a8413f9c6e532c9d73f325ccde1",
             "shasum": ""
         },
         "require": {
-            "fzaninotto/faker": "*",
-            "yiisoft/yii2": "*"
+            "fzaninotto/faker": "~1.4",
+            "yiisoft/yii2": "~2.0.0"
         },
-        "time": "2015-03-01T06:22:44+00:00",
+        "time": "2018-02-19T20:27:10+00:00",
         "type": "yii2-extension",
         "extra": {
             "branch-alias": {

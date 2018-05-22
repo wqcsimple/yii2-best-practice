@@ -18,7 +18,7 @@ class AmqpController extends BaseController
         $queue_name = 'queue_test';
         $rabbit_mq_config = [
             'exchange' => 'web',    // 自己手动添加交换机,这里就不做描述
-            'host' => '106.14.135.129', // 填写自己的容器ip
+            'host' => 'whis-app-2', // 填写自己的容器ip
             'port' => '5672',
             'user' => 'whis',
             'pass' => '7',
@@ -36,7 +36,7 @@ class AmqpController extends BaseController
         $queue_name = 'hello';
         $rabbit_mq_config = [
             'exchange' => 'web',    // 自己手动添加交换机,这里就不做描述
-            'host' => '106.14.135.129', // 填写自己的容器ip
+            'host' => 'whis-app-2', // 填写自己的容器ip
             'port' => '5672',
             'user' => 'whis',
             'pass' => '7',

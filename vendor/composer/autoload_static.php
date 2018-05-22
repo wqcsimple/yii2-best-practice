@@ -84,6 +84,7 @@ class ComposerStaticInita6efcab76222e76b02a4acfacc051f87
             'Psr\\Container\\' => 14,
             'Predis\\' => 7,
             'PhpOffice\\PhpSpreadsheet\\' => 25,
+            'PhpAmqpLib\\' => 11,
         ),
         'O' => 
         array (
@@ -267,6 +268,10 @@ class ComposerStaticInita6efcab76222e76b02a4acfacc051f87
         'PhpOffice\\PhpSpreadsheet\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpoffice/phpspreadsheet/src/PhpSpreadsheet',
+        ),
+        'PhpAmqpLib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-amqplib/php-amqplib/PhpAmqpLib',
         ),
         'Overtrue\\Pinyin\\' => 
         array (

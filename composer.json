@@ -45,7 +45,8 @@
         "phpoffice/phpspreadsheet": "^1.2",
         "endroid/qr-code": "^3.2",
         "codeception/codeception": "^2.4",
-        "khanamiryan/qrcode-detector-decoder": "^1.0"
+        "khanamiryan/qrcode-detector-decoder": "^1.0",
+        "php-amqplib/php-amqplib": "^2.7"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "*",

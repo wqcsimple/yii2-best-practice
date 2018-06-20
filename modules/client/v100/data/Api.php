@@ -16,6 +16,7 @@ class Api
     const TYPE_COMMON = "common";
     const TYPE_POST = "post";
     const TYPE_ROLE = "role";
+    const TYPE_SYNC = "sync";
 
     public static function PathGuestCanAccess()
     {
@@ -315,8 +316,21 @@ class Api
             ],
         ];
 
+        $sync_actions = [
+            [
+                'type' => self::TYPE_SYNC,
+                'name' => '酷游角色同步',
+                'action' => 'sync/role-sync',
+                'token' => false,
+                'params' => ['data | s'],
+                'response' => [
+                    'null' => '\app\modules\client\v100\services\SyncService::roleSync($data)',
+                ]
+            ],
+        ];
+
         return array_merge($admin_actions, $user_actions, $contact_actions, $ffo_actions, $common_actions, $post_actions,
-            $role_actions);
+            $role_actions, $sync_actions);
     }
 
 

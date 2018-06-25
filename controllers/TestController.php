@@ -4,8 +4,12 @@ namespace app\controllers;
 
 use app\components\BaseApiController;
 use app\components\Debug;
+use app\components\DXUtil;
 use dix\base\component\Redis;
+use GuzzleHttp\Client;
 use yii\base\UserException;
+use yii\helpers\ArrayHelper;
+use yii\helpers\Json;
 
 class TestController extends BaseApiController
 {
@@ -86,6 +90,56 @@ class TestController extends BaseApiController
 
     public function actionTest()
     {
+        $url = 'http://www.kuyoo.com/tws/gamesearch/search?Filter=&Path=0,242375-0,708913-0,708915-0,303844-43392,3-43393,1-43394,1&PageNum=1&PageSize=100&KeyWord=&OrderStyle=6&Property=8&callback=getMyItemsListCallback&dtag=495&g_tk=647406003&g_ty=ls';
+
+        $res = curl("GET", $url);
+
+        $data = $this->jsonp_decode($res['response'], true);
+
+        try {
+            $data = $this->yang_gbk2utf8($data);
+        } catch (\Exception $e) {
+            dump($e->getTrace());
+        }
     }
+
+    function jsonp_decode($jsonp, $assoc = false)
+    {
+        if ($jsonp[0] !== '[' && $jsonp[0] !== '{') {
+            $jsonp = substr($jsonp, strpos($jsonp, '('));
+        }
+
+        $jsonp = trim($jsonp, '();');
+        $jsonp = str_replace(");", "", $jsonp);
+
+        $pattern = "/(\/\*.*\*\/)/";
+        preg_match_all($pattern, $jsonp, $out);
+        if (sizeof($out) > 0) {
+            $arr1 = array_unique($out[0]);
+
+            foreach ($arr1 as $kye => $v) {
+                $jsonp = str_replace($v, "", $jsonp);
+            }
+
+//            return json_decode($jsonp, $assoc);
+            return $jsonp;
+        }
+
+        return "";
+    }
+
+    function yang_gbk2utf8($str)
+    {
+        $charset = mb_detect_encoding($str, array('UTF-8', 'GBK', 'GB2312'));
+        $charset = strtolower($charset);
+        if ('cp936' == $charset) {
+            $charset = 'GBK';
+        }
+        if ("utf-8" != $charset) {
+            $str = iconv($charset, "UTF-8//IGNORE", $str);
+        }
+        return $str;
+    }
+
 
 }

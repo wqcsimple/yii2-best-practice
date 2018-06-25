@@ -9,12 +9,13 @@ class SyncController extends BaseApiController
 
     public function actionRoleSync()
     {
-        $this->checkParams(['data']);
+        $this->checkParams(['role', 'data']);
 
+        $role = strval($this->params['role']);
         $data = strval($this->params['data']);
 
         $_data = null;
-        SyncService::roleSync($data);
+        SyncService::roleSync($role, $data);
 
         $this->finishSuccess($_data);
     }

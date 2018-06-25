@@ -322,9 +322,9 @@ class Api
                 'name' => '酷游角色同步',
                 'action' => 'sync/role-sync',
                 'token' => false,
-                'params' => ['data | s'],
+                'params' => ['role | s', 'data | s'],
                 'response' => [
-                    'null' => '\app\modules\client\v100\services\SyncService::roleSync($data)',
+                    'null' => '\app\modules\client\v100\services\SyncService::roleSync($role, $data)',
                 ]
             ],
         ];

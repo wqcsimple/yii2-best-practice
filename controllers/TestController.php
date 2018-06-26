@@ -90,7 +90,7 @@ class TestController extends BaseApiController
 
     public function actionTest()
     {
-        dump(strtotime('today'));
+        dump(strtotime('-1 day'));
     }
 
     function jsonp_decode($jsonp, $assoc = false)

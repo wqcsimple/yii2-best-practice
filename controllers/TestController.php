@@ -90,17 +90,7 @@ class TestController extends BaseApiController
 
     public function actionTest()
     {
-        $url = 'http://www.kuyoo.com/tws/gamesearch/search?Filter=&Path=0,242375-0,708913-0,708915-0,303844-43392,3-43393,1-43394,1&PageNum=1&PageSize=100&KeyWord=&OrderStyle=6&Property=8&callback=getMyItemsListCallback&dtag=495&g_tk=647406003&g_ty=ls';
-
-        $res = curl("GET", $url);
-
-        $data = $this->jsonp_decode($res['response'], true);
-
-        try {
-            $data = $this->yang_gbk2utf8($data);
-        } catch (\Exception $e) {
-            dump($e->getTrace());
-        }
+        dump(strtotime('today'));
     }
 
     function jsonp_decode($jsonp, $assoc = false)

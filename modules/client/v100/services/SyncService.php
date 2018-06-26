@@ -8,6 +8,7 @@
 namespace app\modules\client\v100\services;
 
 
+use app\components\WxNotify;
 use app\exceptions\ServiceSaveFailException;
 use app\models\KyData;
 use yii\helpers\ArrayHelper;
@@ -48,7 +49,16 @@ class SyncService {
         $ky_data->add_time = $item_add_time;
         $ky_data->modified_time = $item_modified_time;
         $ky_data->data = $data;
-        if (!$ky_data->save()) {
+
+        /**
+         * 如果发布时间是今天就通知
+         */
+        if (strtotime($ky_data->add_time) > strtotime('today')) {
+            WxNotify::send($item_name, "http://www.kuyoo.com/ffo/item_info.shtml?strItemId=" . $item_id);
+        }
+
+        if (!$ky_data->save())
+        {
             throw new ServiceSaveFailException("save error", ['errors' => $ky_data->errors]);
         }
     }

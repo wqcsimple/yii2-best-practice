@@ -17,10 +17,6 @@ class TxCosApi {
 
     const BUCKET_DISC_01 = 'disk01';
 
-    const APP_BUCKET_MAPPING = [
-        'disk01' => self::BUCKET_DISC_01
-    ];
-
     /**
      * @return \SCS
      */
@@ -35,10 +31,15 @@ class TxCosApi {
         Cosapi::setRegion('sh');
     }
 
+    public static function getAppBucketMapping() {
+        return [
+            'disk01' => self::BUCKET_DISC_01
+        ];
+    }
 
     public static function getBucket($app)
     {
-        $app_list = self::APP_BUCKET_MAPPING;
+        $app_list = self::getAppBucketMapping();
         if (in_array($app, array_keys($app_list)))
         {
             return $app_list[$app];

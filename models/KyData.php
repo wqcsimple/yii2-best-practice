@@ -18,6 +18,7 @@ use Yii;
  * @property string $add_time
  * @property string $modified_time
  * @property string $data
+ * @property integer $send
  * @property integer $weight
  * @property integer $create_time
  * @property integer $update_time
@@ -39,7 +40,7 @@ class KyData extends \yii\db\ActiveRecord implements ModelApiInterface
     {
         return [
             [['item_name'], 'required'],
-            [['level', 'price', 'weight', 'create_time', 'update_time'], 'integer'],
+            [['level', 'price', 'send', 'weight', 'create_time', 'update_time'], 'integer'],
             [['data'], 'string'],
             [['role', 'item_name', 'add_time', 'modified_time'], 'string', 'max' => 99],
             [['item_id'], 'string', 'max' => 999],
@@ -61,6 +62,7 @@ class KyData extends \yii\db\ActiveRecord implements ModelApiInterface
             'add_time' => 'Add Time',
             'modified_time' => 'Modified Time',
             'data' => 'Data',
+            'send' => 'Send',
             'weight' => 'Weight',
             'create_time' => 'Create Time',
             'update_time' => 'Update Time',
@@ -79,6 +81,7 @@ class KyData extends \yii\db\ActiveRecord implements ModelApiInterface
             'add_time' => 'Add Time',
             'modified_time' => 'Modified Time',
             'data' => 'Data',
+            'send' => 'Send',
             'weight' => 'Weight',
             'create_time' => 'Create Time',
             'update_time' => 'Update Time',
@@ -97,6 +100,7 @@ class KyData extends \yii\db\ActiveRecord implements ModelApiInterface
             'add_time' => 'Add Time',
             'modified_time' => 'Modified Time',
             'data' => 'Data',
+            'send' => 'Send',
             'weight' => 'Weight',
             'create_time' => 'Create Time',
             'update_time' => 'Update Time',
@@ -115,6 +119,7 @@ class KyData extends \yii\db\ActiveRecord implements ModelApiInterface
             'add_time' => 's',
             'modified_time' => 's',
             'data' => 's',
+            'send' => 'i',
             'weight' => 'i',
             'create_time' => 'i',
             'update_time' => 'i',

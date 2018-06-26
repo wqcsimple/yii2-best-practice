@@ -53,8 +53,9 @@ class SyncService {
         /**
          * 如果发布时间是今天就通知
          */
-        if (strtotime($ky_data->add_time) > strtotime('-3 day')) {
+        if (strtotime($ky_data->add_time) > strtotime('today') && $ky_data->send == 0) {
             WxNotify::send($item_name, "http://www.kuyoo.com/ffo/item_info.shtml?strItemId=" . $item_id);
+            $ky_data->send = 1;
         }
 
         if (!$ky_data->save())

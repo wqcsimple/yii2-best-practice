@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\components\BaseApiController;
 use app\components\Debug;
 use app\components\DXUtil;
+use app\components\WxNotify;
 use dix\base\component\Redis;
 use GuzzleHttp\Client;
 use yii\base\UserException;
@@ -90,7 +91,6 @@ class TestController extends BaseApiController
 
     public function actionTest()
     {
-        dump(strtotime('-1 day'));
     }
 
     function jsonp_decode($jsonp, $assoc = false)

@@ -69,10 +69,10 @@ class DataService
         
         $query = Item::find()->where($condition);
         $count = intval($query->count());
-        
+
         $result_list = $query->orderBy(['id' => SORT_DESC])->offset($offset)->limit($limit)->all();
         $data_list = DXUtil::formatModelList($result_list, Item::className(), 'processForAdmin');
-        
+
         return [
             "count" => $count,
             "list" => $data_list

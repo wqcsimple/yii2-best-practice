@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\components\AliyunLog;
 use app\components\BaseApiController;
 use app\components\Debug;
 use app\components\DXUtil;
@@ -91,6 +92,17 @@ class TestController extends BaseApiController
 
     public function actionTest()
     {
+        $data = [
+            'device_key' => 'LeERk2SYc1ddYu6xPi3L6ZwZ9IiEfaWo',
+            'code' => 'A1',
+            'message' => "读卡器故障",
+            'level' => "warn",
+            'data' => [
+                "key" => 1
+            ]
+        ];
+
+        $this->finish($data);
     }
 
     function jsonp_decode($jsonp, $assoc = false)

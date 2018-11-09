@@ -3,6 +3,9 @@ namespace PhpAmqpLib\Connection;
 
 use PhpAmqpLib\Channel\AMQPChannel;
 use PhpAmqpLib\Channel\AbstractChannel;
+use PhpAmqpLib\Exception\AMQPConnectionClosedException;
+use PhpAmqpLib\Exception\AMQPHeartbeatMissedException;
+use PhpAmqpLib\Exception\AMQPInvalidFrameException;
 use PhpAmqpLib\Exception\AMQPProtocolConnectionException;
 use PhpAmqpLib\Exception\AMQPRuntimeException;
 use PhpAmqpLib\Exception\AMQPTimeoutException;
@@ -19,7 +22,7 @@ class AbstractConnection extends AbstractChannel
     public static $LIBRARY_PROPERTIES = array(
         'product' => array('S', 'AMQPLib'),
         'platform' => array('S', 'PHP'),
-        'version' => array('S', '2.6'),
+        'version' => array('S', '2.8'),
         'information' => array('S', ''),
         'copyright' => array('S', ''),
         'capabilities' => array(
@@ -212,7 +215,12 @@ class AbstractConnection extends AbstractChannel
 
                 $this->write($this->amqp_protocol_header);
                 $this->wait(array($this->waitHelper->get_wait('connection.start')),false,$this->connection_timeout);
-                $this->x_start_ok(self::$LIBRARY_PROPERTIES, $this->login_method, $this->login_response, $this->locale);
+                $this->x_start_ok(
+                    $this->getLibraryProperties(),
+                    $this->login_method,
+                    $this->login_response,
+                    $this->locale
+                );
 
                 $this->wait_tune_ok = true;
                 while ($this->wait_tune_ok) {
@@ -510,7 +518,7 @@ class AbstractConnection extends AbstractChannel
         if (is_null($this->input))
         {
             $this->setIsConnected(false);
-            throw new AMQPRuntimeException('Broken pipe or closed connection');
+            throw new AMQPConnectionClosedException('Broken pipe or closed connection');
         }
 
         $currentTimeout = $this->input->getTimeout();
@@ -525,7 +533,7 @@ class AbstractConnection extends AbstractChannel
             $frame_type = $this->wait_frame_reader->read_octet();
             $class = self::$PROTOCOL_CONSTANTS_CLASS;
             if (!array_key_exists($frame_type, $class::$FRAME_TYPES)) {
-                throw new AMQPRuntimeException('Invalid frame type ' . $frame_type);
+                throw new AMQPInvalidFrameException('Invalid frame type ' . $frame_type);
             }
             $channel = $this->wait_frame_reader->read_short();
             $size = $this->wait_frame_reader->read_long();
@@ -544,7 +552,7 @@ class AbstractConnection extends AbstractChannel
         $this->input->setTimeout($currentTimeout);
 
         if ($ch != 0xCE) {
-            throw new AMQPRuntimeException(sprintf(
+            throw new AMQPInvalidFrameException(sprintf(
                 'Framing error, unexpected byte: %x',
                 $ch
             ));
@@ -573,7 +581,7 @@ class AbstractConnection extends AbstractChannel
                 if ( $this->heartbeat && microtime(true) - ($this->heartbeat*2) > $this->last_frame ) {
                     $this->debug->debug_msg("missed server heartbeat (at threshold * 2)");
                     $this->setIsConnected(false);
-                    throw new AMQPRuntimeException("Missed server heartbeat");
+                    throw new AMQPHeartbeatMissedException("Missed server heartbeat");
                 }
 
                 throw $e;
@@ -979,5 +987,49 @@ class AbstractConnection extends AbstractChannel
     public function getServerProperties()
     {
         return $this->server_properties;
+    }
+
+    /**
+     * Get the library properties for populating the client protocol information
+     *
+     * @return array
+     */
+    public function getLibraryProperties()
+    {
+        return self::$LIBRARY_PROPERTIES;
+    }
+
+    public static function create_connection($hosts, $options = array()){
+        $latest_exception = null;
+        for($i = 0; $i < count($hosts); $i++) {
+            AbstractConnection::validate_host($hosts[$i]);
+            $host = $hosts[$i]['host'];
+            $port = $hosts[$i]['port'];
+            $user = $hosts[$i]['user'];
+            $password = $hosts[$i]['password'];
+            $vhost = isset($hosts[$i]['vhost']) ? $hosts[$i]['vhost'] : "/";
+            try {
+                $conn = static::try_create_connection($host, $port, $user, $password, $vhost, $options);
+                return $conn;
+            } catch (\Exception $e) {
+                $latest_exception = $e;
+            }
+        }
+        throw $latest_exception;
+    }
+
+    public static function validate_host($host) {
+        if(!isset($host['host'])){
+            throw new \InvalidArgumentException("'host' key is required.");
+        }
+        if(!isset($host['port'])){
+            throw new \InvalidArgumentException("'port' key is required.");
+        }
+        if(!isset($host['user'])){
+            throw new \InvalidArgumentException("'user' key is required.");
+        }
+        if(!isset($host['password'])){
+            throw new \InvalidArgumentException("'password' key is required.");
+        }
     }
 }

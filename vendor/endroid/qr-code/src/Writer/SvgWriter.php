@@ -9,6 +9,9 @@
 
 namespace Endroid\QrCode\Writer;
 
+use Endroid\QrCode\Exception\MissingExtensionException;
+use Endroid\QrCode\Exception\MissingLogoHeightException;
+use Endroid\QrCode\Exception\ValidationException;
 use Endroid\QrCode\QrCodeInterface;
 use SimpleXMLElement;
 
@@ -16,15 +19,16 @@ class SvgWriter extends AbstractWriter
 {
     public function writeString(QrCodeInterface $qrCode): string
     {
+        if ($qrCode->getValidateResult()) {
+            throw new ValidationException('Built-in validation reader can not check SVG images: please disable via setValidateResult(false)');
+        }
+
         $data = $this->getData($qrCode);
 
-        $svg = new SimpleXMLElement(
-            '<?xml version="1.0" encoding="UTF-8"?>'
-            .'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"/>'
-        );
+        $svg = new SimpleXMLElement('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"/>');
         $svg->addAttribute('version', '1.1');
-        $svg->addAttribute('width', $data['inner_width'].'px');
-        $svg->addAttribute('height', $data['inner_height'].'px');
+        $svg->addAttribute('width', $data['outer_width'].'px');
+        $svg->addAttribute('height', $data['outer_height'].'px');
         $svg->addAttribute('viewBox', '0 0 '.$data['outer_width'].' '.$data['outer_height']);
         $svg->addChild('defs');
 
@@ -56,7 +60,58 @@ class SvgWriter extends AbstractWriter
             }
         }
 
-        return $svg->asXML();
+        if ($qrCode->getLogoPath()) {
+            $this->addLogo($svg, $data['outer_width'], $data['outer_height'], $qrCode->getLogoPath(), $qrCode->getLogoWidth(), $qrCode->getLogoHeight());
+        }
+
+        $xml = $svg->asXML();
+
+        $options = $qrCode->getWriterOptions();
+        if (isset($options['exclude_xml_declaration']) && $options['exclude_xml_declaration']) {
+            $xml = str_replace("<?xml version=\"1.0\"?>\n", '', $xml);
+        }
+
+        return $xml;
+    }
+
+    private function addLogo(SimpleXMLElement $svg, int $imageWidth, int $imageHeight, string $logoPath, int $logoWidth, int $logoHeight = null): void
+    {
+        $mimeType = $this->getMimeType($logoPath);
+        $imageData = file_get_contents($logoPath);
+
+        if ($logoHeight === null) {
+            if ($mimeType === 'image/svg+xml') {
+                throw new MissingLogoHeightException('SVG Logos require an explicit height set via setLogoSize($width, $height)');
+            } else {
+                $logoImage = imagecreatefromstring($imageData);
+                $aspectRatio = $logoWidth / imagesx($logoImage);
+                $logoHeight = intval(imagesy($logoImage) * $aspectRatio);
+            }
+        }
+
+        $imageDefinition = $svg->addChild('image');
+        $imageDefinition->addAttribute('x', $imageWidth / 2 - $logoWidth / 2);
+        $imageDefinition->addAttribute('y', $imageHeight / 2 - $logoHeight / 2);
+        $imageDefinition->addAttribute('width', $logoWidth);
+        $imageDefinition->addAttribute('height', $logoHeight);
+        $imageDefinition->addAttribute('preserveAspectRatio', 'none');
+        $imageDefinition->addAttribute('xlink:href', 'data:'.$mimeType.';base64,'.base64_encode($imageData));
+    }
+
+    private function getMimeType(string $path): string
+    {
+        if (!function_exists('mime_content_type')) {
+            throw new MissingExtensionException('You need the ext-fileinfo extension to determine the mime type');
+        }
+
+        $mimeType = mime_content_type($path);
+
+        // Passing mime type image/svg results in invisible images
+        if ($mimeType === 'image/svg') {
+            return 'image/svg+xml';
+        }
+
+        return $mimeType;
     }
 
     private function getOpacity(int $alpha): float

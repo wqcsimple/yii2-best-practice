@@ -98,10 +98,17 @@ class TestController extends BaseApiController
             'message' => "读卡器故障",
             'level' => "warn",
             'data' => [
-                "key" => 1
+                "key" => 1,
+                "data" => [
+                    "a" => [
+                        "b" => 1
+                    ]
+                ]
             ]
         ];
 
+        
+        echo $data['data']['data']['a']['b'];
         $this->finish($data);
     }
 

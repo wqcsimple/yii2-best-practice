@@ -31,6 +31,8 @@ interface QrCodeInterface
 
     public function getLogoWidth(): ?int;
 
+    public function getLogoHeight(): ?int;
+
     public function getLabel(): ?string;
 
     public function getLabelFontPath(): ?string;
@@ -42,6 +44,8 @@ interface QrCodeInterface
     public function getLabelMargin(): ?array;
 
     public function getValidateResult(): bool;
+
+    public function getWriterOptions(): array;
 
     public function getContentType(): string;
 

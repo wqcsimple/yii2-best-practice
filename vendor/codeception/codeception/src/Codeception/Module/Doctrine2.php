@@ -115,6 +115,14 @@ EOF;
         }
     }
 
+    /**
+     * @throws ModuleConfigException
+     */
+    public function onReconfigure()
+    {
+        $this->retrieveEntityManager();
+    }
+
     protected function retrieveEntityManager()
     {
         if ($this->dependentModule) {
@@ -155,7 +163,9 @@ EOF;
         }
         if ($this->config['cleanup'] && $this->em->getConnection()->isTransactionActive()) {
             try {
-                $this->em->getConnection()->rollback();
+                while ($this->em->getConnection()->getTransactionNestingLevel() > 0) {
+                    $this->em->getConnection()->rollback();
+                }
                 $this->debugSection('Database', 'Transaction cancelled; all changes reverted.');
             } catch (\PDOException $e) {
             }
@@ -305,7 +315,7 @@ EOF;
 
     /**
      * Persists record into repository.
-     * This method crates an entity, and sets its properties directly (via reflection).
+     * This method creates an entity, and sets its properties directly (via reflection).
      * Setters of entity won't be executed, but you can create almost any entity and save it to database.
      * Returns id using `getId` of newly created entity.
      *

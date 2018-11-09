@@ -22,6 +22,7 @@ class QrCodeFactory implements QrCodeFactoryInterface
     private $defaultOptions;
     private $definedOptions = [
         'writer',
+        'writer_options',
         'size',
         'margin',
         'foreground_color',
@@ -31,6 +32,7 @@ class QrCodeFactory implements QrCodeFactoryInterface
         'error_correction_level',
         'logo_path',
         'logo_width',
+        'logo_height',
         'label',
         'label_font_size',
         'label_font_path',

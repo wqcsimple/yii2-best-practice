@@ -1,9 +1,9 @@
 <?php
 namespace PhpAmqpLib\Wire;
 
+use PhpAmqpLib\Exception\AMQPDataReadException;
 use PhpAmqpLib\Exception\AMQPInvalidArgumentException;
 use PhpAmqpLib\Exception\AMQPOutOfBoundsException;
-use PhpAmqpLib\Exception\AMQPRuntimeException;
 use PhpAmqpLib\Exception\AMQPTimeoutException;
 use PhpAmqpLib\Exception\AMQPIOWaitException;
 use PhpAmqpLib\Helper\MiscHelper;
@@ -140,20 +140,28 @@ class AMQPReader extends AbstractClient
      * @param int $n
      * @return string
      * @throws \RuntimeException
-     * @throws \PhpAmqpLib\Exception\AMQPRuntimeException
+     * @throws \PhpAmqpLib\Exception\AMQPDataReadException
      */
     protected function rawread($n)
     {
         if ($this->io) {
-            $this->wait();
-            $res = $this->io->read($n);
+            while (true) {
+                $this->wait();
+                try {
+                    $res = $this->io->read($n);
+                    break;
+                } catch (AMQPTimeoutException $e) {
+                    if ($this->getTimeout() > 0) {
+                        throw $e;
+                    }
+                }
+            }
             $this->offset += $n;
-
             return $res;
         }
 
         if ($this->str_length < $n) {
-            throw new AMQPRuntimeException(sprintf(
+            throw new AMQPDataReadException(sprintf(
                 'Error reading data. Requested %s bytes while string buffer has only %s',
                 $n,
                 $this->str_length
@@ -442,7 +450,7 @@ class AMQPReader extends AbstractClient
      * @param int $fieldType One of AMQPAbstractCollection::T_* constants
      * @param bool $collectionsAsObjects Description
      * @return mixed
-     * @throws \PhpAmqpLib\Exception\AMQPRuntimeException
+     * @throws \PhpAmqpLib\Exception\AMQPDataReadException
      */
     public function read_value($fieldType, $collectionsAsObjects = false)
     {
@@ -500,6 +508,9 @@ class AMQPReader extends AbstractClient
                 break;
             case AMQPAbstractCollection::T_VOID:
                 $val = null;
+                break;
+            case AMQPAbstractCollection::T_BYTES:
+                $val = $this->read_longstr();
                 break;
             default:
                 throw new AMQPInvalidArgumentException(sprintf(

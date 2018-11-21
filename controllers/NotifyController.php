@@ -31,12 +31,12 @@ class NotifyController extends BaseController
         {
             $this->finishSuccess(null);
         }
-
+        
         $url = "http://sc.ftqq.com/SCU6349T23ce526185f836b02508e20b7b80f83e58b95e2a4234a.send";
         $client = new Client();
 
         $request_data = [
-            'text' => "Docker构建",
+            'text' => "Git仓库操作",
             'desp' => "`${requestBody}`"
         ];
         $res = $client->post($url, [
@@ -45,7 +45,6 @@ class NotifyController extends BaseController
 
         $response = @json_decode('' . $res->getBody(), true);
 
-        \Yii::error(DXUtil::jsonEncode($response));
         $this->finishSuccess($response);
     }
 }

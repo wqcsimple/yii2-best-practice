@@ -25,22 +25,9 @@ class NotifyController extends BaseController
 
     public function actionDo()
     {
-        $get = app()->request->post();
-        $post = app()->request->get();
+        $requestBody = app()->getRequest()->getRawBody();
 
-        DXLog::error("post-data", $post);
-        DXLog::error("get-data", $get);
-
-        $data = '';
-        if ($post) {
-            $data = DXUtil::jsonEncode($post);
-        }
-
-        if ($get) {
-            $data = DXUtil::jsonEncode($get);
-        }
-
-        if (!$data)
+        if (!$requestBody)
         {
             $this->finishSuccess(null);
         }
@@ -50,7 +37,7 @@ class NotifyController extends BaseController
 
         $request_data = [
             'text' => "Docker构建",
-            'desp' => "`${data}`"
+            'desp' => "`${requestBody}`"
         ];
         $res = $client->post($url, [
             'form_params' => $request_data

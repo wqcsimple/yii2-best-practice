@@ -28,8 +28,8 @@ class NotifyController extends BaseController
         $get = app()->request->post();
         $post = app()->request->get();
 
-        DXLog::info("post-data", $post);
-        DXLog::info("get-data", $get);
+        DXLog::error("post-data", $post);
+        DXLog::error("get-data", $get);
 
         $data = '';
         if ($post) {

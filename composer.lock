@@ -912,16 +912,16 @@
         },
         {
             "name": "endroid/qr-code",
-            "version": "3.4.4",
+            "version": "3.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/endroid/qr-code.git",
-                "reference": "bff7b8ca38d7e15e75e36deadaef6d9250af4221"
+                "reference": "cca0cd11486c73abc159444c007daa641580faee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/endroid/qr-code/zipball/bff7b8ca38d7e15e75e36deadaef6d9250af4221",
-                "reference": "bff7b8ca38d7e15e75e36deadaef6d9250af4221",
+                "url": "https://api.github.com/repos/endroid/qr-code/zipball/cca0cd11486c73abc159444c007daa641580faee",
+                "reference": "cca0cd11486c73abc159444c007daa641580faee",
                 "shasum": ""
             },
             "require": {
@@ -968,7 +968,7 @@
                 "qr",
                 "qrcode"
             ],
-            "time": "2018-08-21T20:10:48+00:00"
+            "time": "2018-11-14T15:54:49+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -2242,20 +2242,21 @@
         },
         {
             "name": "php-amqplib/php-amqplib",
-            "version": "v2.8.0",
+            "version": "v2.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-amqplib/php-amqplib.git",
-                "reference": "7df8553bd8b347cf6e919dd4a21e75f371547aa0"
+                "reference": "84449ffd3f5a7466bbee3946facb3746ff11f075"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-amqplib/php-amqplib/zipball/7df8553bd8b347cf6e919dd4a21e75f371547aa0",
-                "reference": "7df8553bd8b347cf6e919dd4a21e75f371547aa0",
+                "url": "https://api.github.com/repos/php-amqplib/php-amqplib/zipball/84449ffd3f5a7466bbee3946facb3746ff11f075",
+                "reference": "84449ffd3f5a7466bbee3946facb3746ff11f075",
                 "shasum": ""
             },
             "require": {
                 "ext-bcmath": "*",
+                "ext-sockets": "*",
                 "php": ">=5.4.0"
             },
             "replace": {
@@ -2266,9 +2267,6 @@
                 "phpunit/phpunit": "^4.8",
                 "scrutinizer/ocular": "^1.1",
                 "squizlabs/php_codesniffer": "^2.5"
-            },
-            "suggest": {
-                "ext-sockets": "Use AMQPSocketConnection"
             },
             "type": "library",
             "extra": {
@@ -2299,6 +2297,11 @@
                     "name": "Raúl Araya",
                     "email": "nubeiro@gmail.com",
                     "role": "Maintainer"
+                },
+                {
+                    "name": "Luke Bakken",
+                    "email": "luke@bakken.io",
+                    "role": "Maintainer"
                 }
             ],
             "description": "Formerly videlalvaro/php-amqplib.  This library is a pure PHP implementation of the AMQP protocol. It's been tested against RabbitMQ.",
@@ -2308,7 +2311,7 @@
                 "queue",
                 "rabbitmq"
             ],
-            "time": "2018-10-23T18:48:24+00:00"
+            "time": "2018-11-13T09:35:17+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -2464,16 +2467,16 @@
         },
         {
             "name": "phpoffice/phpspreadsheet",
-            "version": "1.5.0",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPOffice/PhpSpreadsheet.git",
-                "reference": "2dfd06c59825914a1a325f2a2ed13634b9d8c411"
+                "reference": "7f46932b2fabbaaf5a70e67cacc472a50b95cbb9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/2dfd06c59825914a1a325f2a2ed13634b9d8c411",
-                "reference": "2dfd06c59825914a1a325f2a2ed13634b9d8c411",
+                "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/7f46932b2fabbaaf5a70e67cacc472a50b95cbb9",
+                "reference": "7f46932b2fabbaaf5a70e67cacc472a50b95cbb9",
                 "shasum": ""
             },
             "require": {
@@ -2498,6 +2501,7 @@
                 "friendsofphp/php-cs-fixer": "@stable",
                 "jpgraph/jpgraph": "^4.0",
                 "mpdf/mpdf": "^7.0.0",
+                "phpcompatibility/php-compatibility": "^8.0",
                 "phpunit/phpunit": "^5.7",
                 "squizlabs/php_codesniffer": "^3.3",
                 "tecnickcom/tcpdf": "^6.2"
@@ -2520,19 +2524,22 @@
             ],
             "authors": [
                 {
-                    "name": "Maarten Balliauw",
-                    "homepage": "http://blog.maartenballiauw.be"
-                },
-                {
                     "name": "Erik Tilt"
                 },
                 {
-                    "name": "Franck Lefevre",
-                    "homepage": "http://rootslabs.net"
+                    "name": "Adrien Crivelli"
+                },
+                {
+                    "name": "Maarten Balliauw",
+                    "homepage": "https://blog.maartenballiauw.be"
                 },
                 {
                     "name": "Mark Baker",
-                    "homepage": "http://markbakeruk.net"
+                    "homepage": "https://markbakeruk.net"
+                },
+                {
+                    "name": "Franck Lefevre",
+                    "homepage": "https://rootslabs.net"
                 }
             ],
             "description": "PHPSpreadsheet - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
@@ -2547,7 +2554,7 @@
                 "xls",
                 "xlsx"
             ],
-            "time": "2018-10-21T10:04:54+00:00"
+            "time": "2018-11-20T19:51:42+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -5193,7 +5200,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/yiisoft/yii2-debug/93082f46d3568b4431a26f264e0d16a12c42bd50.zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/93082f46d3568b4431a26f264e0d16a12c42bd50",
                 "reference": "93082f46d3568b4431a26f264e0d16a12c42bd50",
                 "shasum": ""
             },
@@ -5240,7 +5247,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://files.phpcomposer.com/files/yiisoft/yii2-faker/3df62b1dcb272a8413f9c6e532c9d73f325ccde1.zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-faker/zipball/3df62b1dcb272a8413f9c6e532c9d73f325ccde1",
                 "reference": "3df62b1dcb272a8413f9c6e532c9d73f325ccde1",
                 "shasum": ""
             },

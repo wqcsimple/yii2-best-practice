@@ -2,7 +2,6 @@
 
 namespace app\controllers;
 
-use app\components\AliyunLog;
 use app\components\BaseApiController;
 use app\components\Debug;
 use app\components\DXUtil;
@@ -108,7 +107,7 @@ class TestController extends BaseApiController
         ];
 
         
-        echo $data['data']['data']['a']['b'];
+//        echo $data['data']['data']['a']['b'];
         $this->finish($data);
     }
 

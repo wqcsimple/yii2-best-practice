@@ -16,11 +16,10 @@ class QiniuOssApi
     const ACCESS_KEY = "";
     const SECRET_KEY = "";
 
-    const BUCKET_SIMPLE_LIFE = "simplelife";
-    
-    const APP_BUCKET_MAPPING = [
-        'simplelife' => self::BUCKET_SIMPLE_LIFE
-    ];
+    /**
+     * 逗号分隔的bucket
+     */
+    const BUCKET_STRING_LIST = "simplelife";
     
     /**
      * @return Auth  Qiniu\Auth
@@ -33,13 +32,17 @@ class QiniuOssApi
     
     public static function getBucket($app)
     {
-        $app_list = self::APP_BUCKET_MAPPING;
+        $app_list = self::appBucketMapping();
         if (in_array($app, array_keys($app_list)))
         {
             return $app_list[$app];
         }
 
         return null;
+    }
+    
+    public static function appBucketMapping() {
+        return explode(self::BUCKET_STRING_LIST, ",");
     }
     
     public static function getBucketManager()

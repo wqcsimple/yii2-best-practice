@@ -2,8 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/)
-and this project adheres to [Semantic Versioning](http://semver.org/).
+The format is based on [Keep a Changelog](https://keepachangelog.com)
+and this project adheres to [Semantic Versioning](https://semver.org).
+
+## [1.5.1] - 2018-11-20
+
+### Security
+
+- Fix and improve XXE security scanning for XML-based and HTML Readers - [#771](https://github.com/PHPOffice/PhpSpreadsheet/issues/771)
+
+### Added
+
+- Support page margin in mPDF - [#750](https://github.com/PHPOffice/PhpSpreadsheet/issues/750)
+
+### Fixed
+
+- Support numeric condition in SUMIF, SUMIFS, AVERAGEIF, COUNTIF, MAXIF and MINIF - [#683](https://github.com/PHPOffice/PhpSpreadsheet/issues/683)
+- SUMIFS containing multiple conditions - [#704](https://github.com/PHPOffice/PhpSpreadsheet/issues/704)
+- Csv reader avoid notice when the file is empty - [#743](https://github.com/PHPOffice/PhpSpreadsheet/pull/743)
+- Fix print area parser for XLSX reader - [#734](https://github.com/PHPOffice/PhpSpreadsheet/pull/734)
+- Support overriding `DefaultValueBinder::dataTypeForValue()` without overriding `DefaultValueBinder::bindValue()` - [#735](https://github.com/PHPOffice/PhpSpreadsheet/pull/735)
+- Mpdf export can exceed pcre.backtrack_limit - [#637](https://github.com/PHPOffice/PhpSpreadsheet/issues/637)
+- Fix index overflow on data values array - [#748](https://github.com/PHPOffice/PhpSpreadsheet/pull/748)
 
 ## [1.5.0] - 2018-10-21
 
@@ -229,7 +249,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
-- Start following [SemVer](http://semver.org) properly.
+- Start following [SemVer](https://semver.org) properly.
 
 ### Fixed
 

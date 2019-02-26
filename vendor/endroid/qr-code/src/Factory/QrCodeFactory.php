@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Jeroen van den Enden <info@endroid.nl>
  *
@@ -9,6 +11,7 @@
 
 namespace Endroid\QrCode\Factory;
 
+use Endroid\QrCode\ErrorCorrectionLevel;
 use Endroid\QrCode\QrCode;
 use Endroid\QrCode\QrCodeInterface;
 use Endroid\QrCode\WriterRegistryInterface;
@@ -63,6 +66,9 @@ class QrCodeFactory implements QrCodeFactoryInterface
                 if ('writer' === $option) {
                     $options['writer_by_name'] = $options[$option];
                     $option = 'writer_by_name';
+                }
+                if ('error_correction_level' === $option) {
+                    $options[$option] = new ErrorCorrectionLevel($options[$option]);
                 }
                 $accessor->setValue($qrCode, $option, $options[$option]);
             }

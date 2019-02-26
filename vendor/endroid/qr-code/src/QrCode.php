@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Jeroen van den Enden <info@endroid.nl>
  *
@@ -9,6 +11,7 @@
 
 namespace Endroid\QrCode;
 
+use BaconQrCode\Encoder\Encoder;
 use Endroid\QrCode\Exception\InvalidPathException;
 use Endroid\QrCode\Exception\UnsupportedExtensionException;
 use Endroid\QrCode\Writer\WriterInterface;
@@ -66,6 +69,8 @@ class QrCode implements QrCodeInterface
 
         $this->errorCorrectionLevel = new ErrorCorrectionLevel(ErrorCorrectionLevel::LOW);
         $this->labelAlignment = new LabelAlignment(LabelAlignment::CENTER);
+
+        $this->createWriterRegistry();
     }
 
     public function setText(string $text): void
@@ -104,6 +109,10 @@ class QrCode implements QrCodeInterface
             $foregroundColor['a'] = 0;
         }
 
+        foreach ($foregroundColor as &$color) {
+            $color = intval($color);
+        }
+
         $this->foregroundColor = $foregroundColor;
     }
 
@@ -116,6 +125,10 @@ class QrCode implements QrCodeInterface
     {
         if (!isset($backgroundColor['a'])) {
             $backgroundColor['a'] = 0;
+        }
+
+        foreach ($backgroundColor as &$color) {
+            $color = intval($color);
         }
 
         $this->backgroundColor = $backgroundColor;
@@ -146,14 +159,14 @@ class QrCode implements QrCodeInterface
         return $this->roundBlockSize;
     }
 
-    public function setErrorCorrectionLevel(string $errorCorrectionLevel): void
+    public function setErrorCorrectionLevel(ErrorCorrectionLevel $errorCorrectionLevel): void
     {
-        $this->errorCorrectionLevel = new ErrorCorrectionLevel($errorCorrectionLevel);
+        $this->errorCorrectionLevel = $errorCorrectionLevel;
     }
 
-    public function getErrorCorrectionLevel(): string
+    public function getErrorCorrectionLevel(): ErrorCorrectionLevel
     {
-        return $this->errorCorrectionLevel->getValue();
+        return $this->errorCorrectionLevel;
     }
 
     public function setLogoPath(string $logoPath): void
@@ -282,10 +295,6 @@ class QrCode implements QrCodeInterface
 
     public function getWriter(string $name = null): WriterInterface
     {
-        if (!$this->writerRegistry instanceof WriterRegistryInterface) {
-            $this->createWriterRegistry();
-        }
-
         if (!is_null($name)) {
             return $this->writerRegistry->getWriter($name);
         }
@@ -366,5 +375,36 @@ class QrCode implements QrCodeInterface
     public function getValidateResult(): bool
     {
         return $this->validateResult;
+    }
+
+    public function getData(): array
+    {
+        $baconErrorCorrectionLevel = $this->errorCorrectionLevel->toBaconErrorCorrectionLevel();
+
+        $baconQrCode = Encoder::encode($this->text, $baconErrorCorrectionLevel, $this->encoding);
+
+        $matrix = $baconQrCode->getMatrix()->getArray()->toArray();
+
+        foreach ($matrix as &$row) {
+            $row = $row->toArray();
+        }
+
+        $data = ['matrix' => $matrix];
+        $data['block_count'] = count($matrix[0]);
+        $data['block_size'] = $this->size / $data['block_count'];
+        if ($this->roundBlockSize) {
+            $data['block_size'] = intval(floor($data['block_size']));
+        }
+        $data['inner_width'] = $data['block_size'] * $data['block_count'];
+        $data['inner_height'] = $data['block_size'] * $data['block_count'];
+        $data['outer_width'] = $this->size + 2 * $this->margin;
+        $data['outer_height'] = $this->size + 2 * $this->margin;
+        $data['margin_left'] = ($data['outer_width'] - $data['inner_width']) / 2;
+        if ($this->roundBlockSize) {
+            $data['margin_left'] = intval(floor($data['margin_left']));
+        }
+        $data['margin_right'] = $data['outer_width'] - $data['inner_width'] - $data['margin_left'];
+
+        return $data;
     }
 }

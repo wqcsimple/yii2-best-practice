@@ -92,22 +92,12 @@ class TestController extends BaseApiController
     public function actionTest()
     {
         $data = [
-            'device_key' => 'LeERk2SYc1ddYu6xPi3L6ZwZ9IiEfaWo',
-            'code' => 'A1',
-            'message' => "读卡器故障",
-            'level' => "warn",
-            'data' => [
-                "key" => 1,
-                "data" => [
-                    "a" => [
-                        "b" => 1
-                    ]
-                ]
+            "rule" => [
+                "1. 江浙沪皖15元;", "2. 国内其他地区15元;", "3. 签收时请准备好本人身份证复印件;"
             ]
         ];
 
         
-//        echo $data['data']['data']['a']['b'];
         $this->finish($data);
     }
 

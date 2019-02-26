@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Jeroen van den Enden <info@endroid.nl>
  *
@@ -23,7 +25,7 @@ class SvgWriter extends AbstractWriter
             throw new ValidationException('Built-in validation reader can not check SVG images: please disable via setValidateResult(false)');
         }
 
-        $data = $this->getData($qrCode);
+        $data = $qrCode->getData();
 
         $svg = new SimpleXMLElement('<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"/>');
         $svg->addAttribute('version', '1.1');
@@ -35,26 +37,26 @@ class SvgWriter extends AbstractWriter
         // Block definition
         $blockDefinition = $svg->defs->addChild('rect');
         $blockDefinition->addAttribute('id', 'block');
-        $blockDefinition->addAttribute('width', $data['block_size']);
-        $blockDefinition->addAttribute('height', $data['block_size']);
+        $blockDefinition->addAttribute('width', strval($data['block_size']));
+        $blockDefinition->addAttribute('height', strval($data['block_size']));
         $blockDefinition->addAttribute('fill', '#'.sprintf('%02x%02x%02x', $qrCode->getForegroundColor()['r'], $qrCode->getForegroundColor()['g'], $qrCode->getForegroundColor()['b']));
-        $blockDefinition->addAttribute('fill-opacity', $this->getOpacity($qrCode->getForegroundColor()['a']));
+        $blockDefinition->addAttribute('fill-opacity', strval($this->getOpacity($qrCode->getForegroundColor()['a'])));
 
         // Background
         $background = $svg->addChild('rect');
-        $background->addAttribute('x', 0);
-        $background->addAttribute('y', 0);
-        $background->addAttribute('width', $data['outer_width']);
-        $background->addAttribute('height', $data['outer_height']);
+        $background->addAttribute('x', '0');
+        $background->addAttribute('y', '0');
+        $background->addAttribute('width', strval($data['outer_width']));
+        $background->addAttribute('height', strval($data['outer_height']));
         $background->addAttribute('fill', '#'.sprintf('%02x%02x%02x', $qrCode->getBackgroundColor()['r'], $qrCode->getBackgroundColor()['g'], $qrCode->getBackgroundColor()['b']));
-        $background->addAttribute('fill-opacity', $this->getOpacity($qrCode->getBackgroundColor()['a']));
+        $background->addAttribute('fill-opacity', strval($this->getOpacity($qrCode->getBackgroundColor()['a'])));
 
         foreach ($data['matrix'] as $row => $values) {
             foreach ($values as $column => $value) {
                 if (1 === $value) {
                     $block = $svg->addChild('use');
-                    $block->addAttribute('x', $data['margin_left'] + $data['block_size'] * $column);
-                    $block->addAttribute('y', $data['margin_left'] + $data['block_size'] * $row);
+                    $block->addAttribute('x', strval($data['margin_left'] + $data['block_size'] * $column));
+                    $block->addAttribute('y', strval($data['margin_left'] + $data['block_size'] * $row));
                     $block->addAttribute('xlink:href', '#block', 'http://www.w3.org/1999/xlink');
                 }
             }
@@ -79,8 +81,8 @@ class SvgWriter extends AbstractWriter
         $mimeType = $this->getMimeType($logoPath);
         $imageData = file_get_contents($logoPath);
 
-        if ($logoHeight === null) {
-            if ($mimeType === 'image/svg+xml') {
+        if (null === $logoHeight) {
+            if ('image/svg+xml' === $mimeType) {
                 throw new MissingLogoHeightException('SVG Logos require an explicit height set via setLogoSize($width, $height)');
             } else {
                 $logoImage = imagecreatefromstring($imageData);
@@ -90,10 +92,10 @@ class SvgWriter extends AbstractWriter
         }
 
         $imageDefinition = $svg->addChild('image');
-        $imageDefinition->addAttribute('x', $imageWidth / 2 - $logoWidth / 2);
-        $imageDefinition->addAttribute('y', $imageHeight / 2 - $logoHeight / 2);
-        $imageDefinition->addAttribute('width', $logoWidth);
-        $imageDefinition->addAttribute('height', $logoHeight);
+        $imageDefinition->addAttribute('x', strval($imageWidth / 2 - $logoWidth / 2));
+        $imageDefinition->addAttribute('y', strval($imageHeight / 2 - $logoHeight / 2));
+        $imageDefinition->addAttribute('width', strval($logoWidth));
+        $imageDefinition->addAttribute('height', strval($logoHeight));
         $imageDefinition->addAttribute('preserveAspectRatio', 'none');
         $imageDefinition->addAttribute('xlink:href', 'data:'.$mimeType.';base64,'.base64_encode($imageData));
     }
@@ -107,7 +109,7 @@ class SvgWriter extends AbstractWriter
         $mimeType = mime_content_type($path);
 
         // Passing mime type image/svg results in invisible images
-        if ($mimeType === 'image/svg') {
+        if ('image/svg' === $mimeType) {
             return 'image/svg+xml';
         }
 

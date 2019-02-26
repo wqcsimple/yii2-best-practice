@@ -21,17 +21,12 @@ use ZipArchive;
 class Ods extends BaseReader
 {
     /**
-     * @var XmlScanner
-     */
-    private $securityScanner;
-
-    /**
      * Create a new Ods Reader instance.
      */
     public function __construct()
     {
         $this->readFilter = new DefaultReadFilter();
-        $this->securityScanner = new XmlScanner();
+        $this->securityScanner = XmlScanner::getInstance($this);
     }
 
     /**
@@ -214,6 +209,8 @@ class Ods extends BaseReader
                                 } elseif ($xml->name == 'table:covered-table-cell' && $xml->nodeType == XMLReader::ELEMENT) {
                                     $mergeSize = $xml->getAttribute('table:number-columns-repeated');
                                     $currCells += (int) $mergeSize;
+                                    $xml->read();
+                                } else {
                                     $xml->read();
                                 }
                             } while ($xml->name != 'table:table-row');

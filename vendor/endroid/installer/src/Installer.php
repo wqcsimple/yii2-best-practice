@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Jeroen van den Enden <info@endroid.nl>
  *
@@ -37,7 +39,6 @@ final class Installer implements PluginInterface, EventSubscriberInterface
     {
         return [
             ScriptEvents::POST_INSTALL_CMD => ['install', 1],
-            ScriptEvents::POST_UPDATE_CMD => ['install', 1],
         ];
     }
 
@@ -107,16 +108,19 @@ final class Installer implements PluginInterface, EventSubscriberInterface
     private function copy(string $sourcePath, string $targetPath): bool
     {
         $changed = false;
-        
+
+        /** @var \RecursiveDirectoryIterator $iterator */
         $iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($sourcePath, \RecursiveDirectoryIterator::SKIP_DOTS), \RecursiveIteratorIterator::SELF_FIRST);
-        foreach ($iterator as $item) {
+
+        /** @var \SplFileInfo $fileInfo */
+        foreach ($iterator as $fileInfo) {
             $target = $targetPath.DIRECTORY_SEPARATOR.$iterator->getSubPathName();
-            if ($item->isDir()) {
+            if ($fileInfo->isDir()) {
                 if (!is_dir($target)) {
                     mkdir($target);
                 }
             } elseif (!file_exists($target)) {
-                $this->copyFile($item, $target);
+                $this->copyFile($fileInfo->getPathname(), $target);
                 $changed = true;
             }
         }

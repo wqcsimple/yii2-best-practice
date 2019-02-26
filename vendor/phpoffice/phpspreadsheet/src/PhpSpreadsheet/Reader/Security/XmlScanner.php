@@ -2,7 +2,7 @@
 
 namespace PhpOffice\PhpSpreadsheet\Reader\Security;
 
-use PhpOffice\PhpSpreadsheet\Reader\Exception;
+use PhpOffice\PhpSpreadsheet\Reader;
 
 class XmlScanner
 {
@@ -13,15 +13,33 @@ class XmlScanner
      */
     private $libxmlDisableEntityLoader = false;
 
+    /**
+     * String used to identify risky xml elements.
+     *
+     * @var string
+     */
     private $pattern;
 
-    public function __construct($pattern = '<!DOCTYPE')
+    private $callback;
+
+    private function __construct($pattern = '<!DOCTYPE')
     {
         $this->pattern = $pattern;
         $this->libxmlDisableEntityLoader = $this->identifyLibxmlDisableEntityLoaderAvailability();
+    }
 
-        if ($this->libxmlDisableEntityLoader) {
-            libxml_disable_entity_loader(true);
+    public static function getInstance(Reader\IReader $reader)
+    {
+        switch (true) {
+            case $reader instanceof Reader\Html:
+                return new self('<!ENTITY');
+            case $reader instanceof Reader\Xlsx:
+            case $reader instanceof Reader\Xml:
+            case $reader instanceof Reader\Ods:
+            case $reader instanceof Reader\Gnumeric:
+                return new self('<!DOCTYPE');
+            default:
+                return new self('<!DOCTYPE');
         }
     }
 
@@ -43,17 +61,26 @@ class XmlScanner
         return false;
     }
 
+    public function setAdditionalCallback(callable $callback)
+    {
+        $this->callback = $callback;
+    }
+
     /**
      * Scan the XML for use of <!ENTITY to prevent XXE/XEE attacks.
      *
      * @param mixed $xml
      *
-     * @throws Exception
+     * @throws Reader\Exception
      *
      * @return string
      */
     public function scan($xml)
     {
+        if ($this->libxmlDisableEntityLoader) {
+            $previousLibxmlDisableEntityLoaderValue = libxml_disable_entity_loader(true);
+        }
+
         $pattern = '/encoding="(.*?)"/';
         $result = preg_match($pattern, $xml, $matches);
         $charset = $result ? $matches[1] : 'UTF-8';
@@ -64,8 +91,19 @@ class XmlScanner
 
         // Don't rely purely on libxml_disable_entity_loader()
         $pattern = '/\\0?' . implode('\\0?', str_split($this->pattern)) . '\\0?/';
-        if (preg_match($pattern, $xml)) {
-            throw new Exception('Detected use of ENTITY in XML, spreadsheet file load() aborted to prevent XXE/XEE attacks');
+
+        try {
+            if (preg_match($pattern, $xml)) {
+                throw new Reader\Exception('Detected use of ENTITY in XML, spreadsheet file load() aborted to prevent XXE/XEE attacks');
+            }
+
+            if ($this->callback !== null && is_callable($this->callback)) {
+                $xml = call_user_func($this->callback, $xml);
+            }
+        } finally {
+            if (isset($previousLibxmlDisableEntityLoaderValue)) {
+                libxml_disable_entity_loader($previousLibxmlDisableEntityLoaderValue);
+            }
         }
 
         return $xml;
@@ -76,7 +114,7 @@ class XmlScanner
      *
      * @param string $filestream
      *
-     * @throws Exception
+     * @throws Reader\Exception
      *
      * @return string
      */

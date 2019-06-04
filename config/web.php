@@ -23,7 +23,7 @@ $config = [
 //                'm/contact' => '/site/contact',
 
                 [
-                     'class' => 'dix\base\component\ModuleApiUrlRule',
+                    'class' => 'dix\base\component\ModuleApiUrlRule',
                 ],
 
                 // '<controller:.+>/<id:\d+>' => '<controller>/view',
@@ -33,7 +33,7 @@ $config = [
             ],
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-        ],        
+        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -80,7 +80,7 @@ $config['params'] = [
     'version' => '0.0.1',
 
     'alipay' => [
-        'partner' => '',   
+        'partner' => '',
         'seller_id' => '',
         'notify_url' => '{url}/pay/alipay-notify', // {url} 需要替换
         'rsa_private_key' => '../pay/alipay/key/rsa_private_key.pem',
@@ -97,8 +97,8 @@ $config['params'] = [
 
     'redis-param' => [
         'scheme' => 'tcp',
-        'host'   => 'redis',
-        'port'   => 6379,
+        'host' => 'redis',
+        'port' => 6379,
         'password' => null,
         'read_write_timeout' => 0,
         'database' => 0,
@@ -110,14 +110,17 @@ $config['params'] = [
 
 ];
 
-if (YII_ENV_DEV)
-{
+if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = 'yii\debug\Module';
 
     $config['bootstrap'][] = 'gii';
-    $config['modules']['gii'] = 'yii\gii\Module';
+//    $config['modules']['gii'] = 'yii\gii\Module';
+    $config['modules']['gii'] = [
+        'class' => 'yii\gii\Module',
+        'allowedIPs' => ['127.0.0.1', '::1', '172.18.*.*']
+    ];
 }
 
 $config_extra = require(__DIR__ . '/web_extra.php');

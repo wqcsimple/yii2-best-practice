@@ -15,6 +15,7 @@ return array(
     'DOMDocumentWrapper' => $vendorDir . '/electrolinux/phpquery/phpQuery/phpQuery/DOMDocumentWrapper.php',
     'DOMEvent' => $vendorDir . '/electrolinux/phpquery/phpQuery/phpQuery/DOMEvent.php',
     'ICallbackNamed' => $vendorDir . '/electrolinux/phpquery/phpQuery/phpQuery/Callback.php',
+    'JsonException' => $vendorDir . '/symfony/polyfill-php73/Resources/stubs/JsonException.php',
     'PHPUnit\\Exception' => $vendorDir . '/phpunit/phpunit/src/Exception.php',
     'PHPUnit\\Framework\\Assert' => $vendorDir . '/phpunit/phpunit/src/Framework/Assert.php',
     'PHPUnit\\Framework\\AssertionFailedError' => $vendorDir . '/phpunit/phpunit/src/Framework/AssertionFailedError.php',

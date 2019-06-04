@@ -6,9 +6,12 @@ use app\components\BaseApiController;
 use app\components\Debug;
 use app\components\DXUtil;
 use app\components\WxNotify;
+use app\models\Admin;
+use app\models\User;
 use dix\base\component\Redis;
 use GuzzleHttp\Client;
 use yii\base\UserException;
+use yii\db\Query;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Json;
 
@@ -92,11 +95,32 @@ class TestController extends BaseApiController
     public function actionTest()
     {
         $data = [
-            "rule" => [
-                "1. 江浙沪皖15元;", "2. 国内其他地区15元;", "3. 签收时请准备好本人身份证复印件;"
+            [
+                "companyName" => "宁波青年优品珠宝首饰有限公司",
+                "companyAddress" => "浙江省宁波市鄞州区潘火街道诚信路959号E幢3楼311室",
+                "companyContact" => "0574-88306293",
+                "bankName" => "平安银行宁波分行营业部",
+                "bankAccount" => "15000097955512",
+                "type" => "sale"
+            ],
+            [
+                "companyName" => "宁波青年生活电子商务有限公司",
+                "companyAddress" => "宁波市鄞州区嵩江中路518弄2号",
+                "companyContact" => "0574-88197397",
+                "bankName" => "中国工商银行宁波东门支行",
+                "bankAccount" => "3901100009000080847",
+                "type" => "process"
+            ],
+            [
+                "companyName" => "青年优品融资租赁有限公司",
+                "companyAddress" => "宁波市鄞州区下应北路567号九五九电商园E幢三楼",
+                "companyContact" => "4001540028",
+                "bankName" => "中国农业银行宁波市彩虹支行",
+                "bankAccount" => "39420001040005472",
+                "type" => "financing"
             ]
+            
         ];
-
         
         $this->finish($data);
     }
@@ -138,6 +162,17 @@ class TestController extends BaseApiController
         }
         return $str;
     }
-
+    
+    public function actionDb() {
+        $query = new Query();
+        $query->select("i.*,ip.*");
+        $query->from("item i");
+        $query->where(['i.id' => 1]);
+        
+        $query->leftJoin("item_price ip", 'ip.item_id = i.id');
+//        dd($query->createCommand()->getSql());
+        
+        dump($query->one());
+    }
 
 }

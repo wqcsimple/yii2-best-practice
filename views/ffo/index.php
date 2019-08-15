@@ -17,7 +17,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-4 col-md-offset-1">
+        <div class="col-md-4">
             <h4>FFO</h4>
             <table class="table table-hover table-border">
                 <thead>
@@ -55,6 +55,32 @@
                 <tbody>
                 <?php
                 foreach ($ffo_buy_list as $j => $i)
+                {
+                    ?>
+                    <tr>
+                        <td><?= $j + 1 ?></td>
+                        <td><a href="<?= $i['href'] ?>" target="_blank"><?= $i['title'] ?></a></td>
+                    </tr>
+                    <?php
+                }
+                ?>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-4">
+            <h4>FFO Buy For CK</h4>
+            <table class="table table-hover table-border">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>名称</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                foreach ($ck_buy_list as $j => $i)
                 {
                     ?>
                     <tr>

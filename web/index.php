@@ -4,7 +4,7 @@ defined('RUN_START_TIME') or define('RUN_START_TIME', microtime(true));
 defined('RUN_START_TIME_INT') or define('RUN_START_TIME_INT', intval(RUN_START_TIME));
 
 // comment out the following two lines when deployed to production
-if ($_SERVER['HTTP_HOST'] == 'dc' || isset($_GET['debug']))
+if ($_SERVER['HTTP_HOST'] == 'dc' || isset($_GET['debug']) || $_SERVER['HTTP_HOST'] == '127.0.0.1:9003')
 {
     defined('YII_DEBUG') or define('YII_DEBUG', true);
     defined('YII_ENV') or define('YII_ENV', 'dev');
@@ -12,7 +12,7 @@ if ($_SERVER['HTTP_HOST'] == 'dc' || isset($_GET['debug']))
 
 require(__DIR__ . '/../vendor/autoload.php');
 require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
-require('util.php');
+require('util.php');``
 
 $config = require(__DIR__ . '/../config/web.php');
 

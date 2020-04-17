@@ -7,16 +7,17 @@ use PhpAmqpLib\Exception\AMQPIOException;
 use PhpAmqpLib\Exception\AMQPRuntimeException;
 use PhpAmqpLib\Exception\AMQPTimeoutException;
 use PhpAmqpLib\Helper\MiscHelper;
+use PhpAmqpLib\Helper\SocketConstants;
 
 class StreamIO extends AbstractIO
 {
     /** @var string */
     protected $protocol;
 
-    /** @var resource */
+    /** @var null|resource */
     protected $context;
 
-    /** @var resource */
+    /** @var null|resource */
     private $sock;
 
     /**
@@ -27,22 +28,26 @@ class StreamIO extends AbstractIO
      * @param null $context
      * @param bool $keepalive
      * @param int $heartbeat
+     * @param string|null $ssl_protocol
      */
     public function __construct(
         $host,
         $port,
         $connection_timeout,
-        $read_write_timeout = 130.0,
+        $read_write_timeout,
         $context = null,
         $keepalive = false,
-        $heartbeat = 60,
+        $heartbeat = 0,
         $ssl_protocol = null
     ) {
         // TODO FUTURE change comparison to <=
         // php-amqplib/php-amqplib#648, php-amqplib/php-amqplib#666
+        /*
+            TODO FUTURE enable this check
         if ($heartbeat !== 0 && ($read_write_timeout < ($heartbeat * 2))) {
             throw new \InvalidArgumentException('read_write_timeout must be at least 2x the heartbeat');
         }
+         */
 
         $this->protocol = 'tcp';
         $this->host = $host;
@@ -72,10 +77,6 @@ class StreamIO extends AbstractIO
             } else {
                 $this->protocol = 'ssl';
             }
-        }
-
-        if (!defined('SOCKET_EAGAIN')) {
-            define('SOCKET_EAGAIN', SOCKET_EWOULDBLOCK);
         }
     }
 
@@ -120,7 +121,7 @@ class StreamIO extends AbstractIO
             );
         }
 
-        if (false === stream_socket_get_name($this->sock, true)) {
+        if (!stream_socket_get_name($this->sock, true)) {
             throw new AMQPIOException(
                 sprintf(
                     'Connection refused: %s ',
@@ -243,15 +244,16 @@ class StreamIO extends AbstractIO
                 $this->cleanup_error_handler();
             } catch (\ErrorException $e) {
                 $code = $this->last_error['errno'];
+                $constants = SocketConstants::getInstance();
                 switch ($code) {
-                    case SOCKET_EPIPE:
-                    case SOCKET_ENETDOWN:
-                    case SOCKET_ENETUNREACH:
-                    case SOCKET_ENETRESET:
-                    case SOCKET_ECONNABORTED:
-                    case SOCKET_ECONNRESET:
-                    case SOCKET_ECONNREFUSED:
-                    case SOCKET_ETIMEDOUT:
+                    case $constants->SOCKET_EPIPE:
+                    case $constants->SOCKET_ENETDOWN:
+                    case $constants->SOCKET_ENETUNREACH:
+                    case $constants->SOCKET_ENETRESET:
+                    case $constants->SOCKET_ECONNABORTED:
+                    case $constants->SOCKET_ECONNRESET:
+                    case $constants->SOCKET_ECONNREFUSED:
+                    case $constants->SOCKET_ETIMEDOUT:
                         $this->close();
                         throw new AMQPConnectionClosedException(socket_strerror($code), $code, $e);
                     default:
@@ -291,12 +293,13 @@ class StreamIO extends AbstractIO
     public function error_handler($errno, $errstr, $errfile, $errline, $errcontext = null)
     {
         $code = $this->extract_error_code($errstr);
+        $constants = SocketConstants::getInstance();
         switch ($code) {
             // fwrite notice that the stream isn't ready - EAGAIN or EWOULDBLOCK
-            case SOCKET_EAGAIN:
-            case SOCKET_EWOULDBLOCK:
+            case $constants->SOCKET_EAGAIN:
+            case $constants->SOCKET_EWOULDBLOCK:
             // stream_select warning that it has been interrupted by a signal - EINTR
-            case SOCKET_EINTR:
+            case $constants->SOCKET_EINTR:
                 return;
         }
 
@@ -310,8 +313,8 @@ class StreamIO extends AbstractIO
             fclose($this->sock);
         }
         $this->sock = null;
-        $this->last_read = null;
-        $this->last_write = null;
+        $this->last_read = 0;
+        $this->last_write = 0;
     }
 
     /**

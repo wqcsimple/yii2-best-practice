@@ -10,14 +10,6 @@
 This library is a _pure PHP_ implementation of the [AMQP 0-9-1 protocol](http://www.rabbitmq.com/tutorials/amqp-concepts.html).
 It's been tested against [RabbitMQ](http://www.rabbitmq.com/).
 
-**Requirements: PHP 5.3** due to the use of `namespaces`.
-
-**Requirements: bcmath extension** This library utilizes the bcmath PHP extension. The installation steps vary per PHP version and the underlying OS. The following example shows how to add to an existing PHP installation on Ubuntu 15.10:
-
-```bash
-sudo apt-get install php7.0-bcmath
-```
-
 The library was used for the PHP examples of [RabbitMQ in Action](http://manning.com/videla/) and the [official RabbitMQ tutorials](http://www.rabbitmq.com/tutorials/tutorial-one-php.html).
 
 Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
@@ -49,6 +41,8 @@ Extensions that modify existing methods like `alternate exchanges` are also supp
 ### Related libraries
 
 * [enqueue/amqp-lib](https://github.com/php-enqueue/amqp-lib) is a [amqp interop](https://github.com/queue-interop/queue-interop#amqp-interop) compatible wrapper.
+
+* [AMQProxy](https://github.com/cloudamqp/amqproxy) is a proxy library with connection and channel pooling/reusing. This allows for lower connection and channel churn when using php-amqplib, leading to less CPU usage of RabbitMQ. 
 
 ## Setup ##
 
@@ -106,6 +100,10 @@ $ php amqp_consumer_non_blocking.php
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
+## API Documentation ##
+
+http://php-amqplib.github.io/php-amqplib/
+
 ## Tutorials ##
 
 To not repeat ourselves, if you want to learn more about this library,
@@ -125,7 +123,7 @@ you can start a connection with an array of hosts. To do that you should use
 the `create_connection` static method.
 
 For example:
-```
+```php
 $connection = AMQPStreamConnection::create_connection([
     ['host' => HOST1, 'port' => PORT, 'user' => USER, 'password' => PASS, 'vhost' => VHOST],
     ['host' => HOST2, 'port' => PORT, 'user' => USER, 'password' => PASS, 'vhost' => VHOST]
@@ -168,7 +166,7 @@ You could send it every 50 messages, or every hundred. That's up to you.
 
 Another way to speed up your message publishing is by reusing the `AMQPMessage` message instances. You can create your new message like this:
 
-```
+```php
 $properties = array('content_type' => 'text/plain', 'delivery_mode' => AMQPMessage::DELIVERY_MODE_PERSISTENT);
 $msg = new AMQPMessage($body, $properties);
 $ch->basic_publish($msg, $exchange);
@@ -206,7 +204,7 @@ using exception handling mechanism.
 
 Exceptions which might be thrown in case of connection errors:
 
-```
+```php
 PhpAmqpLib\Exception\AMQPConnectionClosedException
 PhpAmqpLib\Exception\AMQPIOException
 \RuntimeException
@@ -219,7 +217,7 @@ before reconnecting.
 
 For example, if you want to set up a recovering connection:
 
-```
+```php
 $connection = null;
 $channel = null;
 while(true){
@@ -255,7 +253,7 @@ multiple times.
 This was a simplest example, in a real-life application you might want to
 control retr count and maybe gracefully degrade wait time to reconnection.
 
-You can find a more excessive example in #444
+You can find a more excessive example in [#444](https://github.com/php-amqplib/php-amqplib/issues/444)
 
 
 ## UNIX Signals ##
@@ -330,7 +328,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Using AMQP 0.8 ##
 
-If you still want to use the old version of the protocol then you can do it by settings the following constant in your configuration code:
+If you still want to use the old version of the protocol then you can do it by setting the following constant in your configuration code:
 
 ```php
 define('AMQP_PROTOCOL', '0.8');

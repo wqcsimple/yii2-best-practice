@@ -23,7 +23,7 @@ use Facebook\WebDriver\WebDriverAction;
 class WebDriverCompositeAction implements WebDriverAction
 {
     /**
-     * @var WebDriverAction[]
+     * @var array
      */
     private $actions = [];
 
@@ -51,7 +51,7 @@ class WebDriverCompositeAction implements WebDriverAction
     }
 
     /**
-     * Perform the sequence of actions.
+     * Perform the seqeunce of actions.
      */
     public function perform()
     {

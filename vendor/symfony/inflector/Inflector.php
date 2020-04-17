@@ -120,6 +120,9 @@ final class Inflector
         // bureaus (bureau)
         ['suae', 4, false, true, 'eau'],
 
+        // fees (fee), trees (tree), employees (employee)
+        ['see', 3, true, true, 'ee'],
+
         // roses (rose), garages (garage), cassettes (cassette),
         // waltzes (waltz), heroes (hero), bushes (bush), arches (arch),
         // shoes (shoe)
@@ -228,6 +231,9 @@ final class Inflector
         // bacteria (bacterium), criteria (criterion), phenomena (phenomenon)
         ['noi', 3, true, true, 'ions'],
 
+        // seasons (season), treasons (treason), poisons (poison), lessons (lesson)
+        ['nos', 3, true, true, 'sons'],
+
         // bacteria (bacterium), criteria (criterion), phenomena (phenomenon)
         ['no', 2, true, true, 'a'],
 
@@ -281,6 +287,9 @@ final class Inflector
         // indices (index)
         ['xedni', 5, false, true, ['indicies', 'indexes']],
 
+        // boxes (box)
+        ['xo', 2, false, true, 'oxes'],
+
         // indexes (index), matrixes (matrix)
         ['x', 1, true, false, ['cies', 'xes']],
 
@@ -309,6 +318,7 @@ final class Inflector
         'esoom',
         'seires',
         'peehs',
+        'seiceps',
     ];
 
     /**
@@ -410,7 +420,7 @@ final class Inflector
      * If the method can't determine the form with certainty, an array of the
      * possible plurals is returned.
      *
-     * @param string $singular A word in plural form
+     * @param string $singular A word in singular form
      *
      * @return string|array The plural form or an array of possible plural forms
      */

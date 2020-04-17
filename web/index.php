@@ -12,7 +12,7 @@ if ($_SERVER['HTTP_HOST'] == 'dc' || isset($_GET['debug']) || $_SERVER['HTTP_HOS
 
 require(__DIR__ . '/../vendor/autoload.php');
 require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
-require('util.php');``
+require('util.php');
 
 $config = require(__DIR__ . '/../config/web.php');
 

@@ -61,11 +61,34 @@ class EventFiringWebDriver implements WebDriver, JavaScriptExecutor
     }
 
     /**
+     * @param mixed $method
+     */
+    protected function dispatch($method)
+    {
+        if (!$this->dispatcher) {
+            return;
+        }
+
+        $arguments = func_get_args();
+        unset($arguments[0]);
+        $this->dispatcher->dispatch($method, $arguments);
+    }
+
+    /**
      * @return WebDriver
      */
     public function getWebDriver()
     {
         return $this->driver;
+    }
+
+    /**
+     * @param WebDriverElement $element
+     * @return EventFiringWebElement
+     */
+    protected function newElement(WebDriverElement $element)
+    {
+        return new EventFiringWebElement($element, $this->getDispatcher());
     }
 
     /**
@@ -133,7 +156,7 @@ class EventFiringWebDriver implements WebDriver, JavaScriptExecutor
     }
 
     /**
-     * @param string $script
+     * @param       $script
      * @param array $arguments
      * @throws WebDriverException
      * @return mixed
@@ -161,7 +184,7 @@ class EventFiringWebDriver implements WebDriver, JavaScriptExecutor
     }
 
     /**
-     * @param string $script
+     * @param       $script
      * @param array $arguments
      * @throws WebDriverException
      * @return mixed
@@ -375,6 +398,14 @@ class EventFiringWebDriver implements WebDriver, JavaScriptExecutor
         }
     }
 
+    /**
+     * @param WebDriverException $exception
+     */
+    private function dispatchOnException(WebDriverException $exception)
+    {
+        $this->dispatch('onException', $exception, $this);
+    }
+
     public function execute($name, $params)
     {
         try {
@@ -383,35 +414,5 @@ class EventFiringWebDriver implements WebDriver, JavaScriptExecutor
             $this->dispatchOnException($exception);
             throw $exception;
         }
-    }
-
-    /**
-     * @param WebDriverElement $element
-     * @return EventFiringWebElement
-     */
-    protected function newElement(WebDriverElement $element)
-    {
-        return new EventFiringWebElement($element, $this->getDispatcher());
-    }
-
-    /**
-     * @param mixed $method
-     * @param mixed ...$arguments
-     */
-    protected function dispatch($method, ...$arguments)
-    {
-        if (!$this->dispatcher) {
-            return;
-        }
-
-        $this->dispatcher->dispatch($method, $arguments);
-    }
-
-    /**
-     * @param WebDriverException $exception
-     */
-    protected function dispatchOnException(WebDriverException $exception)
-    {
-        $this->dispatch('onException', $exception, $this);
     }
 }

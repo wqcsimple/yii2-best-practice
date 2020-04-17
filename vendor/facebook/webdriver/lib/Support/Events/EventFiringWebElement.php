@@ -54,11 +54,33 @@ class EventFiringWebElement implements WebDriverElement, WebDriverLocatable
     }
 
     /**
+     * @param mixed $method
+     */
+    protected function dispatch($method)
+    {
+        if (!$this->dispatcher) {
+            return;
+        }
+        $arguments = func_get_args();
+        unset($arguments[0]);
+        $this->dispatcher->dispatch($method, $arguments);
+    }
+
+    /**
      * @return WebDriverElement
      */
     public function getElement()
     {
         return $this->element;
+    }
+
+    /**
+     * @param WebDriverElement $element
+     * @return EventFiringWebElement
+     */
+    protected function newElement(WebDriverElement $element)
+    {
+        return new static($element, $this->getDispatcher());
     }
 
     /**
@@ -381,34 +403,12 @@ class EventFiringWebElement implements WebDriverElement, WebDriverLocatable
     /**
      * @param WebDriverException $exception
      */
-    protected function dispatchOnException(WebDriverException $exception)
+    private function dispatchOnException(WebDriverException $exception)
     {
         $this->dispatch(
             'onException',
             $exception,
             $this->dispatcher->getDefaultDriver()
         );
-    }
-
-    /**
-     * @param mixed $method
-     * @param mixed ...$arguments
-     */
-    protected function dispatch($method, ...$arguments)
-    {
-        if (!$this->dispatcher) {
-            return;
-        }
-
-        $this->dispatcher->dispatch($method, $arguments);
-    }
-
-    /**
-     * @param WebDriverElement $element
-     * @return static
-     */
-    protected function newElement(WebDriverElement $element)
-    {
-        return new static($element, $this->getDispatcher());
     }
 }

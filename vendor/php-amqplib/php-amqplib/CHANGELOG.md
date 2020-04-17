@@ -2,6 +2,24 @@
 
 All Notable changes to `php-amqplib` will be documented in this file
 
+## 2.11.1 - 2020-02-24
+
+[GitHub Milestone](https://github.com/php-amqplib/php-amqplib/milestone/13?closed=1
+
+## 2.11.0 - 2019-11-19
+
+[GitHub Milestone](https://github.com/php-amqplib/php-amqplib/milestone/12?closed=1
+
+## 2.10.1 - 2019-10-10
+
+[GitHub Milestone](https://github.com/php-amqplib/php-amqplib/milestone/11?closed=1
+
+## 2.10.0 - 2019-08-09
+
+[GitHub Milestone](https://github.com/php-amqplib/php-amqplib/milestone/10?closed=1)
+
+- Heartbeats are disabled by default. This reverts the following changes: [Issue](https://github.com/php-amqplib/php-amqplib/issues/563) / [PR](https://github.com/php-amqplib/php-amqplib/pull/648)
+
 ## 2.9.2 - 2019-04-24
 
 [GitHub Milestone](https://github.com/php-amqplib/php-amqplib/milestone/9?closed=1)

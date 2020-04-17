@@ -21,7 +21,7 @@ use Facebook\WebDriver\Exception\UnsupportedOperationException;
 use Facebook\WebDriver\Support\XPathEscaper;
 
 /**
- * Models a default HTML `<select>` tag, providing helper methods to select and deselect options.
+ * Models a default HTML <select> tag, providing helper methods to select and deselect options.
  */
 class WebDriverSelect implements WebDriverSelectInterface
 {
@@ -39,7 +39,7 @@ class WebDriverSelect implements WebDriverSelectInterface
         }
         $this->element = $element;
         $value = $element->getAttribute('multiple');
-        $this->isMulti = $value === 'true';
+        $this->isMulti = ($value === 'true');
     }
 
     public function isMultiple()

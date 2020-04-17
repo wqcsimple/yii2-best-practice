@@ -110,7 +110,7 @@ class FirefoxProfile
     }
 
     /**
-     * @param mixed $key
+     * @param $key
      * @return mixed
      */
     public function getPreference($key)
@@ -211,7 +211,7 @@ class FirefoxProfile
         $prefix = '';
         if (!empty($ns)) {
             foreach ($ns as $key => $value) {
-                if (mb_strpos($value, '//www.mozilla.org/2004/em-rdf') > 0) {
+                if (strpos($value, '//www.mozilla.org/2004/em-rdf') > 0) {
                     if ($key != '') {
                         $prefix = $key . ':'; // Separate the namespace from the name.
                     }
